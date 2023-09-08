@@ -1,0 +1,36 @@
+class Fish
+{
+  //Data
+  float xPos;
+  float yPos;
+  
+  float size;
+  
+  float xSpeed=random(-300,300);
+  float ySpeed;
+  
+  
+  public Fish( float x, float y, float s)
+  {
+    xPos = x;
+    yPos = y;
+    size = s;
+  }
+  void drawFish()
+  {
+    
+    circle(xPos,yPos,size);
+  }
+  void moveFish()
+  {
+    xPos += xSpeed;
+    if(xPos >= width)
+    {
+      xSpeed *= -1;
+    }
+    if(xPos <= 0)
+    {
+      xSpeed *= -1;
+    }
+  }
+}
