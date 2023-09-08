@@ -1,6 +1,7 @@
 //TestComment
 //New Comment
-int fishCount = 20;
+
+int fishCount = 12;
 int startFishCount = 2;
 boolean started = false;
 Fish[] fish = new Fish[fishCount];
@@ -12,7 +13,7 @@ void setup()
 
   for(int i = 0; i < fishCount; i++)//declares fish objects 
   {
-    fish[i]= new Fish(random(width),random(500,height-50),random(45,65));
+    fish[i]= new Fish(random(width),random(450,height-30),random(45,65));
   }
   
 }
