@@ -4,6 +4,7 @@ class Rod
   float speedY;
   float xPos;
   float yPos;
+  float startY,startX;
   float size;
   
   boolean casted;
@@ -52,13 +53,14 @@ class Rod
       
       if(xPos <= width/2)
       {
-        speedX += 1;
+        speedX += 1.5;
       }
       //if(xPos >= width/2)
       //{
       //  speedX -= .1;
       //}
     }
+    
     //casted = true;
   }
   void cast()
@@ -67,7 +69,14 @@ class Rod
   }
   void reel()
   {
-    
+    if(startY < yPos)
+    {
+      yPos -= 5;
+    }
+    if(startX < xPos)
+    {
+      xPos -= 5;
+    }
   }
   void move()
   {

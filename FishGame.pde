@@ -15,7 +15,8 @@ void setup()
   {
     fish[i]= new Fish(random(width),random(450,height-30),random(45,65));
   }
-  
+  r.startY = r.yPos;
+  r.startX = r.xPos;
 }
 void draw()
 {
@@ -85,5 +86,10 @@ void keyPressed()
   if(key == ' ' && !r.casted)
   {
     r.casted = true;
+  }
+  if(key == 'r' )
+  {
+    r.reel();
+    r.casted = false;
   }
 }

@@ -18,7 +18,7 @@ class Fish
   }
   void drawFish()
   {
-    
+    fill(random(255),random(255),random(255));
     circle(xPos,yPos,size);
   }
   void moveFish()
