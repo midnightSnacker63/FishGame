@@ -36,5 +36,14 @@ class Player
     {
       xSpeed+=0.3;
     }
+    
+    if(xPos+size/2 > width)
+    {
+      xPos = width-size/2;
+    }
+    if(xPos-size/2 < 0)
+    {
+      xPos = size/2;
+    }
   }
 }

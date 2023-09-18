@@ -61,11 +61,11 @@ void keyPressed()
   {
      started = true;
   }
-  if(key == ' ' && !r.casted)
+  if(key == ' ' )//&& !r.casted)
   {
     r.casted = true;
   }
-  if(key == 'r' )
+  if(key == 'w' )
   {
     r.reel();
     r.casted = false;

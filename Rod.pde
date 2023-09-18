@@ -39,23 +39,23 @@ class Rod
   {
     if(casted)
     {
-      if(yPos <= 150 )
+      if(yPos <= 50 )
       {
         speedY += .5;
       }
-      else if(yPos <= height-150)
+      else if(yPos < height-50)
       {
         speedY +=0.2;
       }
-      if(yPos >= height - 150)
+      if(yPos > height - 100)
       {
-        speedY -=0.15;
+        speedY -= 0.2;
+      }
+      if(yPos > height - 50)//stops dropping after a certain point
+      {
+        speedY = 0;
       }
       
-      if(xPos <= 50)
-      {
-        speedX += 1.5;
-      }
       //if(xPos >= width/2)
       //{
       //  speedX -= .1;
@@ -64,20 +64,16 @@ class Rod
     
     //casted = true;
   }
-  void cast()
-  {
-  
-  }
   void reel()
   {
     if(p.yPos-25 < yPos)
     {
       yPos -= 3;
     }
-    if(p.xPos-100 < xPos)
-    {
-      xPos -= 3;
-    }
+    //if(p.xPos-100 < xPos)
+    //{
+    //  xPos -= 3;
+    //}
   }
   void move()
   {
@@ -91,13 +87,13 @@ class Rod
     {
       speedY *= 0.93;
     }
-    if(xPos < p.xPos + 100)//move with boat 
+    if(xPos < p.xPos + 100)//move with boat underwater
     {
-      speedX+= .09;
+      speedX+= .1;
     }
     if(xPos > p.xPos + 100)
     {
-      speedX -= .09;
+      speedX -= .1;
     }
     if(xPos < p.xPos + 100 && yPos <= 400)//move with boat above water
     {
