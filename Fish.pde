@@ -10,7 +10,7 @@ class Fish
   float ySpeed;
   
   
-  public Fish( float x, float y, float s)
+  public Fish( float x, float y, float s )
   {
     xPos = x;
     yPos = y;
@@ -18,7 +18,7 @@ class Fish
   }
   void drawFish()
   {
-    fill(random(255),random(255),random(255));
+    //fill(random(255),random(255),random(255));
     circle(xPos,yPos,size);
   }
   void moveFish()
@@ -31,6 +31,10 @@ class Fish
     if(xPos <= 0)
     {
       xSpeed *= -1;
+    }
+    if(xSpeed == 0)//resets speed if 0
+    {
+      xSpeed = random(-5,5);
     }
   }
 }

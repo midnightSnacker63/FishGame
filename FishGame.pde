@@ -1,11 +1,14 @@
-//TestComment
-//New Comment
-
 int fishCount = 12;
 int startFishCount = 2;
+
 boolean started = false;
+boolean shopping = false;
+boolean inAquarium = false;
+
 Fish[] fish = new Fish[fishCount];
 Rod r;
+UI u;
+Player p;
 void setup()
 {
   size(900,900);
@@ -17,52 +20,22 @@ void setup()
   }
   r.startY = r.yPos;
   r.startX = r.xPos;
+  u = new UI();
+  p = new Player(200,375,100);
 }
 void draw()
 {
   background(0);
-   //draws title screen
+   
   if(!started)// what to do if game not started
   {
-    
-    fill(93,53,53);//draws boat
-    ellipse(200,375,100,100);
-    fill(0);
-    rect(150,275,100,100);
-    
-    fill(0,0,255);//draws water
-    
-    rect(0,400,900,800);
-    fill(100);//draws fish
-    for(int i = 0; i < startFishCount; i++)
-    {
-      fish[i].drawFish();
-      fish[i].moveFish();
-    }
-      
-    fill(233,233,197);//draws moon
-    ellipse(875,10,100,100);
-    
-    textSize(50);
-    text("press 'ENTER' to start",200,800);
-    GameName();
+    u.drawTitle();//draws title screen
   }
   if(started == true)// what to do when game starts 
   {
-    
-    
-    fill(93,53,53);//draws boat
-    ellipse(200,375,100,100);
-    fill(0);
-    rect(150,275,100,100);
-    
-    fill(0,0,255);//draws water
-    rect(0,400,900,800);
-    fill(233,233,197);//draws moon
-    ellipse(875,10,100,100);
-    
-    
-    
+    p.drawPlayer();
+    p.movePlayer();
+    u.drawGame();
     for(int i = 0; i < fishCount; i++)// draws fish
     {
       fill(255);
@@ -72,9 +45,14 @@ void draw()
     r.drawRod();// draws fishing rod
     r.move();
   }
-  
-  //r.xPos = mouseX;
-  //r.yPos = mouseY;
+  if(shopping)//when in shop
+  {
+    u.drawShop();
+  }
+  if(inAquarium)//when in aquarium
+  {
+    u.drawAqua();
+  }
   r.drop();
 }
 void keyPressed()
@@ -92,4 +70,27 @@ void keyPressed()
     r.reel();
     r.casted = false;
   }
+  if(key == 'a')
+  {
+    p.movingLeft = true;
+  }
+  if(key == 'd')
+  {
+    p.movingRight = true;
+  }
+}
+void keyReleased()
+{
+  if(key == 'a')
+  {
+    p.movingLeft = false;
+  }
+  if(key == 'd')
+  {
+    p.movingRight = false;
+  }
+}
+void mousePressed()
+{
+  
 }
