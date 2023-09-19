@@ -1,10 +1,19 @@
+/**************************\
+ first day out fishing trip   
+              
+             by
+ Joshua Poppy Zayvein Dyre
+         Eric Ortiz 
+
+\**************************/
+
 int fishCount = 12;
 int startFishCount = 2;
 
 boolean started = false;
 boolean shopping = false;
 boolean inAquarium = false;
-
+//declares objects
 Fish[] fish = new Fish[fishCount];
 Rod r;
 UI u;

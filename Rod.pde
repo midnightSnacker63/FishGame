@@ -68,7 +68,7 @@ class Rod
   {
     if(p.yPos-25 < yPos)
     {
-      yPos -= 3;
+      yPos -= 5;
     }
     //if(p.xPos-100 < xPos)
     //{
