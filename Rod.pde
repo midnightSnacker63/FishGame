@@ -77,7 +77,7 @@ class Rod
   }
   void move()
   {
-    speedX *= 0.96;
+    speedX *= 0.97;
     
     if(yPos <= 400 )
     {
@@ -89,19 +89,19 @@ class Rod
     }
     if(xPos < p.xPos + 100)//move with boat underwater
     {
-      speedX+= .1;
+      speedX+= .15;
     }
     if(xPos > p.xPos + 100)
     {
-      speedX -= .1;
+      speedX -= .15;
     }
     if(xPos < p.xPos + 100 && yPos <= 400)//move with boat above water
     {
-      speedX+= .15;
+      speedX+= .16;
     }
     if(xPos > p.xPos + 100 && yPos <= 400)
     {
-      speedX -= .15;
+      speedX -= .16;
     }
     xPos+=speedX;
     yPos+=speedY;
