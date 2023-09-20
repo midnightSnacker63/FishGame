@@ -9,10 +9,13 @@
 
 int fishCount = 12;
 int startFishCount = 2;
+int money = 0;
 
 boolean started = false;
 boolean shopping = false;
 boolean inAquarium = false;
+boolean onTitle = true;
+boolean inGame = false;
 //declares objects
 Fish[] fish = new Fish[fishCount];
 Rod r;
@@ -35,12 +38,13 @@ void setup()
 void draw()
 {
   background(0);
+  
    
-  if(!started)// what to do if game not started
+  if(onTitle)// what to do if game not started
   {
     u.drawTitle();//draws title screen
   }
-  if(started == true)// what to do when game starts 
+  if(started && inGame)// what to do when game starts 
   {
     p.drawPlayer();
     p.movePlayer();
@@ -53,22 +57,29 @@ void draw()
     }
     r.drawRod();// draws fishing rod
     r.move();
+    
   }
-  if(shopping)//when in shop
+  if(shopping && !inGame)//when in shop
   {
     u.drawShop();
+    
   }
   if(inAquarium)//when in aquarium
   {
     u.drawAqua();
   }
   r.drop();
+  
+  
+  
 }
 void keyPressed()
 {
  if(key == ENTER)//starts the game
   {
      started = true;
+     onTitle = false;
+     inGame = true;
   }
   if(key == ' ' )//&& !r.casted)
   {
@@ -101,5 +112,15 @@ void keyReleased()
 }
 void mousePressed()
 {
-  
+  if( dist(mouseX,mouseY,width-50,150) < 25 && started && !shopping)
+  {
+    shopping = true;
+    inGame = false;
+  }
+  if( dist(mouseX,mouseY,width-50,50) < 25 && started && shopping)
+  {
+    shopping = false;
+    inGame = true;
+  }
+  //started = false;
 }

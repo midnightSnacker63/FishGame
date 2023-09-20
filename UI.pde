@@ -34,10 +34,93 @@ class UI
     rect(0,400,900,800);
     fill(233,233,197);//draws moon
     ellipse(875,10,100,100);
+    textSize(30);
+    text(money,30,50);
+    fill(255);
+    circle(width - 50,150,50);
+    fill(0);
+    textAlign(CENTER);
+    textSize(17);
+    text("Shop",width - 50, 155);    
   }
   void drawShop()
   {
-  
+    //banner
+    background(0,0,255);
+    fill(95,60,60);
+    rect(0,10,900,200);
+    textSize(200);
+    fill(0);
+    text("SHOP",200,175);
+   
+    textSize(100);  
+    text("RODS",100,300);
+    text("HOOKS",500,300);
+   
+    //RODS
+    textSize(50);
+    fill(0);
+    rect(160,340,100,100,50);
+    fill(255);
+    text("100",175,400);
+   
+    fill(0);
+    rect(160,440,100,100,50);
+    fill(255);
+    text("500",175,500);
+   
+   
+    fill(0);
+    rect(160,540,100,100,50);
+    fill(255);
+    text("750",175,600);
+   
+   
+    fill(0);
+    rect(160,640,100,100,50);
+    fill(255);
+    text("1000",175,700);  
+   
+   
+    fill(0);
+    rect(160,740,100,100,50);
+    fill(255);
+    text("1500",175,800);
+   
+    //HOOKS
+   
+    fill(0);
+    rect(575,340,100,100,50);
+    fill(255);
+    text("10",600,400);
+   
+    fill(0);
+    rect(575,440,100,100,50);
+    fill(255);
+    text("50",600,500);
+   
+    fill(0);
+    rect(575,540,100,100,50);
+    fill(255);
+    text("75",600,600);
+   
+    fill(0);
+    rect(575,640,100,100,50);
+    fill(255);
+    text("100",600,700);
+   
+    fill(0);
+    rect(575,740,100,100,50);
+    fill(255);
+    text("150",600,800);
+    
+    fill(255);
+    circle(width - 50,50,50);
+    textAlign(CENTER);
+    fill(0);
+    textSize(17);
+    text("Leave",width - 50, 55);
+    textAlign(CORNER);
   }
   void drawAqua()
   {
