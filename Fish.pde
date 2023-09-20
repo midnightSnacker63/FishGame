@@ -6,7 +6,7 @@ class Fish
   
   float size;
   
-  float xSpeed=random(-5,5);
+  float xSpeed=random(-7,7);
   float ySpeed;
   
   

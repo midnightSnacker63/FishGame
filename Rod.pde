@@ -10,6 +10,14 @@ class Rod
   boolean casted;
   boolean onFish;
   boolean caughtFish;
+  boolean full;
+  boolean reeling;
+  
+  int rodLevel = 1;
+  int hookLevel = 1;
+  int fishOnHook;
+  
+  
   
   public Rod(float x, float y, float s)
   {
@@ -25,11 +33,12 @@ class Rod
   void drawRod()
   {
     fill(200,50,50);
-    ellipse(xPos,yPos,size,size);
+    ellipse(xPos,yPos,size,size);//hook
     stroke(255);
-    strokeWeight(5);
+    strokeWeight(2);
     line(p.xPos+100,p.yPos-175,xPos,yPos-size/2);//line
     stroke(142,86,17);
+    strokeWeight(5);
     line(p.xPos+25,p.yPos,p.xPos+100,p.yPos-175);//rod
     stroke(0);
     strokeWeight(1);
@@ -66,9 +75,9 @@ class Rod
   }
   void reel()
   {
-    if(p.yPos-25 < yPos)
+    if(p.yPos-25 < yPos && reeling)
     {
-      yPos -= 5;
+      speedY -= .5;
     }
     //if(p.xPos-100 < xPos)
     //{
@@ -79,9 +88,13 @@ class Rod
   {
     speedX *= 0.97;
     
+    if(p.yPos-150 > yPos)//brings hook down if it goes too far up
+    {
+      speedY += 5;
+    }
     if(yPos <= 400 )
     {
-      speedY *= 0.97;
+      speedY *= 0.96;
     }
     if(yPos >= 400 )
     {
@@ -95,14 +108,15 @@ class Rod
     {
       speedX -= .15;
     }
-    if(xPos < p.xPos + 100 && yPos <= 400)//move with boat above water
+    if(xPos < p.xPos + 100 && yPos <= 400  )//move with boat above water
     {
       speedX+= .16;
     }
-    if(xPos > p.xPos + 100 && yPos <= 400)
+    if(xPos > p.xPos + 100 && yPos <= 400  )
     {
       speedX -= .16;
     }
+    
     xPos+=speedX;
     yPos+=speedY;
   }

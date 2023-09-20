@@ -30,22 +30,25 @@ class UI
   }
   void drawGame()
   {
+    
     fill(0,0,255);//draws water
     rect(0,400,900,800);
     fill(233,233,197);//draws moon
     ellipse(875,10,100,100);
-    textSize(30);
-    text(money,30,50);
-    fill(255);
-    circle(width - 50,150,50);
-    fill(0);
     textAlign(CENTER);
+    textSize(30);
+    text("$"+money,30,50);//your money
+    fill(255);
+    circle(width - 50,150,50);// the shop button
+    fill(0);
     textSize(17);
-    text("Shop",width - 50, 155);    
+    text("Shop",width - 50, 155);  
+    textAlign(CORNER);
   }
   void drawShop()
   {
     //banner
+    textAlign(CORNER);
     background(0,0,255);
     fill(95,60,60);
     rect(0,10,900,200);
@@ -115,11 +118,14 @@ class UI
     text("150",600,800);
     
     fill(255);
-    circle(width - 50,50,50);
+    circle(width - 50,50,50);// the leave shop button
     textAlign(CENTER);
     fill(0);
     textSize(17);
     text("Leave",width - 50, 55);
+    
+    textSize(30);
+    text("$"+money,30,50);//your cash
     textAlign(CORNER);
   }
   void drawAqua()
