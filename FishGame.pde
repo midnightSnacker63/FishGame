@@ -20,19 +20,21 @@ boolean inGame = false;
 PImage img;
 PImage lock;
 
+ArrayList<Fish> fishs = new ArrayList<Fish>();
+
 //declares objects
-Fish[] fish = new Fish[fishCount];
+//Fish[] fish = new Fish[fishCount];
 Rod r;
 UI u;
 Player p;
 void setup()
 {
   size(900,900);
-  fish = new Fish[fishCount];
+  //fish = new Fish[fishCount];
   r = new Rod(300,350,50);
   for(int i = 0; i < fishCount; i++)//declares fish objects 
   {
-    fish[i]= new Fish(random(width),random(450,height-30),random(45,65));
+    fishs.add(new Fish(random(width),random(450,height-30),random(45,65)));
   }
   r.startY = r.yPos;
   r.startX = r.xPos;
@@ -40,7 +42,6 @@ void setup()
   p = new Player(200,375,100);
   img = loadImage("coral-reef.png");
   img.resize(900,900);
- 
   lock = loadImage("lock.png");
   lock.resize(50,50);
 }
@@ -56,11 +57,11 @@ void draw()
     p.drawPlayer();
     p.movePlayer();
     u.drawGame();
-    for(int i = 0; i < fishCount; i++)// draws fish
+    for(Fish f: fishs)
     {
       fill(255);
-      fish[i].drawFish();
-      fish[i].moveFish();
+      f.drawFish();
+      f.moveFish();
     }
     r.drawRod();// draws fishing rod
     r.move();
@@ -75,7 +76,6 @@ void draw()
     u.drawAqua();
   }
   r.drop();
-  println(r.reeling);
 }
 void keyPressed()
 {
@@ -101,6 +101,10 @@ void keyPressed()
   if(key == 'd')//go right
   {
     p.movingRight = true;
+  }
+  if(key == 'f')//add more fish
+  {
+    fishs.add(new Fish(random(width),random(450,height-30),random(45,65)));
   }
 }
 void keyReleased()
