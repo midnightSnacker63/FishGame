@@ -17,6 +17,9 @@ boolean inAquarium = false;
 boolean onTitle = true;
 boolean inGame = false;
 
+PImage img;
+PImage lock;
+
 //declares objects
 Fish[] fish = new Fish[fishCount];
 Rod r;
@@ -35,6 +38,11 @@ void setup()
   r.startX = r.xPos;
   u = new UI();
   p = new Player(200,375,100);
+  img = loadImage("coral-reef.png");
+  img.resize(900,900);
+ 
+  lock = loadImage("lock.png");
+  lock.resize(50,50);
 }
 void draw()
 {
@@ -62,7 +70,7 @@ void draw()
   {
     u.drawShop();
   }
-  if(inAquarium)//when in aquarium
+  if(inAquarium && !inGame)//when in aquarium
   {
     u.drawAqua();
   }
@@ -77,49 +85,59 @@ void keyPressed()
     onTitle = false;
     inGame = true;
   }
-  if(key == ' ' )//&& !r.casted)
+  if(key == ' ' )//cast line
   {
     r.casted = true;
   }
-  if(key == 'w' )
+  if(key == 'w' )//reel line
   {
     r.casted = false;
     r.reeling = true;
   }
-  if(key == 'a')
+  if(key == 'a')//go left
   {
     p.movingLeft = true;
   }
-  if(key == 'd')
+  if(key == 'd')//go right
   {
     p.movingRight = true;
   }
 }
 void keyReleased()
 {
-  if(key == 'a')
+  if(key == 'a')//stop going left
   {
     p.movingLeft = false;
   }
-  if(key == 'd')
+  if(key == 'd')//stop going right
   {
     p.movingRight = false;
   }
-  if(key == 'w' )
+  if(key == 'w' )//stop reeling
   {
     r.reeling = false;
   }
 }
 void mousePressed()
 {
-  if( dist(mouseX,mouseY,width-50,150) < 25 && started && !shopping)
+  if( dist(mouseX,mouseY,width-50,150) < 25 && started && !shopping)//open shop
   {
     shopping = true;
     inGame = false;
   }
-  if( dist(mouseX,mouseY,width-50,50) < 25 && started && shopping)
+  if( dist(mouseX,mouseY,width-50,50) < 25 && started && shopping)//close shop
   {
     shopping = false;
     inGame = true;
+  }
+  if( dist(mouseX,mouseY,width-50,250) < 25 && started && !inAquarium)//open aquarium
+  {
+    inGame = false;
+    inAquarium = true;
+  }
+  if( dist(mouseX,mouseY,width-50,50) < 25 && started && inAquarium)//close aquarium
+  {
+    inGame = true;
+    inAquarium = false;
   }
 }
