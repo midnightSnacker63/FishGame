@@ -8,10 +8,10 @@ class Rod
   float size;
   
   boolean casted;
-  boolean onFish;
   boolean caughtFish;
   boolean full;
   boolean reeling;
+  boolean underwater;
   
   int rodLevel = 1;
   int hookLevel = 1;
@@ -28,7 +28,15 @@ class Rod
   
   void grabFish()
   {
-  
+    for(Fish f: fishs)
+    {
+      if(dist(xPos-size/2,yPos-size/2,f.xPos,f.yPos) < 50)
+      {
+        f.xPos = xPos;
+        f.yPos = yPos;
+        f.caught = true;
+      }
+    }
   }
   void drawRod()
   {
@@ -94,28 +102,39 @@ class Rod
     }
     if(yPos <= 400 )
     {
+      underwater = false;
       speedY *= 0.96;
     }
     if(yPos >= 400 )
     {
+      underwater = true;
       speedY *= 0.93;
     }
-    if(xPos < p.xPos + 100)//move with boat underwater
+    if(xPos < p.xPos + 100 )//move with boat underwater
     {
+      
       speedX+= .15;
     }
-    if(xPos > p.xPos + 100)
+    if(xPos > p.xPos + 100 )
     {
       speedX -= .15;
     }
-    if(xPos < p.xPos + 100 && yPos <= 400  )//move with boat above water
+    if(xPos < p.xPos + 100 && !underwater   )//move with boat above water
     {
       speedX+= .16;
     }
-    if(xPos > p.xPos + 100 && yPos <= 400  )
+    //else if( xPos < p.xPos + 100 && dist(xPos,yPos,p.xPos + 100,p.yPos) > 25 )
+    //{
+    //  speedX = 0;
+    //}
+    if(xPos > p.xPos + 100 && !underwater && dist(xPos,yPos,p.xPos + 100,p.yPos) > 150  )
     {
       speedX -= .16;
     }
+    //else if(xPos > p.xPos + 100 && dist(xPos,yPos,p.xPos,p.yPos) > 25 )
+    //{
+    //  speedX = 0;
+    //}
     
     xPos+=speedX;
     yPos+=speedY;

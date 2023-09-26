@@ -17,8 +17,9 @@ boolean inAquarium = false;
 boolean onTitle = true;
 boolean inGame = false;
 
-PImage img;
+PImage aquarium;
 PImage lock;
+PImage fishPic[] = new PImage[fishCount];
 
 ArrayList<Fish> fishs = new ArrayList<Fish>();
 
@@ -40,8 +41,8 @@ void setup()
   r.startX = r.xPos;
   u = new UI();
   p = new Player(200,375,100);
-  img = loadImage("coral-reef.png");
-  img.resize(900,900);
+  aquarium = loadImage("coral-reef.png");
+  aquarium.resize(900,900);
   lock = loadImage("lock.png");
   lock.resize(50,50);
 }
@@ -66,6 +67,7 @@ void draw()
     r.drawRod();// draws fishing rod
     r.move();
     r.reel();
+    r.grabFish();
   }
   if(shopping && !inGame)//when in shop
   {
@@ -76,6 +78,7 @@ void draw()
     u.drawAqua();
   }
   r.drop();
+  circle(p.xPos+100,p.yPos,50);
 }
 void keyPressed()
 {

@@ -9,6 +9,9 @@ class Fish
   float xSpeed=random(-7,7);
   float ySpeed;
   
+  boolean underwater = true;
+  boolean caught;
+  
   
   public Fish( float x, float y, float s )
   {
@@ -21,20 +24,34 @@ class Fish
     //fill(random(255),random(255),random(255));
     circle(xPos,yPos,size);
   }
+  void sellFish()
+  {
+    if(caught && !underwater)
+    {
+      
+    }
+  }
   void moveFish()
   {
-    xPos += xSpeed;
-    if(xPos >= width)
+    if(yPos <= 400 )
     {
-      xSpeed *= -1;
+      underwater = false;
     }
-    if(xPos <= 0)
+    if(!caught && underwater)
     {
-      xSpeed *= -1;
-    }
-    if(xSpeed == 0)//resets speed if 0
-    {
-      xSpeed = random(-5,5);
+      xPos += xSpeed;
+      if(xPos >= width)
+      {
+        xSpeed *= -1;
+      }
+      if(xPos <= 0)
+      {
+        xSpeed *= -1;
+      }
+      if(xSpeed == 0)//resets speed if 0
+      {
+        xSpeed = random(-5,5);
+      }
     }
   }
 }

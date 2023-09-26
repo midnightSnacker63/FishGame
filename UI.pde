@@ -32,15 +32,12 @@ class UI
   }
   void drawGame()
   {
-  //  for(int i = 0; i < fishCount; i++)//declares fish objects 
-  //{
-  //  fishs.add(new Fish(random(width),random(450,height-30),random(45,65)));
-  //}
     fill(0,0,255);//draws water
     rect(0,400,900,800);
     
     fill(233,233,197);//draws moon
     ellipse(875,10,100,100);
+    
     textAlign(CENTER);
     textSize(30);
     text("$"+money,30,50);//your money
@@ -141,7 +138,7 @@ class UI
     rectMode(CORNER);
  
     //Coral Images
-    image(img, 450, 450);
+    image(aquarium, 450, 450);
    
     //Sand Color
     fill(#C2B280);
