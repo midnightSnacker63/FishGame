@@ -24,12 +24,15 @@ class Fish
     //fill(random(255),random(255),random(255));
     circle(xPos,yPos,size);
   }
-  void sellFish()
-  {
-    if(caught && !underwater)
-    {
-      
-    }
+  boolean sellFish()
+  { 
+      if(caught && !underwater)
+      { 
+        println("selling");
+        money+=100;
+        return true;
+      } 
+      return false;
   }
   void moveFish()
   {
@@ -50,7 +53,7 @@ class Fish
       }
       if(xSpeed == 0)//resets speed if 0
       {
-        xSpeed = random(-5,5);
+        xSpeed = random(-7,7);
       }
     }
   }

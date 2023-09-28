@@ -2,7 +2,7 @@
  first day out fishing trip   
               
              by
- Joshua Poppy Zayvein Dyre
+ Joshua Poppy Zayvein Dyer
          Eric Ortiz 
 
 \**************************/
@@ -35,7 +35,7 @@ void setup()
   r = new Rod(300,350,50);
   for(int i = 0; i < fishCount; i++)//declares fish objects 
   {
-    fishs.add(new Fish(random(width),random(450,height-30),random(45,65)));
+    fishs.add(new Fish(random(width),random(450,height-50),random(45,65)));
   }
   r.startY = r.yPos;
   r.startX = r.xPos;
@@ -58,16 +58,27 @@ void draw()
     p.drawPlayer();
     p.movePlayer();
     u.drawGame();
-    for(Fish f: fishs)
+    for(Fish f: fishs)//draws fish
     {
       fill(255);
       f.drawFish();
       f.moveFish();
     }
+    for(int i = 0; i < fishs.size(); i++)
+    {
+      Fish f = fishs.get(i);
+      if(f.sellFish())
+      {
+         fishs.remove(i);
+         fishs.add(new Fish(random(width),random(450,height-50),random(45,65)));
+      }
+      
+    }
     r.drawRod();// draws fishing rod
-    r.move();
-    r.reel();
-    r.grabFish();
+    r.move();//moves fishing rod
+    r.reel();// reel fishing rod
+    r.grabFish();// grabbing fish
+    
   }
   if(shopping && !inGame)//when in shop
   {
@@ -78,7 +89,7 @@ void draw()
     u.drawAqua();
   }
   r.drop();
-  circle(p.xPos+100,p.yPos,50);
+  //circle(p.xPos+100,p.yPos,50);//placeholder graphic
 }
 void keyPressed()
 {
@@ -147,4 +158,5 @@ void mousePressed()
     inGame = true;
     inAquarium = false;
   }
+
 }
