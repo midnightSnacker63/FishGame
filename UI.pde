@@ -38,9 +38,10 @@ class UI
     fill(233,233,197);//draws moon
     ellipse(875,10,100,100);
     
-    textAlign(CENTER);
+    
     textSize(30);
     text("$"+money,30,50);//your money
+    textAlign(CENTER);
     fill(255);
     circle(width - 50,150,50);// the shop button
     circle(width - 50,250,50);// the aquarium button
@@ -124,13 +125,15 @@ class UI
     
     fill(255);
     circle(width - 50,50,50);// the leave shop button
+    
+    textSize(30);
+    text("$"+money,30,50);//your cash
     textAlign(CENTER);
     fill(0);
     textSize(17);
     text("Leave",width - 50, 55);
     
-    textSize(30);
-    text("$"+money,30,50);//your cash
+    
     textAlign(CORNER);
   }
   void drawAqua()

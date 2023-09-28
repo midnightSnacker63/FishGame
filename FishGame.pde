@@ -70,7 +70,7 @@ void draw()
       if(f.sellFish())
       {
          fishs.remove(i);
-         fishs.add(new Fish(random(width),random(450,height-50),random(45,65)));
+         fishs.add(new Fish(random(width),random(450,height-75),random(45,65)));
       }
       
     }
