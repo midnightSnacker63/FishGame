@@ -12,8 +12,8 @@ class UI
     rect(150,275,100,100);
     
     fill(0,0,255);//draws water
+    rect(0,400,width,height);
     
-    rect(0,400,900,800);
     fill(100);//draws fish
     for(Fish f: fishs)
     {
@@ -33,7 +33,7 @@ class UI
   void drawGame()
   {
     fill(0,0,255);//draws water
-    rect(0,400,900,800);
+    rect(0,400,width,height);
     
     fill(233,233,197);//draws moon
     ellipse(875,10,100,100);

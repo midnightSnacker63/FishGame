@@ -16,6 +16,7 @@ class Rod
   int rodLevel = 1;
   int hookLevel = 1;
   int fishOnHook;
+  int maxFish = 1;
   
   
   
@@ -25,7 +26,6 @@ class Rod
     yPos = y;
     size = s;
   }
-  
   void grabFish()
   {
     for(Fish f: fishs)
@@ -72,14 +72,7 @@ class Rod
       {
         speedY = 0;
       }
-      
-      //if(xPos >= width/2)
-      //{
-      //  speedX -= .1;
-      //}
     }
-    
-    //casted = true;
   }
   void reel()
   {
@@ -87,15 +80,10 @@ class Rod
     {
       speedY -= .5;
     }
-    //if(p.xPos-100 < xPos)
-    //{
-    //  xPos -= 3;
-    //}
   }
   void move()
   {
     speedX *= 0.97;
-    
     if(p.yPos-150 > yPos)//brings hook down if it goes too far up
     {
       speedY += 5;
@@ -112,7 +100,6 @@ class Rod
     }
     if(xPos < p.xPos + 100 )//move with boat underwater
     {
-      
       speedX+= .15;
     }
     if(xPos > p.xPos + 100 )
@@ -123,19 +110,10 @@ class Rod
     {
       speedX+= .16;
     }
-    //else if( xPos < p.xPos + 100 && dist(xPos,yPos,p.xPos + 100,p.yPos) > 25 )
-    //{
-    //  speedX = 0;
-    //}
     if(xPos > p.xPos + 100 && !underwater && dist(xPos,yPos,p.xPos + 100,p.yPos) > 150  )
     {
       speedX -= .16;
     }
-    //else if(xPos > p.xPos + 100 && dist(xPos,yPos,p.xPos,p.yPos) > 25 )
-    //{
-    //  speedX = 0;
-    //}
-    
     xPos+=speedX;
     yPos+=speedY;
   }

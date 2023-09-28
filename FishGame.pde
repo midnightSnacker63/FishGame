@@ -1,11 +1,11 @@
 /**************************\
- first day out fishing trip   
-              
-             by
+ first day out fishing trip
+ 
+           by
  Joshua Poppy Zayvein Dyer
-         Eric Ortiz 
-
-\**************************/
+       Eric Ortiz
+ 
+ \**************************/
 
 int fishCount = 12;
 int startFishCount = 2;
@@ -30,61 +30,59 @@ UI u;
 Player p;
 void setup()
 {
-  size(900,900);
+  size(900, 900);
   //fish = new Fish[fishCount];
-  r = new Rod(300,350,50);
-  for(int i = 0; i < fishCount; i++)//declares fish objects 
+  r = new Rod(300, 350, 50);
+  for (int i = 0; i < fishCount; i++)//declares fish objects
   {
-    fishs.add(new Fish(random(width),random(450,height-50),random(45,65)));
+    fishs.add(new Fish(random(width), random(450, height-50), random(45, 65)));
   }
   r.startY = r.yPos;
   r.startX = r.xPos;
   u = new UI();
-  p = new Player(200,375,100);
+  p = new Player(200, 375, 100);
   aquarium = loadImage("coral-reef.png");
-  aquarium.resize(900,900);
+  aquarium.resize(900, 900);
   lock = loadImage("lock.png");
-  lock.resize(50,50);
+  lock.resize(50, 50);
 }
 void draw()
 {
   background(0);
-  if(onTitle)// what to do if game not started
+  if (onTitle)// what to do if game not started
   {
     u.drawTitle();//draws title screen
   }
-  if(started && inGame)// what to do when game starts 
+  if (started && inGame)// what to do when game starts
   {
     p.drawPlayer();
     p.movePlayer();
     u.drawGame();
-    for(Fish f: fishs)//draws fish
+    for (Fish f : fishs)//draws fish
     {
       fill(255);
       f.drawFish();
       f.moveFish();
     }
-    for(int i = 0; i < fishs.size(); i++)
+    for (int i = 0; i < fishs.size(); i++)
     {
       Fish f = fishs.get(i);
-      if(f.sellFish())
+      if (f.sellFish())//sells fish
       {
-         fishs.remove(i);
-         fishs.add(new Fish(random(width),random(450,height-75),random(45,65)));
+        fishs.remove(i);//removes fish above water
+        fishs.add(new Fish(random(width), random(450, height-75), random(45, 65)));//puts new fish in
       }
-      
     }
     r.drawRod();// draws fishing rod
     r.move();//moves fishing rod
     r.reel();// reel fishing rod
     r.grabFish();// grabbing fish
-    
   }
-  if(shopping && !inGame)//when in shop
+  if (shopping && !inGame)//when in shop
   {
     u.drawShop();
   }
-  if(inAquarium && !inGame)//when in aquarium
+  if (inAquarium && !inGame)//when in aquarium
   {
     u.drawAqua();
   }
@@ -93,70 +91,69 @@ void draw()
 }
 void keyPressed()
 {
- if(key == ENTER)//starts the game
+  if (key == ENTER)//starts the game
   {
     started = true;
     onTitle = false;
     inGame = true;
   }
-  if(key == ' ' )//cast line
+  if (key == ' ' )//cast line
   {
     r.casted = true;
   }
-  if(key == 'w' )//reel line
+  if (key == 'w' )//reel line
   {
     r.casted = false;
     r.reeling = true;
   }
-  if(key == 'a')//go left
+  if (key == 'a')//go left
   {
     p.movingLeft = true;
   }
-  if(key == 'd')//go right
+  if (key == 'd')//go right
   {
     p.movingRight = true;
   }
-  if(key == 'f')//add more fish
+  if (key == 'f')//add more fish
   {
-    fishs.add(new Fish(random(width),random(450,height-30),random(45,65)));
+    fishs.add(new Fish(random(width), random(450, height-30), random(45, 65)));
   }
 }
 void keyReleased()
 {
-  if(key == 'a')//stop going left
+  if (key == 'a')//stop going left
   {
     p.movingLeft = false;
   }
-  if(key == 'd')//stop going right
+  if (key == 'd')//stop going right
   {
     p.movingRight = false;
   }
-  if(key == 'w' )//stop reeling
+  if (key == 'w' )//stop reeling
   {
     r.reeling = false;
   }
 }
 void mousePressed()
 {
-  if( dist(mouseX,mouseY,width-50,150) < 25 && started && !shopping)//open shop
+  if ( dist(mouseX, mouseY, width-50, 150) < 25 && started && !shopping)//open shop
   {
     shopping = true;
     inGame = false;
   }
-  if( dist(mouseX,mouseY,width-50,50) < 25 && started && shopping)//close shop
+  if ( dist(mouseX, mouseY, width-50, 50) < 25 && started && shopping)//close shop
   {
     shopping = false;
     inGame = true;
   }
-  if( dist(mouseX,mouseY,width-50,250) < 25 && started && !inAquarium)//open aquarium
+  if ( dist(mouseX, mouseY, width-50, 250) < 25 && started && !inAquarium)//open aquarium
   {
     inGame = false;
     inAquarium = true;
   }
-  if( dist(mouseX,mouseY,width-50,50) < 25 && started && inAquarium)//close aquarium
+  if ( dist(mouseX, mouseY, width-50, 50) < 25 && started && inAquarium)//close aquarium
   {
     inGame = true;
     inAquarium = false;
   }
-
 }
