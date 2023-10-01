@@ -68,60 +68,130 @@ class UI
    
     //RODS
     textSize(50);
+    // rod 1
     fill(0);
     rect(160,340,100,100,50);
     fill(255);
-    text("100",175,400);
-   
+    if(!s.rodBought[0])//if not bought
+    {
+      text("100",175,400);
+    }
+    if(s.rodBought[0])//if bought
+    {
+      text("bought",175,400);
+    }
+    // rod 2
     fill(0);
     rect(160,440,100,100,50);
     fill(255);
-    text("500",175,500);
-   
-   
+    if(!s.rodBought[1])//if not bought
+    {
+      text("500",175,500);
+    }
+    if(s.rodBought[1])//if bought
+    {
+      text("bought",175,500);
+    }
+    // rod 3
     fill(0);
     rect(160,540,100,100,50);
     fill(255);
-    text("750",175,600);
+    if(!s.rodBought[2])//if not bought
+    {
+      text("750",175,600);
+    }
+    if(s.rodBought[2])//if bought
+    {
+      text("bought",175,600);
+    }
    
-   
+    // rod 4
     fill(0);
     rect(160,640,100,100,50);
     fill(255);
-    text("1000",175,700);  
+    if(!s.rodBought[3])//if bought
+    {
+      text("1000",175,700);  
+    }
+    if(s.rodBought[3])//if bought
+    {
+      text("bought",175,700);
+    }
    
-   
+    // rod 5
     fill(0);
     rect(160,740,100,100,50);
     fill(255);
-    text("1500",175,800);
+    if(!s.rodBought[4])//if bought
+    {
+      text("1500",175,800);
+    }
+    if(s.rodBought[4])//if bought
+    {
+      text("bought",175,800);
+    }
    
     //HOOKS
-   
+    //hook 1
     fill(0);
     rect(575,340,100,100,50);
     fill(255);
-    text("10",600,400);
-   
+    if(!s.hookBought[0])//if bought
+    {
+      text("10",600,400);
+    }
+    if(s.hookBought[0])//if bought
+    {
+      text("bought",600,400);
+    }
+    //hook 2
     fill(0);
     rect(575,440,100,100,50);
     fill(255);
-    text("50",600,500);
-   
+    if(!s.hookBought[1])//if bought
+    {
+      text("50",600,500);
+    }
+    if(s.hookBought[1])//if bought
+    {
+      text("bought",600,500);
+    }
+    //hook 3
     fill(0);
     rect(575,540,100,100,50);
     fill(255);
-    text("75",600,600);
-   
+    if(!s.hookBought[2])//if bought
+    {
+      text("75",600,600);
+    }
+    if(s.hookBought[2])//if bought
+    {
+      text("bought",600,600);
+    }
+    //hook 4
     fill(0);
     rect(575,640,100,100,50);
     fill(255);
-    text("100",600,700);
-   
+    if(!s.hookBought[3])//if bought
+    {
+      text("100",600,700);
+    }
+    if(s.hookBought[3])//if bought
+    {
+      text("bought",600,700);
+    }
+    //hook 5
     fill(0);
     rect(575,740,100,100,50);
     fill(255);
-    text("150",600,800);
+    if(!s.hookBought[4])//if bought
+    {
+      text("150",600,800);
+    }
+    if(s.hookBought[4])//if bought
+    {
+      text("bought",600,800);
+    }
     
     fill(255);
     circle(width - 50,50,50);// the leave shop button

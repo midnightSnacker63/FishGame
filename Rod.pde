@@ -15,10 +15,8 @@ class Rod
   
   int rodLevel = 1;
   int hookLevel = 1;
-  int fishOnHook;
+  int FishOnHook = 0;
   int maxFish = 1;
-  
-  
   
   public Rod(float x, float y, float s)
   {

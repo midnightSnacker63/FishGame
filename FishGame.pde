@@ -28,6 +28,7 @@ ArrayList<Fish> fishs = new ArrayList<Fish>();
 Rod r;
 UI u;
 Player p;
+Shop s;
 void setup()
 {
   size(900, 900);
@@ -41,6 +42,7 @@ void setup()
   r.startX = r.xPos;
   u = new UI();
   p = new Player(200, 375, 100);
+  s = new Shop();
   aquarium = loadImage("coral-reef.png");
   aquarium.resize(900, 900);
   lock = loadImage("lock.png");
@@ -58,7 +60,7 @@ void draw()
     p.drawPlayer();
     p.movePlayer();
     u.drawGame();
-    for (Fish f : fishs)//draws fish
+    for(Fish f : fishs)//draws fish
     {
       fill(255);
       f.drawFish();
@@ -81,13 +83,18 @@ void draw()
   if (shopping && !inGame)//when in shop
   {
     u.drawShop();
+
   }
   if (inAquarium && !inGame)//when in aquarium
   {
     u.drawAqua();
   }
   r.drop();
-  //circle(p.xPos+100,p.yPos,50);//placeholder graphic
+  
+  //debug stuff
+  //fill(255);
+  //circle(210,390,110);
+  //println(mouseX + ", " + mouseY);
 }
 void keyPressed()
 {
@@ -114,6 +121,8 @@ void keyPressed()
   {
     p.movingRight = true;
   }
+  
+  //debug controls
   if (key == 'f')//add more fish
   {
     fishs.add(new Fish(random(width), random(450, height-30), random(45, 65)));
@@ -155,5 +164,10 @@ void mousePressed()
   {
     inGame = true;
     inAquarium = false;
+  }
+  if( shopping )
+  {
+    s.buyRod();
+    s.buyHook();
   }
 }

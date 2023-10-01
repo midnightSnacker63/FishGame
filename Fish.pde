@@ -26,13 +26,13 @@ class Fish
   }
   boolean sellFish()
   { 
-      if(caught && !underwater)
-      { 
-        println("selling");
-        money+=100;
-        return true;
-      } 
-      return false;
+    if(caught && !underwater)
+    { 
+      println("selling");
+      money += 10;
+      return true;
+    } 
+    return false;
   }
   void moveFish()
   {
