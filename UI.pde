@@ -22,10 +22,23 @@ class UI
       f.moveFish();
     }
     
-      
-    fill(233,233,197);//draws moon
-    ellipse(875,10,100,100);
+    //draws moon
+    imageMode(CENTER);  
+    fill(233,233,197);
+    image(moon,855,30);
     
+    //draws stars
+    
+    for(int i = 0; i < maxStars; i++ )
+    {
+     circle(starX[i],starY[i],5);
+     currentDot++;
+
+    }
+    
+    
+    
+    //Prints Press enter
     textSize(50);
     text("press 'ENTER' to start",200,800);
     GameName();
@@ -35,8 +48,11 @@ class UI
     fill(0,0,255);//draws water
     rect(0,400,width,height);
     
+    //draws moon
+    imageMode(CENTER);  
     fill(233,233,197);//draws moon
-    ellipse(875,10,100,100);
+    image(moon,855,30);
+    
     
     
     textSize(30);

@@ -10,6 +10,7 @@
 int fishCount = 20;
 int startFishCount = 2;
 int money = 0;
+int maxStars = 20;
 
 boolean started = false;
 boolean shopping = false;
@@ -17,9 +18,16 @@ boolean inAquarium = false;
 boolean onTitle = true;
 boolean inGame = false;
 
+PImage moon;
 PImage aquarium;
 PImage lock;
 PImage fishPic[] = new PImage[fishCount];
+
+
+
+int starX [] = new int [maxStars];
+int starY [] = new int [maxStars];
+int currentDot = 0;
 
 ArrayList<Fish> fishs = new ArrayList<Fish>();
 
@@ -32,6 +40,14 @@ Shop s;
 void setup()
 {
   size(900, 900);
+  for(int i = 0; i < maxStars; i++ )
+  {
+    starX[currentDot] = int(random(900)); 
+    starY[currentDot] = int(random(400));
+    circle(starX[i],starY[i],5);
+    currentDot++;
+  }
+  
   //fish = new Fish[fishCount];
   r = new Rod(300, 350, 50);
   for (int i = 0; i < fishCount; i++)//declares fish objects
@@ -47,6 +63,12 @@ void setup()
   aquarium.resize(900, 900);
   lock = loadImage("lock.png");
   lock.resize(50, 50);
+  moon = loadImage("moon.png");
+  moon.resize(150,150);
+  
+  
+  
+  
 }
 void draw()
 {
