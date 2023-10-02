@@ -7,7 +7,7 @@
  
  \**************************/
 
-int fishCount = 12;
+int fishCount = 20;
 int startFishCount = 2;
 int money = 0;
 
@@ -83,14 +83,12 @@ void draw()
   if (shopping && !inGame)//when in shop
   {
     u.drawShop();
-
   }
   if (inAquarium && !inGame)//when in aquarium
   {
     u.drawAqua();
   }
   r.drop();
-  
   //debug stuff
   //fill(255);
   //circle(210,390,110);

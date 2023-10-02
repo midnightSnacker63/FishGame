@@ -9,30 +9,36 @@ class Rod
   
   boolean casted;
   boolean caughtFish;
-  boolean full;
   boolean reeling;
   boolean underwater;
   
   int rodLevel = 1;
   int hookLevel = 1;
-  int FishOnHook = 0;
+  int fishOnHook = 0;
   int maxFish = 1;
+  
+  color rodColor;
+  color hookColor;
   
   public Rod(float x, float y, float s)
   {
     xPos = x;
     yPos = y;
     size = s;
+    
   }
   void grabFish()
   {
     for(Fish f: fishs)
     {
-      if(dist(xPos-size/2,yPos-size/2,f.xPos,f.yPos) < 50)
+      if( !f.caught && fishOnHook < maxFish && dist(xPos-size/2,yPos-size/2,f.xPos,f.yPos) < 50)
       {
         f.xPos = xPos;
         f.yPos = yPos;
         f.caught = true;
+        fishOnHook++;
+        println(fishOnHook);
+        
       }
     }
   }
@@ -48,7 +54,7 @@ class Rod
     line(p.xPos+25,p.yPos,p.xPos+100,p.yPos-175);//rod
     stroke(0);
     strokeWeight(1);
-    
+    maxFish = hookLevel * hookLevel;
   }
   void drop()
   {

@@ -13,6 +13,7 @@ class Shop
     {
       rodBought[0] = true;
       money -= 100;
+      r.rodLevel += 1;
     }
     //                                                        if not bought    if bought previous
     if(dist(mouseX, mouseY, 210, 490) < 50 && money >= 500 && !rodBought[1] && rodBought[0])
@@ -45,30 +46,35 @@ class Shop
     {
       hookBought[0] = true;
       money -= 10;
+      r.hookLevel += 1;
     }
     //                                                        if not bought     if bought previous
     if(dist(mouseX, mouseY, 625, 490) < 50 && money >= 50 && !hookBought[1] && hookBought[0])
     {
       hookBought[1] = true;
       money -= 50;
+      r.hookLevel += 1;
     }
     //                                                        if not bought    if bought previous
     if(dist(mouseX, mouseY, 625, 590) < 50 && money >= 75 && !hookBought[2] && hookBought[1])
     {
       hookBought[2] = true;
       money -= 75;
+      r.hookLevel += 1;
     }
     //                                                         if not bought    if bought previous
     if(dist(mouseX, mouseY, 625, 690) < 50 && money >= 100 && !hookBought[3] && hookBought[2])
     {
       hookBought[3] = true;
       money -= 100;
+      r.hookLevel += 1;
     }
     //                                                         if not bought    if bought previous
     if(dist(mouseX, mouseY, 625, 790) < 50 && money >= 150 && !hookBought[4] && hookBought[3])
     {
       hookBought[4] = true;
       money -= 150;
+      r.hookLevel += 1;
     }
   }
 }

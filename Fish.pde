@@ -30,7 +30,9 @@ class Fish
     { 
       println("selling");
       money += 10;
+      r.fishOnHook = 0;
       return true;
+      
     } 
     return false;
   }
@@ -55,6 +57,11 @@ class Fish
       {
         xSpeed = random(-7,7);
       }
+    }
+    if(caught)
+    {
+      xPos = r.xPos;
+      yPos = r.yPos;
     }
   }
 }
