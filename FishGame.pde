@@ -127,6 +127,10 @@ void keyPressed()
   {
     fishs.add(new Fish(random(width), random(450, height-30), random(45, 65)));
   }
+  if (key == 'm' )//add money
+  {
+    money += 100;
+  }
 }
 void keyReleased()
 {
