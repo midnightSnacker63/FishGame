@@ -17,8 +17,8 @@ class Rod
   int fishOnHook = 0;
   int maxFish = 1;
   
-  color rodColor;
-  color hookColor;
+  color rodColor = color(150);
+  color hookColor = color(100);
   
   public Rod(float x, float y, float s)
   {
@@ -33,8 +33,6 @@ class Rod
     {
       if( !f.caught && fishOnHook < maxFish && dist(xPos-size/2,yPos-size/2,f.xPos,f.yPos) < 50)
       {
-        f.xPos = xPos;
-        f.yPos = yPos;
         f.caught = true;
         fishOnHook++;
         println(fishOnHook);
@@ -44,12 +42,12 @@ class Rod
   }
   void drawRod()
   {
-    fill(200,50,50);
+    fill(hookColor);
     ellipse(xPos,yPos,size,size);//hook
     stroke(255);
     strokeWeight(2);
     line(p.xPos+100,p.yPos-175,xPos,yPos-size/2);//line
-    stroke(142,86,17);
+    stroke(rodColor);
     strokeWeight(5);
     line(p.xPos+25,p.yPos,p.xPos+100,p.yPos-175);//rod
     stroke(0);
