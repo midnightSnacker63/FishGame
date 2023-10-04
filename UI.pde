@@ -6,10 +6,21 @@ class UI
   }
   void drawTitle()
   {
-    fill(93,53,53);//draws boat
-    ellipse(200,375,100,100);
-    fill(0);
-    rect(150,275,100,100);
+    fill(255);
+    //draws stars
+    for(int i = 0; i < maxStars; i++ )
+    {
+     circle(starX[i],starY[i],5);
+     currentDot++;
+    }
+    
+    
+    //fill(93,53,53);//draws boat
+    imageMode(CENTER);
+    image(boat, 200,360);
+    //ellipse(200,375,100,100);
+    //fill(0);
+    //rect(150,275,100,100);
     
     fill(0,0,255);//draws water
     rect(0,400,width,height);
@@ -27,14 +38,7 @@ class UI
     fill(233,233,197);
     image(moon,855,30);
     
-    //draws stars
     
-    for(int i = 0; i < maxStars; i++ )
-    {
-     circle(starX[i],starY[i],5);
-     currentDot++;
-
-    }
     
     
     
@@ -43,17 +47,24 @@ class UI
     text("press 'ENTER' to start",200,800);
     GameName();
   }
+  
   void drawGame()
   {
     fill(0,0,255);//draws water
     rect(0,400,width,height);
     
+    //draws stars
+    fill(255);
+    for(int i = 0; i < maxStars; i++ )
+    {
+     circle(starX[i],starY[i],5);
+     currentDot++;
+    }
+    
     //draws moon
     imageMode(CENTER);  
     fill(233,233,197);//draws moon
     image(moon,855,30);
-    
-    
     
     textSize(30);
     text("$"+money,30,50);//your money
