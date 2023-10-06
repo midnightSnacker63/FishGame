@@ -46,10 +46,10 @@ class Rod
     ellipse(xPos,yPos,size,size);//hook
     stroke(255);
     strokeWeight(2);
-    line(p.xPos+100,p.yPos-175,xPos,yPos-size/2);//line
+    line(p.xPos+150,p.yPos-175,xPos,yPos-size/2);//line
     stroke(rodColor);
     strokeWeight(5);
-    line(p.xPos+25,p.yPos,p.xPos+100,p.yPos-175);//rod
+    line(p.xPos+25,p.yPos-15,p.xPos+150,p.yPos-175);//rod
     stroke(0);
     strokeWeight(1);
     maxFish = hookLevel * hookLevel;
@@ -70,7 +70,7 @@ class Rod
       {
         speedY -= 0.2;
       }
-      if(yPos > height - 50)//stops dropping after a certain point
+      if(yPos > height - 30)//stops dropping after a certain point
       {
         speedY = 0;
       }
@@ -100,19 +100,19 @@ class Rod
       underwater = true;
       speedY *= 0.93;
     }
-    if(xPos < p.xPos + 100 )//move with boat underwater
+    if(xPos < p.xPos + 150 )//move with boat underwater
     {
       speedX+= .15;
     }
-    if(xPos > p.xPos + 100 )
+    if(xPos > p.xPos + 150 )
     {
       speedX -= .15;
     }
-    if(xPos < p.xPos + 100 && !underwater   )//move with boat above water
+    if(xPos < p.xPos + 150 && !underwater   )//move with boat above water
     {
       speedX+= .16;
     }
-    if(xPos > p.xPos + 100 && !underwater && dist(xPos,yPos,p.xPos + 100,p.yPos) > 150  )
+    if(xPos > p.xPos + 150 && !underwater && dist(xPos,yPos,p.xPos + 100,p.yPos) > 150  )
     {
       speedX -= .16;
     }

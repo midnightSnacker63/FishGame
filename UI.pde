@@ -17,7 +17,7 @@ class UI
     
     //fill(93,53,53);//draws boat
     imageMode(CENTER);
-    image(boat, 200,360);
+    image(boat, 200,340);
     //ellipse(200,375,100,100);
     //fill(0);
     //rect(150,275,100,100);
@@ -36,7 +36,7 @@ class UI
     //draws moon
     imageMode(CENTER);  
     fill(233,233,197);
-    image(moon,855,30);
+    image(moon,width-45,30);
     
     
     
@@ -64,7 +64,7 @@ class UI
     //draws moon
     imageMode(CENTER);  
     fill(233,233,197);//draws moon
-    image(moon,855,30);
+    image(moon,width-45,30);
     
     textSize(30);
     text("$"+money,30,50);//your money

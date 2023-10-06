@@ -24,8 +24,6 @@ PImage lock;
 PImage boat;
 PImage fishPic[] = new PImage[fishCount];
 
-
-
 int starX [] = new int [maxStars];
 int starY [] = new int [maxStars];
 int currentDot = 0;
@@ -41,16 +39,17 @@ Shop s;
 void setup()
 {
   size(900, 900);
+  //fullScreen();
   for(int i = 0; i < maxStars; i++ )
   {
-    starX[currentDot] = int(random(900)); 
+    starX[currentDot] = int(random(width)); 
     starY[currentDot] = int(random(350));
     circle(starX[i],starY[i],5);
     currentDot++;
   }
   
   //fish = new Fish[fishCount];
-  r = new Rod(300, 350, 50);
+  r = new Rod(350, 350, 50);
   for (int i = 0; i < fishCount; i++)//declares fish objects
   {
     fishs.add(new Fish(random(width), random(450, height-75), random(45, 65)));
@@ -66,8 +65,8 @@ void setup()
   lock.resize(50, 50);
   moon = loadImage("moon.png");
   moon.resize(150,150);
-  boat = loadImage("boat.png");
-  boat.resize(200,100);
+  boat = loadImage("boat2.png");
+  boat.resize(240,160);
   
   
   
