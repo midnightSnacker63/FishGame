@@ -65,3 +65,7 @@ class Fish
     }
   }
 }
+public enum FishType
+{
+  BASS, BLOBFISH
+}
