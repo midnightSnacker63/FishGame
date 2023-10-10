@@ -84,7 +84,7 @@ class UI
     textAlign(CORNER);
     background(0,0,255);
     fill(95,60,60);
-    rect(0,10,900,200);
+    rect(0,10,width,200);
     textSize(200);
     fill(0);
     text("SHOP",200,175);

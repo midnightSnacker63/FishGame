@@ -7,8 +7,7 @@
  
  \**************************/
 
-int fishCount = 20;
-int startFishCount = 2;
+int fishCount = 36;
 int money = 0;
 int maxStars = 40;
 
@@ -45,7 +44,6 @@ void setup()
   {
     starX[currentDot] = int(random(width));
     starY[currentDot] = int(random(350));
-    circle(starX[i], starY[i], 5);
     currentDot++;
   }
 
