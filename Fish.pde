@@ -1,6 +1,8 @@
 class Fish
 {
   //Data
+  FishType type;
+  
   float xPos;
   float yPos;
   
@@ -12,24 +14,79 @@ class Fish
   boolean underwater = true;
   boolean caught;
   
+  int fishType = 2;
+  int fishValue;
   
-  public Fish( float x, float y, float s )
+  
+  public Fish( float x, float y, float s, int f )
   {
     xPos = x;
     yPos = y;
     size = s;
+    
+    type = setType(f);
+    
+  }
+  private FishType setType( int f )
+  {
+    println(f);
+    switch(f)
+    {
+    case 0:
+      return FishType.FISH;
+    case 1:
+      return FishType.FISH2;
+    case 2:
+      return FishType.FISH3;
+    case 3:
+      return FishType.BLOBFISH;
+      
+    default: return FishType.FISH; 
+    }
   }
   void drawFish()
   {
     //fill(random(255),random(255),random(255));
-    circle(xPos,yPos,size);
+    
+    if(type == FishType.FISH)
+    {
+      fill(255);
+      circle(xPos,yPos,size);
+      fishValue = 10;
+      fishType = 1;
+      //println(type);
+    }
+    if(type == FishType.FISH2)
+    {
+      fill(100);
+      fishValue = 20;
+      circle(xPos,yPos,size);
+      fishType = 2;
+      //println(type);
+    }
+    if(type == FishType.FISH3)
+    {
+      fill(100,150,250);
+      fishValue = 50;
+      circle(xPos,yPos,size);
+      fishType = 3;
+      //println(type);
+    }
+    if(type == FishType.BLOBFISH)
+    {
+      fill(255,192,203);
+      fishValue = 100;
+      circle(xPos,yPos,size);
+      fishType = 4;
+    }
   }
+  
   boolean sellFish()
   { 
     if(caught && !underwater)
     { 
-      println("selling");
-      money += 10;
+      //println("selling");
+      money += fishValue;
       r.fishOnHook = 0;
       return true;
       
@@ -67,5 +124,5 @@ class Fish
 }
 public enum FishType
 {
-  BASS, BLOBFISH
+  FISH, FISH2, FISH3, BLOBFISH
 }

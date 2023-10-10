@@ -28,7 +28,7 @@ class UI
     fill(100);//draws fish
     for(Fish f: fishs)
     {
-      fill(255);
+      //fill(255);
       f.drawFish();
       f.moveFish();
     }
@@ -260,15 +260,53 @@ class UI
     imageMode(CENTER);
     //1st Row
     rect(225,180,80,80,30);
-    image(lock,225,180);
+    if(!a.unlocked[1])//first in row
+    {
+      image(lock,225,180);
+    }
+    if(a.unlocked[1])
+    {
+      fill(255);
+      circle(225,180,50);
+      fill(#006994);
+    }
+    
     rect(450,180,80,80,30);
-    image(lock,450,180);
+    if(!a.unlocked[2])//second in row
+    {
+      image(lock,450,180);
+    }
+    if(a.unlocked[2])
+    {
+      fill(100);
+      circle(450,180,50);
+      fill(#006994);
+    }
+
     rect(675,180,80,80,30);
-    image(lock,675,180);
+    if(!a.unlocked[3])//third in row
+    {
+      image(lock,675,180);
+    }
+    if(a.unlocked[3])
+    {
+      fill(100,150,250);
+      circle(675,180,50);
+      fill(#006994);
+    }
    
     //2nd Row  
     rect(225,350,80,80,30);
-    image(lock,225,350);
+    if(!a.unlocked[4])//first in row
+    {
+      image(lock,225,350);
+    }
+    if(a.unlocked[4])
+    {
+      fill(255,192,203);
+      circle(225,350,50);
+      fill(#006994);
+    }
     rect(450,350,80,80,30);
     image(lock,450,350);
     rect(675,350,80,80,30);
@@ -292,5 +330,12 @@ class UI
     //text("Return to Game",450,880);
     text("Leave",width - 50, 55);
     rectMode(CORNER);
+    //debug placholders below
+    
+    
+    
+    
+    
+    
   }
 }

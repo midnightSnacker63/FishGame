@@ -4,7 +4,10 @@ class Aquarium
   
   public Aquarium()
   {
-  
+    
   }
- 
+  void unlockFish()
+  {
+    
+  }
 }
