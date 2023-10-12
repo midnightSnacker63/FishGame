@@ -2,10 +2,13 @@ class Rod
 {
   float speedX;
   float speedY;
+  float maxSpdY = 20;
+  float maxSpdX;
   float xPos;
   float yPos;
   float startY,startX;
   float size;
+  float maxDepth = 10000;
   
   boolean casted;
   boolean caughtFish;
@@ -43,13 +46,13 @@ class Rod
   void drawRod()
   {
     fill(hookColor);
-    ellipse(xPos,yPos,size,size);//hook
+    ellipse(xPos,height/2,size,size);//hook
     stroke(255);
     strokeWeight(2);
-    line(p.xPos+150,p.yPos-175,xPos,yPos-size/2);//line
+    line(p.xPos+150,p.yPos-175-r.yPos+height/2,xPos,height/2-size/2);//line
     stroke(rodColor);
     strokeWeight(5);
-    line(p.xPos+25,p.yPos-15,p.xPos+150,p.yPos-175);//rod
+    line(p.xPos+25,p.yPos-15-r.yPos+height/2,p.xPos+150,p.yPos-175-r.yPos+height/2);//rod
     stroke(0);
     strokeWeight(1);
     maxFish = hookLevel * hookLevel;
@@ -60,19 +63,19 @@ class Rod
     {
       if(yPos <= 50 )
       {
-        speedY += .5;
+        //speedY += .5;
       }
       else if(yPos < height-50)
       {
-        speedY +=0.2;
+        //speedY +=0.2;
       }
       if(yPos > height - 100)
       {
-        speedY -= 0.2;
+        //speedY -= 0.2;
       }
       if(yPos > height - 30)//stops dropping after a certain point
       {
-        speedY = 0;
+        //speedY = 0;
       }
     }
   }
@@ -86,6 +89,15 @@ class Rod
   void move()
   {
     speedX *= 0.97;
+    if(speedY >= maxSpdY  )
+    {
+      speedY = maxSpdY;
+    }
+    if(speedY <= -maxSpdY)
+    {
+      speedY = -maxSpdY;
+    }
+    
     if(p.yPos-150 > yPos)//brings hook down if it goes too far up
     {
       speedY += 5;
@@ -93,12 +105,20 @@ class Rod
     if(yPos <= 400 )
     {
       underwater = false;
-      speedY *= 0.96;
+      speedY *= 0.95;
     }
     if(yPos >= 400 )
     {
       underwater = true;
-      speedY *= 0.93;
+      
+    }
+    if(yPos >= 400 && speedY >= 10)
+    {
+      speedY *= 0.97;
+    }
+    if(yPos > maxDepth+50)
+    {
+      speedY *= 0.98;
     }
     if(xPos < p.xPos + 150 )//move with boat underwater
     {
@@ -118,5 +138,20 @@ class Rod
     }
     xPos+=speedX;
     yPos+=speedY;
+    if(casted)
+    {
+      if(yPos <= 50 )
+      {
+        speedY += .5;
+      }
+      else if(yPos < height-50)
+      {
+        speedY +=0.2;
+      }
+      if(yPos > maxDepth - 100)
+      {
+        speedY *= 0.95;
+      }
+    }
   }
 }

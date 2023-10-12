@@ -23,7 +23,7 @@ class UI
     //rect(150,275,100,100);
     
     fill(0,0,255);//draws water
-    rect(0,400,width,height);
+    rect(0,400,width,height+r.maxDepth);
     
     fill(100);//draws fish
     for(Fish f: fishs)
@@ -37,11 +37,6 @@ class UI
     imageMode(CENTER);  
     fill(233,233,197);
     image(moon,width-45,30);
-    
-    
-    
-    
-    
     //Prints Press enter
     textSize(50);
     text("press 'ENTER' to start",200,800);
@@ -51,20 +46,20 @@ class UI
   void drawGame()
   {
     fill(0,0,255);//draws water
-    rect(0,400,width,height);
+    rect(0,400-r.yPos+height/2,width,height+r.maxDepth);
     
     //draws stars
     fill(255);
     for(int i = 0; i < maxStars; i++ )
     {
-     circle(starX[i],starY[i],5);
+     circle(starX[i],starY[i]-r.yPos+height/2,5);
      currentDot++;
     }
     
     //draws moon
     imageMode(CENTER);  
     fill(233,233,197);//draws moon
-    image(moon,width-45,30);
+    image(moon,width-45,30-r.yPos+height/2);
     
     textSize(30);
     text("$"+money,30,50);//your money

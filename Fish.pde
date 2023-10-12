@@ -51,7 +51,7 @@ class Fish
     if(type == FishType.FISH)
     {
       fill(255);
-      circle(xPos,yPos,size);
+      circle(xPos,yPos-r.yPos+height/2,size);
       fishValue = 10;
       fishType = 1;
       //println(type);
@@ -60,7 +60,7 @@ class Fish
     {
       fill(100);
       fishValue = 20;
-      circle(xPos,yPos,size);
+      circle(xPos,yPos-r.yPos+height/2,size);
       fishType = 2;
       //println(type);
     }
@@ -68,7 +68,7 @@ class Fish
     {
       fill(100,150,250);
       fishValue = 50;
-      circle(xPos,yPos,size);
+      circle(xPos,yPos-r.yPos+height/2,size);
       fishType = 3;
       //println(type);
     }
@@ -76,7 +76,7 @@ class Fish
     {
       fill(255,192,203);
       fishValue = 100;
-      circle(xPos,yPos,size);
+      circle(xPos,yPos-r.yPos+height/2,size);
       fishType = 4;
     }
   }
@@ -114,12 +114,14 @@ class Fish
       {
         xSpeed = random(-7,7);
       }
+     
     }
     if(caught)
     {
       xPos = r.xPos;
       yPos = r.yPos;
     }
+    
   }
 }
 public enum FishType

@@ -20,14 +20,7 @@ class Player
   void drawPlayer()
   {
     imageMode(CENTER);
-    image(boat, xPos,yPos-35);
-    
-    //fill(93,53,53);//draws boat
-    //circle(xPos,yPos,size);
-    //fill(0);
-    //square(xPos-50,yPos-100,size);
-    
-    
+    image(boat, xPos,yPos-35-r.yPos+height/2);  
   }
   void movePlayer()
   {

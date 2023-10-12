@@ -7,9 +7,9 @@
  
  \**************************/
 
-int fishCount = 36;
+int fishCount = 100;
 int money = 0;
-int maxStars = 40;
+int maxStars = 75;
 
 boolean started = false;
 boolean shopping = false;
@@ -26,6 +26,7 @@ PImage fishPic[] = new PImage[fishCount];
 int starX [] = new int [maxStars];
 int starY [] = new int [maxStars];
 int currentDot = 0;
+int fishType = 0;
 
 ArrayList<Fish> fishs = new ArrayList<Fish>();
 
@@ -43,7 +44,7 @@ void setup()
   for (int i = 0; i < maxStars; i++ )
   {
     starX[currentDot] = int(random(width));
-    starY[currentDot] = int(random(350));
+    starY[currentDot] = int(random(-250,350));
     currentDot++;
   }
 
@@ -51,7 +52,7 @@ void setup()
   r = new Rod(350, 350, 50);
   for (int i = 0; i < fishCount; i++)//declares fish objects
   {
-    fishs.add(new Fish(random(width), random(450, height-75), random(45, 65), (int)random(0,4)));
+    fishs.add(new Fish(random(width), random(450, 10000), random(45, 65), (int)random(0,4)));
   }
   r.startY = r.yPos;
   r.startX = r.xPos;
@@ -92,7 +93,7 @@ void draw()
       if (f.sellFish())//sells fish
       {
         fishs.remove(i);//removes fish above water
-        fishs.add(new Fish(random(width), random(450, height-75), random(45, 65), (int)random(0,4)));//puts new fish in
+        fishs.add(new Fish(random(width), random(450,10000), random(45, 65), (int)random(0,4)));//puts new fish in
         a.unlocked[f.fishType] = true;
         println(a.unlocked[0]);
         println(f.fishType);
@@ -113,11 +114,12 @@ void draw()
     u.drawAqua();
  
   }
-  r.drop();
+  //r.drop();
   //debug stuff
   //fill(255);
   //circle(210,390,110);
   //println(mouseX + ", " + mouseY);
+
 }
 void keyPressed()
 {
