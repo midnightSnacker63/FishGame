@@ -7,9 +7,9 @@
  
  \**************************/
 
-int fishCount = 100;
+int fishCount = 1000;
 int money = 0;
-int maxStars = 75;
+int maxStars = 100;
 
 boolean started = false;
 boolean shopping = false;
@@ -39,7 +39,7 @@ Shop s;
 Aquarium a;
 void setup()
 {
-  size(900, 900);
+  size(1600, 900);
   //fullScreen();
   for (int i = 0; i < maxStars; i++ )
   {
