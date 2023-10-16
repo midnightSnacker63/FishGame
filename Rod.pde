@@ -8,12 +8,13 @@ class Rod
   float yPos;
   float startY,startX;
   float size;
-  float maxDepth = 10000;
+  float maxDepth = 1000;
   
   boolean casted;
   boolean caughtFish;
   boolean reeling;
   boolean underwater;
+  boolean dropping;
   
   int rodLevel = 1;
   int hookLevel = 1;
@@ -34,7 +35,7 @@ class Rod
   {
     for(Fish f: fishs)
     {
-      if( !f.caught && fishOnHook < maxFish && dist(xPos-size/2,yPos-size/2,f.xPos,f.yPos) < 50)
+      if( f.catchable && !f.caught && fishOnHook < maxFish && dist(xPos-size/2,yPos-size/2,f.xPos,f.yPos) < 50)
       {
         f.caught = true;
         fishOnHook++;
@@ -56,27 +57,13 @@ class Rod
     stroke(0);
     strokeWeight(1);
     maxFish = hookLevel * hookLevel;
+    maxDepth = rodLevel * 1000;
   }
   void drop()
   {
-    if(casted)
+    if(dropping && yPos < maxDepth - 100)
     {
-      if(yPos <= 50 )
-      {
-        //speedY += .5;
-      }
-      else if(yPos < height-50)
-      {
-        //speedY +=0.2;
-      }
-      if(yPos > height - 100)
-      {
-        //speedY -= 0.2;
-      }
-      if(yPos > height - 30)//stops dropping after a certain point
-      {
-        //speedY = 0;
-      }
+      speedY += .5;
     }
   }
   void reel()
@@ -89,6 +76,9 @@ class Rod
   void move()
   {
     speedX *= 0.97;
+    speedY *= 0.97;
+    xPos+=speedX;
+    yPos+=speedY;
     if(speedY >= maxSpdY  )
     {
       speedY = maxSpdY;
@@ -102,15 +92,14 @@ class Rod
     {
       speedY += 5;
     }
-    if(yPos <= 400 )
+    if(yPos <= 400 )//if above water say its above wtaer
     {
       underwater = false;
       speedY *= 0.95;
     }
-    if(yPos >= 400 )
+    if(yPos >= 400 )//if underwater say its underwater
     {
       underwater = true;
-      
     }
     if(yPos >= 400 && speedY >= 10)
     {
@@ -136,15 +125,17 @@ class Rod
     {
       speedX -= .16;
     }
-    xPos+=speedX;
-    yPos+=speedY;
+    if(yPos > maxDepth-100)
+    {
+      speedY -= 0.2;
+    }
     if(casted)
     {
       if(yPos <= 50 )
       {
         speedY += .5;
       }
-      else if(yPos < height-50)
+      else if(yPos < maxDepth -50)
       {
         speedY +=0.2;
       }

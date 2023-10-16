@@ -13,24 +13,50 @@ class Fish
   
   boolean underwater = true;
   boolean caught;
+  boolean catchable = true;
   
   int fishType = 2;
   int fishValue;
   
   
-  public Fish( float x, float y, float s, int f )
+  public Fish( float x, float y, float s )
   {
     xPos = x;
     yPos = y;
     size = s;
     
-    type = setType(f);
+    type = setType(fishType);
     
   }
-  private FishType setType( int f )
+  private FishType setType( int fishType )
   {
-    println(f);
-    switch(f)
+    if(yPos < 1000)
+    {
+      fishType = 0;
+    }
+    if(yPos > 1000 && yPos<2000)
+    {
+      fishType = (int)random(0,2);
+    }
+    if(yPos > 2000 && yPos < 3000)
+    {
+      fishType = (int)random(1,3);
+    }
+    if(yPos > 3000 && yPos < 4000)
+    {
+      fishType = (int)random(2,4);
+    }
+    if(yPos > 4000)
+    {
+      fishType = 3;
+    }
+    if(yPos > 5500)
+    {
+      fishType = (int)random(4,100);
+    }
+    
+    println(fishType);
+    switch(fishType)
     {
     case 0:
       return FishType.FISH;
@@ -40,8 +66,10 @@ class Fish
       return FishType.FISH3;
     case 3:
       return FishType.BLOBFISH;
+    case 4:
+      return FishType.FISH4;
       
-    default: return FishType.FISH; 
+    default: return FishType.NONE; 
     }
   }
   void drawFish()
@@ -76,6 +104,20 @@ class Fish
     {
       fill(255,192,203);
       fishValue = 100;
+      circle(xPos,yPos-r.yPos+height/2,size);
+      fishType = 4;
+    }
+    if(type == FishType.NONE)
+    {
+      catchable=false;
+      fishValue = 00;
+      //circle(xPos,yPos-r.yPos+height/2,size);
+      fishType = 6;
+    }
+    if(type == FishType.FISH4)
+    {
+      fill(255,00,203);
+      fishValue = 1000;
       circle(xPos,yPos-r.yPos+height/2,size);
       fishType = 4;
     }
@@ -126,5 +168,5 @@ class Fish
 }
 public enum FishType
 {
-  FISH, FISH2, FISH3, BLOBFISH
+  FISH, FISH2, FISH3, BLOBFISH, NONE, FISH4
 }
