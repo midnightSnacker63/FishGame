@@ -8,7 +8,7 @@
  \**************************/
 
 int fishCount = 1000;
-int money = 999999999;
+int money = 0;
 int maxStars = 100;
 
 boolean started = false;

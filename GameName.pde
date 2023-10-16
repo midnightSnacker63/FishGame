@@ -6,6 +6,6 @@ void GameName()
  
   textFont(font);
   
-  text("FIRST DAY OUT FISHING TRIP", 300,200); //text("FIRST DAY OUT FISHING TRIP", 50, 130);
+  text("FIRST NIGHT OUT FISHING TRIP", 300,200); //text("FIRST DAY OUT FISHING TRIP", 50, 130);
   fill(#F2CB49);
 }
