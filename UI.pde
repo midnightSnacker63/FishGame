@@ -39,7 +39,7 @@ class UI
     image(moon,width-45,30);
     //Prints Press enter
     textSize(50);
-    text("press 'ENTER' to start",200,800);
+    text("press 'ENTER' to start",530,800);
     GameName();
   }
   
@@ -246,16 +246,16 @@ class UI
    
     //Sand Color
     fill(#C2B280);
-    rect(1,730,900,100);
+    rect(1,730,2300,100);
    
     //Aquarium title screen
     fill(255);
     textSize(70);
     textAlign(CENTER);
-    text("AQUARIUM", 450,800);
+    text("AQUARIUM", 800,800);
    
     fill(0);
-    rect(285,810,320,10);
+    rect(600,810,395,10);
    
     //Locked Fish
     rectMode(CENTER);
@@ -263,66 +263,66 @@ class UI
    
     imageMode(CENTER);
     //1st Row
-    rect(225,180,80,80,30);
+    rect(400,180,80,80,30);
     if(!a.unlocked[1])//first in row
     {
-      image(lock,225,180);
+      image(lock,400,180);
     }
     if(a.unlocked[1])
     {
       fill(255);
-      circle(225,180,50);
+      circle(400,180,50);
       fill(#006994);
     }
     
-    rect(450,180,80,80,30);
+    rect(800,180,80,80,30);
     if(!a.unlocked[2])//second in row
     {
-      image(lock,450,180);
+      image(lock,800,180);
     }
     if(a.unlocked[2])
     {
       fill(100);
-      circle(450,180,50);
+      circle(800,180,50);
       fill(#006994);
     }
 
-    rect(675,180,80,80,30);
+    rect(1200,180,80,80,30);
     if(!a.unlocked[3])//third in row
     {
-      image(lock,675,180);
+      image(lock,1200,180);
     }
     if(a.unlocked[3])
     {
       fill(100,150,250);
-      circle(675,180,50);
+      circle(1200,180,50);
       fill(#006994);
     }
    
     //2nd Row  
-    rect(225,350,80,80,30);
+    rect(400,350,80,80,30);
     if(!a.unlocked[4])//first in row
     {
-      image(lock,225,350);
+      image(lock,400,350);
     }
     if(a.unlocked[4])
     {
       fill(255,192,203);
-      circle(225,350,50);
+      circle(400,350,50);
       fill(#006994);
     }
-    rect(450,350,80,80,30);
-    image(lock,450,350);
-    rect(675,350,80,80,30);
-    image(lock,675,350);
+    rect(800,350,80,80,30);
+    image(lock,800,350);
+    rect(1200,350,80,80,30);
+    image(lock,1200,350);
    
     //3rd Row
-    rect(225,550,80,80,30);
-    image(lock,225,550);
-    rect(450,550,80,80,30);
-    image(lock,450,550);
-    rect(675,550,80,80,30);
-    image(lock,675,550);
+    rect(400,550,80,80,30);
+    image(lock,400,550);
+    rect(800,550,80,80,30);
+    image(lock,800,550);
+    rect(1200,550,80,80,30);
+    image(lock,1200,550);
    
     //Return to Game Button
     fill(#C2B280);
