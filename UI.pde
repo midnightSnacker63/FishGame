@@ -48,6 +48,7 @@ class UI
     fill(0,0,255);//draws water
     rect(0,400-r.yPos+height/2,width,height+r.maxDepth);
     
+    
     //draws stars
     fill(255);
     for(int i = 0; i < maxStars; i++ )
@@ -63,6 +64,7 @@ class UI
     
     textSize(30);
     text("$"+money,30,50);//your money
+    text("current depth "+ (int)r.yPos/10,30,80);//your current depth
     textAlign(CENTER);
     fill(255);
     circle(width - 50,150,50);// the shop button
@@ -71,6 +73,13 @@ class UI
     textSize(17);
     text("Shop",width - 50, 155);  
     text("Aqua",width - 50, 255); 
+    for(int i = 0; i < 10;i++)
+    {
+      fill(0,0,255-i*30);
+      noStroke();
+      rect(0,6000+i*20-r.yPos+height/2,width,1000);
+    }
+    stroke(1);
     textAlign(CORNER);
   }
   void drawShop()
