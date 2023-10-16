@@ -8,7 +8,7 @@
  \**************************/
 
 int fishCount = 1000;
-int money = 0;
+int money = 999999999;
 int maxStars = 100;
 
 boolean started = false;
@@ -61,7 +61,7 @@ void setup()
   s = new Shop();
   a = new Aquarium();
   aquarium = loadImage("coral-reef.png");
-  aquarium.resize(900, 900);
+  aquarium.resize(2400, 900);
   lock = loadImage("lock.png");
   lock.resize(50, 50);
   moon = loadImage("moon.png");
