@@ -52,7 +52,7 @@ class Fish
     }
     if(yPos > 5500)
     {
-      fishType = (int)random(4,100);
+      fishType = (int)random(4,10);
     }
     
     println(fishType);
@@ -119,7 +119,7 @@ class Fish
       fill(255,00,203);
       fishValue = 1000;
       circle(xPos,yPos-r.yPos+height/2,size);
-      fishType = 4;
+      fishType = 5;
     }
   }
   

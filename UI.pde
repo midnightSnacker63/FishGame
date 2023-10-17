@@ -312,7 +312,16 @@ class UI
       fill(#006994);
     }
     rect(800,350,80,80,30);
-    image(lock,800,350);
+    if(!a.unlocked[5])//second in row
+    {
+      image(lock,800,350);
+    }
+    if(a.unlocked[5])
+    {
+      fill(255,00,203);
+      circle(800,350,50);
+      fill(#006994);
+    }
     rect(1200,350,80,80,30);
     image(lock,1200,350);
    

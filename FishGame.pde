@@ -7,7 +7,7 @@
  
  \**************************/
 
-int fishCount = 1000;
+int fishCount = 500;
 int money = 0;
 int maxStars = 100;
 
@@ -52,7 +52,7 @@ void setup()
   r = new Rod(350, 350, 50);
   for (int i = 0; i < fishCount; i++)//declares fish objects
   {
-    fishs.add(new Fish(random(width), random(450, 10000), random(45, 65)));
+    fishs.add(new Fish(random(width), random(450, 6000), random(45, 65)));
   }
   r.startY = r.yPos;
   r.startX = r.xPos;
@@ -93,7 +93,7 @@ void draw()
       if (f.sellFish())//sells fish
       {
         fishs.remove(i);//removes fish above water
-        fishs.add(new Fish(random(width), random(450,10000), random(45, 65)));//puts new fish in
+        fishs.add(new Fish(random(width), random(450,6000), random(45, 65)));//puts new fish in
         a.unlocked[f.fishType] = true;
         println(a.unlocked[0]);
         println(f.fishType);
@@ -156,7 +156,7 @@ void keyPressed()
   //debug controls
   if (key == 'f')//add more fish
   {
-    fishs.add(new Fish(random(width), random(450, height-30), random(45, 65)));
+    fishs.add(new Fish(random(width), random(450, 6000), random(45, 65)));
   }
   if (key == 'm' )//add money
   {
