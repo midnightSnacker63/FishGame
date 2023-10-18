@@ -138,18 +138,18 @@ class Fish
   }
   void moveFish()
   {
-    if(yPos <= 400 )
+    if(yPos <= 400 )//what to do if above water
     {
       underwater = false;
     }
     if(!caught && underwater)
     {
       xPos += xSpeed;
-      if(xPos >= width)
+      if(xPos >= width)//turn around if they hit right side
       {
         xSpeed *= -1;
       }
-      if(xPos <= 0)
+      if(xPos <= 0)//turn around if they hit the left side
       {
         xSpeed *= -1;
       }
@@ -159,7 +159,7 @@ class Fish
       }
      
     }
-    if(caught)
+    if(caught)//shouldnt have to explain this
     {
       xPos = r.xPos;
       yPos = r.yPos;

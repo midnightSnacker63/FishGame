@@ -21,7 +21,7 @@ PImage moon;
 PImage aquarium;
 PImage lock;
 PImage boat;
-PImage fishPic[] = new PImage[fishCount];
+PImage fishPic[] = new PImage[10];
 
 int starX [] = new int [maxStars];
 int starY [] = new int [maxStars];
@@ -96,10 +96,9 @@ void draw()
       if (f.sellFish())//sells fish
       {
         fishs.remove(i);//removes fish above water
-        sellReports.add( new SellReport("+"+f.fishValue) );
+        sellReports.add( new SellReport("+"+f.fishValue) );//little ghost number
         fishs.add(new Fish(random(width), random(450,6000), random(45, 65)));//puts new fish in
         a.unlocked[f.fishType] = true;
-        println(a.unlocked[0]);
         println(f.fishType);
       }
     }
