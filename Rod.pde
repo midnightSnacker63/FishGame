@@ -48,6 +48,7 @@ class Rod
   {
     fill(hookColor);
     ellipse(xPos,height/2,size,size);//hook
+    
     stroke(255);
     strokeWeight(2);
     line(p.xPos+150,p.yPos-175-r.yPos+height/2,xPos,height/2-size/2);//line
@@ -143,6 +144,10 @@ class Rod
       {
         speedY *= 0.95;
       }
+    }
+    if(fishOnHook == maxFish)
+    {
+      speedY-=0.6;
     }
   }
 }

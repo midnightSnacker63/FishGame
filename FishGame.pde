@@ -29,6 +29,7 @@ int currentDot = 0;
 int fishType = 0;
 
 ArrayList<Fish> fishs = new ArrayList<Fish>();
+ArrayList<SellReport> sellReports = new ArrayList<SellReport>();
 
 //declares objects
 //Fish[] fish = new Fish[fishCount];
@@ -72,6 +73,8 @@ void setup()
 void draw()
 {
   background(0);
+  for( SellReport s: sellReports)
+    s.moveAndDraw();
   if (onTitle)// what to do if game not started
   {
     u.drawTitle();//draws title screen
@@ -93,6 +96,7 @@ void draw()
       if (f.sellFish())//sells fish
       {
         fishs.remove(i);//removes fish above water
+        sellReports.add( new SellReport("+"+f.fishValue) );
         fishs.add(new Fish(random(width), random(450,6000), random(45, 65)));//puts new fish in
         a.unlocked[f.fishType] = true;
         println(a.unlocked[0]);

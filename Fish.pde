@@ -111,6 +111,7 @@ class Fish
     {
       catchable=false;
       fishValue = 00;
+      //fill(255,00,00);
       //circle(xPos,yPos-r.yPos+height/2,size);
       fishType = 6;
     }
