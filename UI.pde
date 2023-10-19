@@ -346,10 +346,5 @@ class UI
     rectMode(CORNER);
     //debug placholders below
     
-    
-    
-    
-    
-    
   }
 }

@@ -56,14 +56,14 @@ class Rod
       full = false;
       selling = false;
     }
-    maxFish = hookLevel * hookLevel * hookLevel;
+    maxFish = hookLevel * hookLevel * hookLevel * hookLevel;
     maxDepth = rodLevel * 1000;
   }
   void grabFish()
   {
     for(Fish f: fishs)
     {
-      if( f.catchable && !f.caught && !full && underwater && !selling && dist(xPos-size/2,yPos-size/2,f.xPos,f.yPos) < 50)
+      if( f.catchable && !f.caught && !full && underwater && !selling && dist(xPos-size/2,yPos-size/2,f.xPos,f.yPos) < 500)
       {
         f.caught = true;
         fishOnHook++;
