@@ -8,7 +8,7 @@ class Fish
   
   float size;
   
-  float xSpeed=random(-7,7);
+  float xSpeed=random(-12,12);
   float ySpeed;
   
   boolean underwater = true;
@@ -129,8 +129,7 @@ class Fish
     if(caught && !underwater)
     { 
       //println("selling");
-      money += fishValue;
-      r.fishOnHook = 0;
+      
       return true;
       
     } 

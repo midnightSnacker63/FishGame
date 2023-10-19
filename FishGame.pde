@@ -7,7 +7,7 @@
  
  \**************************/
 
-int fishCount = 500;
+int fishCount = 5000;
 int money = 0;
 int maxStars = 100;
 
@@ -27,6 +27,8 @@ int starX [] = new int [maxStars];
 int starY [] = new int [maxStars];
 int currentDot = 0;
 int fishType = 0;
+int sellTime;
+int sellWait = 1;
 
 ArrayList<Fish> fishs = new ArrayList<Fish>();
 ArrayList<SellReport> sellReports = new ArrayList<SellReport>();
@@ -55,12 +57,16 @@ void setup()
   {
     fishs.add(new Fish(random(width), random(450, 6000), random(45, 65)));
   }
+  //initialize variable
   r.startY = r.yPos;
   r.startX = r.xPos;
+  sellTime = millis();
+  //load classes
   u = new UI();
   p = new Player(200, 375, 100);
   s = new Shop();
   a = new Aquarium();
+  //load images
   aquarium = loadImage("coral-reef.png");
   aquarium.resize(2400, 900);
   lock = loadImage("lock.png");
@@ -74,7 +80,9 @@ void draw()
 {
   background(0);
   for( SellReport s: sellReports)
+  {
     s.moveAndDraw();
+  }
   if (onTitle)// what to do if game not started
   {
     u.drawTitle();//draws title screen
@@ -95,12 +103,29 @@ void draw()
       Fish f = fishs.get(i);
       if (f.sellFish())//sells fish
       {
-        fishs.remove(i);//removes fish above water
-        sellReports.add( new SellReport("+"+f.fishValue) );//little ghost number
-        fishs.add(new Fish(random(width), random(450,6000), random(45, 65)));//puts new fish in
-        a.unlocked[f.fishType] = true;
-        println(f.fishType);
+        if(millis() - sellTime >= sellWait)
+        {
+          fishs.remove(i);//removes fish above water
+          money += f.fishValue;
+          r.fishOnHook -= 1;
+          r.selling = true;
+          println("tick");//if it is, do something
+          sellReports.add( new SellReport("+"+f.fishValue) );//little ghost number
+          sellTime = millis();//also update the stored time
+          fishs.add(new Fish(random(width), random(450,6000), random(45, 65)));//puts new fish in
+          a.unlocked[f.fishType] = true;
+          println(f.fishType);
+        }
       }
+    }
+     for (int i = 0; i < sellReports.size(); i++)
+    {
+      SellReport S = sellReports.get(i);
+      if(!S.active())
+      {
+        sellReports.remove(i);
+      }
+      
     }
     r.drawRod();// draws fishing rod
     r.move();//moves fishing rod

@@ -73,12 +73,13 @@ class UI
     textSize(17);
     text("Shop",width - 50, 155);  
     text("Aqua",width - 50, 255); 
-    for(int i = 0; i < 10;i++)
+    for(int i = 0; i < 10;i++)// dark bottom fade
     {
       fill(0,0,255-i*30);
       noStroke();
       rect(0,6000+i*20-r.yPos+height/2,width,1000);
     }
+    rect(0,7000-r.yPos+height/2,width,10000);
     stroke(1);
     textAlign(CORNER);
   }
@@ -105,7 +106,7 @@ class UI
     fill(255);
     if(!s.rodBought[0])//if not bought
     {
-      text("100",175,400);
+      text(s.rodPrice[0],175,400);
     }
     if(s.rodBought[0])//if bought
     {
@@ -117,7 +118,7 @@ class UI
     fill(255);
     if(!s.rodBought[1])//if not bought
     {
-      text("500",175,500);
+      text(s.rodPrice[1],175,500);
     }
     if(s.rodBought[1])//if bought
     {
@@ -129,7 +130,7 @@ class UI
     fill(255);
     if(!s.rodBought[2])//if not bought
     {
-      text("750",175,600);
+      text(s.rodPrice[2],175,600);
     }
     if(s.rodBought[2])//if bought
     {
@@ -142,7 +143,7 @@ class UI
     fill(255);
     if(!s.rodBought[3])//if bought
     {
-      text("1000",175,700);  
+      text(s.rodPrice[3],175,700);  
     }
     if(s.rodBought[3])//if bought
     {
@@ -155,7 +156,7 @@ class UI
     fill(255);
     if(!s.rodBought[4])//if bought
     {
-      text("1500",175,800);
+      text(s.rodPrice[4],175,800);
     }
     if(s.rodBought[4])//if bought
     {

@@ -15,6 +15,8 @@ class Rod
   boolean reeling;
   boolean underwater;
   boolean dropping;
+  boolean full;
+  boolean selling;
   
   int rodLevel = 1;
   int hookLevel = 1;
@@ -31,19 +33,7 @@ class Rod
     size = s;
     
   }
-  void grabFish()
-  {
-    for(Fish f: fishs)
-    {
-      if( f.catchable && !f.caught && fishOnHook < maxFish && dist(xPos-size/2,yPos-size/2,f.xPos,f.yPos) < 50)
-      {
-        f.caught = true;
-        fishOnHook++;
-        println(fishOnHook);
-        
-      }
-    }
-  }
+  
   void drawRod()
   {
     fill(hookColor);
@@ -57,8 +47,31 @@ class Rod
     line(p.xPos+25,p.yPos-15-r.yPos+height/2,p.xPos+150,p.yPos-175-r.yPos+height/2);//rod
     stroke(0);
     strokeWeight(1);
-    maxFish = hookLevel * hookLevel;
+    if(fishOnHook >= maxFish)
+    {
+      full = true;
+    }
+    if(fishOnHook <= 0)
+    {
+      full = false;
+      selling = false;
+    }
+    maxFish = hookLevel * hookLevel * hookLevel;
     maxDepth = rodLevel * 1000;
+  }
+  void grabFish()
+  {
+    for(Fish f: fishs)
+    {
+      if( f.catchable && !f.caught && !full && underwater && !selling && dist(xPos-size/2,yPos-size/2,f.xPos,f.yPos) < 50)
+      {
+        f.caught = true;
+        fishOnHook++;
+        
+        println("on "+fishOnHook);
+        println("max "+maxFish);
+      }
+    }
   }
   void drop()
   {
@@ -147,7 +160,7 @@ class Rod
     }
     if(fishOnHook == maxFish)
     {
-      speedY-=0.6;
+      //speedY-=0.6;
     }
   }
 }
