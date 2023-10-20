@@ -109,7 +109,6 @@ void draw()
           money += f.fishValue;
           r.fishOnHook -= 1;
           r.selling = true;
-          println("tick");//if it is, do something
           sellReports.add( new SellReport("+"+f.fishValue) );//little ghost number
           sellTime = millis();//also update the stored time
           fishs.add(new Fish(random(width), random(450,6000), random(45, 65)));//puts new fish in
