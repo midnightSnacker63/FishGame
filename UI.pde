@@ -92,11 +92,13 @@ class UI
     rect(0,10,width,200);
     textSize(200);
     fill(0);
-    text("SHOP",200,175);
+    text("SHOP",550,175);
    
     textSize(100);  
     text("RODS",100,300);
-    text("HOOKS",500,300);
+    text("HOOKS",450,300);
+    text("POWER-UPS", 850, 300);
+    text("BOATS", 850, 550);
    
     //RODS
     textSize(50);
@@ -225,6 +227,52 @@ class UI
       text("bought",600,800);
     }
     
+    textSize(20);
+    //Powerup 1
+    fill(0);
+    rect(900,340,100,100,50);
+    fill(255);
+    
+    text("×2 Speed", 905,380);
+    text("$2000",920,410);
+    
+    //Powerup 2
+    fill(0);
+    rect(1050,340,100,100,50);
+    fill(255);
+    
+    text("×2 Money", 1058,380);
+    text("$3000",1070 ,410);
+    
+    //Powerup 3
+    fill(0);
+    rect(1200,340,100,100,50);
+    fill(255);
+    
+    text("×2 Fish Cap.", 1205,380);
+    text("$2000",1220 ,410);
+    
+    //Powerup 4
+    fill(0);
+    rect(1350,340,100,100,50);
+    fill(255);
+    
+    text("TBA", 1365,380);
+    text("??",1370 ,410);
+    
+    //Boats
+    //Josh's Boat
+    fill(0);
+    rect(900,600,100,100,50);
+    fill(255);
+    
+    text("Josh's Boat", 900,650);
+    text("??",900 ,660);
+    
+    //Zayvein's Boat
+    //Erick's Boat
+    
+    //
     fill(255);
     circle(width - 50,50,50);// the leave shop button
     
