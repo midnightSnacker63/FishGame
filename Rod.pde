@@ -57,8 +57,9 @@ class Rod
       full = false;
       selling = false;
     }
-    maxFish = hookLevel * hookLevel * hookLevel;
+    maxFish = hookLevel * hookLevel * hookLevel * hookLevel;
     maxDepth = rodLevel * 1000;
+    //changing hook color
     if(hookLevel == 2)
     {
       hookColor = color(230,50,50);
@@ -79,7 +80,7 @@ class Rod
     {
       hookColor = color(250,250,50);
     }
-    
+    //changing rod color
     if(rodLevel == 2)
     {
       rodColor = color(230,50,50);
