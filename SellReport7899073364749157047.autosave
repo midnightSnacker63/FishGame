@@ -1,32 +1,23 @@
 class SellReport
 {
   float x, y;
-  float ySpd = 3;
-  
   String sells;
-  
   boolean active;
  
   public SellReport( String sells )
   {
       this.sells = sells;
-      x = random(r.xPos-250,r.xPos+250);
-      y = random(400,500);
-      
+      x = random(r.xPos-200,r.xPos+200);
+      y = random(400,550);
   }
+ 
   public void moveAndDraw()
   {
-    y-=ySpd;
+    y-=3;
     textSize(20);
-    fill(255,255);
+    fill(255,y-50);
     text(sells,x,y-r.yPos+height/2);
-    
-  }
-  boolean active()
-  {
-    if(y<-200)
-      return false;
-    else
-      return true;
+    if(y<-20)
+      active=false;
   }
 }

@@ -57,8 +57,49 @@ class Rod
       full = false;
       selling = false;
     }
-    maxFish = hookLevel * hookLevel * hookLevel * hookLevel;
+    maxFish = hookLevel * hookLevel * hookLevel;
     maxDepth = rodLevel * 1000;
+    if(hookLevel == 2)
+    {
+      hookColor = color(230,50,50);
+    }
+    if(hookLevel == 3)
+    {
+      hookColor = color(50,50,230);
+    }
+    if(hookLevel == 4)
+    {
+      hookColor = color(50,230,50);
+    }
+    if(hookLevel == 5)
+    {
+      hookColor = color(190,50,230);
+    }
+    if(hookLevel == 6)
+    {
+      hookColor = color(250,250,50);
+    }
+    
+    if(rodLevel == 2)
+    {
+      rodColor = color(230,50,50);
+    }
+    if(rodLevel == 3)
+    {
+      rodColor = color(50,50,230);
+    }
+    if(rodLevel == 4)
+    {
+      rodColor = color(50,230,50);
+    }
+    if(rodLevel == 5)
+    {
+      rodColor = color(190,50,230);
+    }
+    if(rodLevel == 6)
+    {
+      rodColor = color(250,250,50);
+    }
   }
   void grabFish()
   {
