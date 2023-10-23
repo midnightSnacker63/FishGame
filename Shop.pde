@@ -17,7 +17,6 @@ class Shop
       rodBought[0] = true;
       money -= rodPrice[0];
       r.rodLevel += 1;//adds level
-      r.rodColor = color(230,50,50);//changes color of rod
     }
     //                                                        if not bought    if bought previous
     if(dist(mouseX, mouseY, 210, 490) < 50 && money >= rodPrice[1] && !rodBought[1] && rodBought[0])
@@ -25,7 +24,6 @@ class Shop
       rodBought[1] = true;
       money -= rodPrice[1];
       r.rodLevel += 1;//adds level
-      r.rodColor = color(50,50,230);//changes color of rod
     }
     //                                                        if not bought    if bought previous
     if(dist(mouseX, mouseY, 210, 590) < 50 && money >= rodPrice[2] && !rodBought[2] && rodBought[1])
@@ -33,7 +31,6 @@ class Shop
       rodBought[2] = true;
       money -= rodPrice[2];
       r.rodLevel += 1;//adds level
-      r.rodColor = color(50,230,50);//changes color of rod
     }
     //                                                         if not bought    if bought previous
     if(dist(mouseX, mouseY, 210, 690) < 50 && money >= rodPrice[3] && !rodBought[3] && rodBought[2])
@@ -41,7 +38,6 @@ class Shop
       rodBought[3] = true;
       money -= rodPrice[3];
       r.rodLevel += 1;//adds level
-      r.rodColor = color(190,50,230);//changes color of rod
     }
     //                                                         if not bought    if bought previous
     if(dist(mouseX, mouseY, 210, 790) < 50 && money >= rodPrice[4] && !rodBought[4] && rodBought[3])
@@ -49,7 +45,6 @@ class Shop
       rodBought[4] = true;
       money -= rodPrice[4];
       r.rodLevel += 1;//adds level
-      r.rodColor = color(250,250,50);//changes color of rod
     }
   }
   void buyHook()
@@ -59,7 +54,6 @@ class Shop
       hookBought[0] = true;
       money -= hookPrice[0];
       r.hookLevel += 1;//adds level
-      r.hookColor = color(230,50,50);//changes color of hook
     }
     //                                                        if not bought     if bought previous
     if(dist(mouseX, mouseY, 625, 490) < 50 && money >= hookPrice[1] && !hookBought[1] && hookBought[0])
@@ -67,7 +61,6 @@ class Shop
       hookBought[1] = true;
       money -= hookPrice[1];
       r.hookLevel += 1;//adds level
-      r.hookColor = color(50,50,230);//changes color of hook
     }
     //                                                        if not bought    if bought previous
     if(dist(mouseX, mouseY, 625, 590) < 50 && money >= hookPrice[2] && !hookBought[2] && hookBought[1])
@@ -75,7 +68,6 @@ class Shop
       hookBought[2] = true;
       money -= hookPrice[2];
       r.hookLevel += 1;//adds level
-      r.hookColor = color(50,230,50);//changes color of hook
     }
     //                                                         if not bought    if bought previous
     if(dist(mouseX, mouseY, 625, 690) < 50 && money >= hookPrice[3] && !hookBought[3] && hookBought[2])
@@ -83,7 +75,6 @@ class Shop
       hookBought[3] = true;
       money -= hookPrice[3];
       r.hookLevel += 1;//adds level
-      r.hookColor = color(190,50,230);//changes color of hook
     }
     //                                                         if not bought    if bought previous
     if(dist(mouseX, mouseY, 625, 790) < 50 && money >= hookPrice[4] && !hookBought[4] && hookBought[3])
@@ -91,7 +82,6 @@ class Shop
       hookBought[4] = true;
       money -= hookPrice[4];
       r.hookLevel += 1;//adds level
-      r.hookColor = color(250,250,50);//changes color of hook
     }
   }
 }
