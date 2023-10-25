@@ -22,7 +22,7 @@ class Rod
   int hookLevel = 1;
   int fishOnHook = 0;
   int maxFish = 1;
-  int hookRange = 500;
+  int hookRange = 50;
   
   color rodColor = color(150);
   color hookColor = color(100);
