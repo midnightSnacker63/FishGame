@@ -120,7 +120,7 @@ class Fish
       fill(255,00,203);
       fishValue = 1000;
       circle(xPos,yPos-r.yPos+height/2,size);
-      fishType = 5;
+      fishType = 4;
     }
   }
   

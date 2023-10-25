@@ -7,7 +7,7 @@
  
  \**************************/
 
-int fishCount = 2000;
+int fishCount = 500;
 int money = 0;
 int maxStars = 100;
 
