@@ -65,9 +65,10 @@ class Fish
     case 2:
       return FishType.FISH3;
     case 3:
-      return FishType.BLOBFISH;
-    case 4:
       return FishType.FISH4;
+    case 4:
+      return FishType.BLOBFISH;
+    
       
     default: return FishType.NONE; 
     }
@@ -79,33 +80,62 @@ class Fish
     if(type == FishType.FISH)
     {
       fill(255);
-      circle(xPos,yPos-r.yPos+height/2,size);
+      //circle(xPos,yPos-r.yPos+height/2,size);
       fishValue = 10;
       fishType = 1;
-      //println(type);
+      if( xSpeed < 0)
+      {
+        image(fishPic[fishType-1],xPos,yPos-r.yPos+height/2);
+      }
+      if( xSpeed > 0 )
+      {
+        image(fishPic[6],xPos,yPos-r.yPos+height/2);
+      }
     }
     if(type == FishType.FISH2)
     {
       fill(100);
       fishValue = 20;
-      circle(xPos,yPos-r.yPos+height/2,size);
+      //circle(xPos,yPos-r.yPos+height/2,size);
       fishType = 2;
-      //println(type);
+      if( xSpeed < 0)
+      {
+        image(fishPic[fishType-1],xPos,yPos-r.yPos+height/2);
+      }
+      if( xSpeed > 0 )
+      {
+        image(fishPic[7],xPos,yPos-r.yPos+height/2);
+      }
     }
     if(type == FishType.FISH3)
     {
       fill(100,150,250);
       fishValue = 50;
-      circle(xPos,yPos-r.yPos+height/2,size);
+      //circle(xPos,yPos-r.yPos+height/2,size);
       fishType = 3;
-      //println(type);
+      if( xSpeed > 0)
+      {
+        image(fishPic[fishType-1],xPos,yPos-r.yPos+height/2);
+      }
+      if( xSpeed < 0 )
+      {
+        image(fishPic[8],xPos,yPos-r.yPos+height/2);
+      }
     }
-    if(type == FishType.BLOBFISH)
+    if(type == FishType.FISH4)
     {
       fill(255,192,203);
       fishValue = 100;
-      circle(xPos,yPos-r.yPos+height/2,size);
+      //circle(xPos,yPos-r.yPos+height/2,size);
       fishType = 4;
+      if( xSpeed < 0)
+      {
+        image(fishPic[fishType-1],xPos,yPos-r.yPos+height/2);
+      }
+      if( xSpeed > 0 )
+      {
+        image(fishPic[9],xPos,yPos-r.yPos+height/2);
+      }
     }
     if(type == FishType.NONE)
     {
@@ -113,14 +143,23 @@ class Fish
       fishValue = 00;
       //fill(255,00,00);
       //circle(xPos,yPos-r.yPos+height/2,size);
-      fishType = 6;
+      fishType = 10;
     }
-    if(type == FishType.FISH4)
+    if(type == FishType.BLOBFISH)
     {
       fill(255,00,203);
       fishValue = 1000;
-      circle(xPos,yPos-r.yPos+height/2,size);
-      fishType = 4;
+      //circle(xPos,yPos-r.yPos+height/2,size);
+      fishType = 5;
+      
+      if( xSpeed < 0)
+      {
+        image(fishPic[fishType-1],xPos,yPos-r.yPos+height/2);
+      }
+      if( xSpeed > 0 )
+      {
+        image(fishPic[10],xPos,yPos-r.yPos+height/2);
+      }
     }
   }
   

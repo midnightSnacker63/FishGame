@@ -21,7 +21,7 @@ PImage moon;
 PImage aquarium;
 PImage lock;
 PImage boat;
-PImage fishPic[] = new PImage[10];
+PImage fishPic[] = new PImage[100];
 
 int starX [] = new int [maxStars];
 int starY [] = new int [maxStars];
@@ -34,7 +34,6 @@ ArrayList<Fish> fishs = new ArrayList<Fish>();
 ArrayList<SellReport> sellReports = new ArrayList<SellReport>();
 
 //declares objects
-//Fish[] fish = new Fish[fishCount];
 Rod r;
 UI u;
 Player p;
@@ -45,29 +44,28 @@ void setup()
 {
   size(1600, 900);
   //fullScreen();
-  for (int i = 0; i < maxStars; i++ )
-  {
-    starX[currentDot] = int(random(width));
-    starY[currentDot] = int(random(-250,350));
-    currentDot++;
-  }
-
-  //fish = new Fish[fishCount];
-  r = new Rod(350, 350, 50);
-  for (int i = 0; i < fishCount; i++)//declares fish objects
-  {
-    fishs.add(new Fish(random(width), random(450, 6000), random(45, 65)));
-  }
-  //initialize variable
-  r.startY = r.yPos;
-  r.startX = r.xPos;
-  sellTime = millis();
   //load classes
+  r = new Rod(350, 350, 50);
   u = new UI();
   p = new Player(200, 375, 100);
   s = new Shop();
   a = new Aquarium();
   S = new SaveGame();
+  for (int i = 0; i < maxStars; i++ )
+  {
+    starX[currentDot] = int(random(width));
+    starY[currentDot] = int(random(-250,350));
+    currentDot++;
+  }  
+  for (int i = 0; i < fishCount; i++)//declares fish objects
+  {
+    fishs.add(new Fish(random(width), random(450, 6000), 50));
+  }
+  //initialize variable
+  r.startY = r.yPos;
+  r.startX = r.xPos;
+  sellTime = millis();
+  
   //load images
   aquarium = loadImage("coral-reef.png");
   aquarium.resize(2400, 900);
@@ -77,6 +75,30 @@ void setup()
   moon.resize(150, 150);
   boat = loadImage("boat2.png");
   boat.resize(240, 160);
+  fishPic[0] = loadImage("fish.png");
+  fishPic[1] = loadImage("yellowFish.png");
+  fishPic[2] = loadImage("blueFish.png");
+  fishPic[3] = loadImage("yellowStripeFish.png");
+  fishPic[4] = loadImage("blobFish.png");
+  fishPic[5] = loadImage("greenFish.png");
+  fishPic[6] = loadImage("fishRight.png");
+  fishPic[7] = loadImage("yellowFishRight.png");
+  fishPic[8] = loadImage("blueFishLeft.png");
+  fishPic[9] = loadImage("yellowStripeFishRight.png");
+  fishPic[10] = loadImage("blobFishRight.png");
+  fishPic[11] = loadImage("greenFish.png");
+  fishPic[0].resize(75,0);
+  fishPic[1].resize(60,0);
+  fishPic[2].resize(65,0);
+  fishPic[3].resize(65,0);
+  fishPic[4].resize(65,0);
+  fishPic[5].resize(65,0);
+  fishPic[6].resize(75,0);
+  fishPic[7].resize(60,0);
+  fishPic[8].resize(65,0);
+  fishPic[9].resize(65,0);
+  fishPic[10].resize(65,0);
+  fishPic[11].resize(65,0);
 }
 void draw()
 {
@@ -113,8 +135,13 @@ void draw()
           r.selling = true;
           sellReports.add( new SellReport("+"+f.fishValue) );//little ghost number
           sellTime = millis();//also update the stored time
-          fishs.add(new Fish(random(width), random(450,6000), random(45, 65)));//puts new fish in
-          a.unlocked[f.fishType] = true;
+          fishs.add(new Fish(random(width), random(450,6000), 50));//puts new fish in
+          if(!a.unlocked[f.fishType-1])
+          {
+            a.somethingNew = true;
+            
+          }
+          a.unlocked[f.fishType-1] = true;
           println(f.fishType);
         }
       }
@@ -185,7 +212,7 @@ void keyPressed()
   //debug controls
   if (key == 'f')//add more fish
   {
-    fishs.add(new Fish(random(width), random(450, 6000), random(45, 65)));
+    fishs.add(new Fish(random(width), random(450, 6000), 50));
   }
   if (key == 'm' )//add money
   {
@@ -237,6 +264,7 @@ void mousePressed()
   {
     inGame = false;
     inAquarium = true;
+    a.somethingNew = false;
   }
   if ( dist(mouseX, mouseY, width-50, 50) < 25 && started && inAquarium)//close aquarium
   {

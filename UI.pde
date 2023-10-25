@@ -69,6 +69,10 @@ class UI
     fill(255);
     circle(width - 50,150,50);// the shop button
     circle(width - 50,250,50);// the aquarium button
+    if(a.somethingNew)
+    {
+      text("!",width - 80,260);
+    }
     fill(0);
     textSize(17);
     text("Shop",width - 50, 155);  
@@ -267,9 +271,9 @@ class UI
     fill(255);
     
     text("Josh's Boat", 900,650);
-    text("?$",940 ,670);
+    text("??",900 ,660);
     
-    //Zayvein's Boat
+     //Zayvein's Boat
     fill(0);
     rect(1150,600,100,100,50);
     fill(255);
@@ -326,62 +330,64 @@ class UI
     imageMode(CENTER);
     //1st Row
     rect(400,180,80,80,30);
-    if(!a.unlocked[1])//first in row
+    if(!a.unlocked[0])//first in row
     {
       image(lock,400,180);
     }
-    if(a.unlocked[1])
+    if(a.unlocked[0])
     {
       fill(255);
-      circle(400,180,50);
+      //circle(400,180,50);
+      image(fishPic[0],400,180);
       fill(#006994);
     }
     
     rect(800,180,80,80,30);
-    if(!a.unlocked[2])//second in row
+    if(!a.unlocked[1])//second in row
     {
       image(lock,800,180);
     }
-    if(a.unlocked[2])
+    if(a.unlocked[1])
     {
       fill(100);
-      circle(800,180,50);
+      image(fishPic[1],800,180);
       fill(#006994);
     }
 
     rect(1200,180,80,80,30);
-    if(!a.unlocked[3])//third in row
+    if(!a.unlocked[2])//third in row
     {
       image(lock,1200,180);
     }
-    if(a.unlocked[3])
+    if(a.unlocked[2])
     {
       fill(100,150,250);
-      circle(1200,180,50);
+      image(fishPic[8],1200,180);
       fill(#006994);
     }
    
     //2nd Row  
     rect(400,350,80,80,30);
-    if(!a.unlocked[4])//first in row
+    if(!a.unlocked[3])//first in row
     {
       image(lock,400,350);
     }
-    if(a.unlocked[4])
+    if(a.unlocked[3])
     {
       fill(255,192,203);
-      circle(400,350,50);
+      image(fishPic[3],400,350);
+
       fill(#006994);
     }
     rect(800,350,80,80,30);
-    if(!a.unlocked[5])//second in row
+    if(!a.unlocked[4])//second in row
     {
       image(lock,800,350);
     }
-    if(a.unlocked[5])
+    if(a.unlocked[4])
     {
       fill(255,00,203);
-      circle(800,350,50);
+      image(fishPic[4],800,350);
       fill(#006994);
     }
     rect(1200,350,80,80,30);
