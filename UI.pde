@@ -267,10 +267,23 @@ class UI
     fill(255);
     
     text("Josh's Boat", 900,650);
-    text("??",900 ,660);
+    text("?$",940 ,670);
     
     //Zayvein's Boat
+    fill(0);
+    rect(1150,600,100,100,50);
+    fill(255);
+    
+    text("Zays's Boat", 1150,650);
+    text("$100,000",1160 ,670);
+    
     //Erick's Boat
+    fill(0);
+    rect(1400,600,100,100,50);
+    fill(255);
+    
+    text("Erick's Boat", 1400,650);
+    text("$10,000",1420 ,670);
     
     //
     fill(255);
