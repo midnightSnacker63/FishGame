@@ -22,6 +22,8 @@ PImage aquarium;
 PImage lock;
 PImage boat;
 PImage fishPic[] = new PImage[100];
+PImage hook;
+PImage rod;
 
 int starX [] = new int [maxStars];
 int starY [] = new int [maxStars];
@@ -75,6 +77,10 @@ void setup()
   moon.resize(150, 150);
   boat = loadImage("boat2.png");
   boat.resize(240, 160);
+  hook = loadImage("hook.png");
+  hook.resize(60,0);
+  rod = loadImage("rod.png");
+  rod.resize(130,170);
   fishPic[0] = loadImage("fish.png");
   fishPic[1] = loadImage("yellowFish.png");
   fishPic[2] = loadImage("blueFish.png");
