@@ -200,7 +200,7 @@ class Fish
     if(caught)//shouldnt have to explain this
     {
       xPos = r.xPos;
-      yPos = r.yPos;
+      yPos = r.yPos+15;
     }
     
   }

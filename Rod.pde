@@ -37,15 +37,20 @@ class Rod
   
   void drawRod()
   {
-    fill(hookColor);
-    ellipse(xPos,height/2,size,size);//hook
-    
+    push();
+    tint(hookColor);
+    image(hook,xPos,height/2+5);
+    pop();
     stroke(255);
     strokeWeight(2);
     line(p.xPos+150,p.yPos-175-r.yPos+height/2,xPos,height/2-size/2);//line
     stroke(rodColor);
     strokeWeight(5);
-    line(p.xPos+25,p.yPos-15-r.yPos+height/2,p.xPos+150,p.yPos-175-r.yPos+height/2);//rod
+    //line(p.xPos+25,p.yPos-15-r.yPos+height/2,p.xPos+150,p.yPos-175-r.yPos+height/2);//rod
+    push();
+    tint(rodColor);
+    image(rod,p.xPos+90,p.yPos-95-r.yPos+height/2);
+    pop();
     stroke(0);
     strokeWeight(1);
     if(fishOnHook >= maxFish)
@@ -57,7 +62,7 @@ class Rod
       full = false;
       selling = false;
     }
-    maxFish = hookLevel * hookLevel * hookLevel * hookLevel;
+    maxFish = hookLevel * hookLevel * hookLevel ;
     maxDepth = rodLevel * 1000;
     //changing hook color
     if(hookLevel == 2)
@@ -118,7 +123,7 @@ class Rod
   }
   void drop()
   {
-    if(dropping && yPos < maxDepth - 100)
+    if(dropping && yPos < maxDepth - 20)
     {
       speedY += .5;
     }
@@ -182,9 +187,9 @@ class Rod
     {
       speedX -= .16;
     }
-    if(yPos > maxDepth-100)
+    if(yPos > maxDepth-10)//stops you from going to far down
     {
-      speedY -= 0.2;
+      speedY = -0.5;
     }
     if(casted)
     {
