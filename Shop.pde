@@ -3,6 +3,9 @@ class Shop
   boolean rodBought[] = {false,false,false,false,false};
   boolean hookBought[] = {false,false,false,false,false};
   
+  boolean boatBought[] = {false, false, false};
+  int boatPrice[] = {10000,100000,15000};
+  
   int hookPrice[] = {10,50,75,100,150};
   int rodPrice[] = {100,500,750,1000,1500};
   
@@ -84,4 +87,28 @@ class Shop
       r.hookLevel += 1;//adds level
     }
   }
+  
+  void buyBoat()
+    {
+    //Josh's Boat
+    if(dist(mouseX, mouseY, 920, 670) < 50 && money >= boatPrice[0] && !boatBought[0])
+    {
+      boatBought[0] = true;
+      money -= boatPrice[0];
+     }
+    
+    //Zay's Boat
+    if(dist(mouseX, mouseY, 1160, 670) < 50 && money >= boatPrice[1] && !boatBought[1])
+    {
+      boatBought[1] = true;
+      money -= boatPrice[1];
+    }
+    
+    if(dist(mouseX, mouseY, 1420, 670) < 50 && money >= boatPrice[2] && !boatBought[2])
+    {
+      boatBought[2] = true;
+      money -= boatPrice[2];
+    }
+     
+    }
 }

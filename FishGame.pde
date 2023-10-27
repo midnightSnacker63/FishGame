@@ -216,7 +216,7 @@ void keyPressed()
   }
   if (key == 'm' )//add money
   {
-    money += 100;
+    money += 100000;
   }
   if (key == '1' )//add money
   {
@@ -275,5 +275,6 @@ void mousePressed()
   {
     s.buyRod();
     s.buyHook();
+    s.buyBoat();
   }
 }
