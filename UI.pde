@@ -417,7 +417,8 @@ class UI
   }
   void drawInventory()
   {
-w
+    background(inventoryBack);
+    
     push();
     textAlign(CENTER);
     textSize(100);
@@ -464,8 +465,7 @@ w
     {
       text("selected",width-430,380);
     }
-    
-    
+
     pop();
     //image()
     pop();
