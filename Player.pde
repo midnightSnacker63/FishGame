@@ -11,6 +11,7 @@ class Player
   boolean movingLeft;
   boolean movingRight;
   
+  
   public Player( float x, float y, float s )
   {
     xPos = x;
@@ -20,7 +21,35 @@ class Player
   void drawPlayer()
   {
     imageMode(CENTER);
-    image(boat, xPos,yPos-35-r.yPos+height/2);  
+    
+    
+    
+  
+    // Josh's Boat
+    if (boats == 0)
+    {
+      defBoat = false;
+      image(boat, xPos,yPos-35-r.yPos+height/2);  
+    }
+      
+    // Zay's Boat
+    if (boatBought[1] == true)
+    {
+      defBoat = false;
+      image(zBoat, xPos,yPos-35-r.yPos+height/2);  
+    }
+      
+    //Erick's boat
+    if (boatBought[2] == true)
+    {
+      defBoat = false;
+      image(eBoat, xPos,yPos-35-r.yPos+height/2);     
+    }
+    
+    if (defBoat == true);
+    {
+      image(boat, xPos,yPos-35-r.yPos+height/2);
+    }
   }
   void movePlayer()
   {

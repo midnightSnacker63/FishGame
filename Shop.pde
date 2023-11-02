@@ -3,7 +3,7 @@ class Shop
   boolean rodBought[] = {false,false,false,false,false};
   boolean hookBought[] = {false,false,false,false,false};
   
-  boolean boatBought[] = {false, false, false};
+  
   int boatPrice[] = {10000,100000,15000};
   
   int hookPrice[] = {10,50,75,100,150};
@@ -104,8 +104,10 @@ class Shop
       money -= boatPrice[1];
     }
     
+    //Erick's Boat
     if(dist(mouseX, mouseY, 1420, 670) < 50 && money >= boatPrice[2] && !boatBought[2])
     {
+      defBoat = false;
       boatBought[2] = true;
       money -= boatPrice[2];
     }

@@ -10,17 +10,23 @@
 int fishCount = 500;
 int money = 0;
 int maxStars = 100;
+int boats = 0;
 
 boolean started = false;
 boolean shopping = false;
 boolean inAquarium = false;
 boolean onTitle = true;
 boolean inGame = false;
+boolean boatBought[] = {false, false, false};
+boolean defBoat = true;
 
 PImage moon;
 PImage aquarium;
 PImage lock;
 PImage boat;
+PImage eBoat;
+PImage zBoat;
+PImage jBoat;
 PImage fishPic[] = new PImage[100];
 PImage hook;
 PImage rod;
@@ -77,6 +83,13 @@ void setup()
   moon.resize(150, 150);
   boat = loadImage("boat2.png");
   boat.resize(240, 160);
+  
+  eBoat = loadImage("eboat.png");
+  eBoat.resize(440, 360);
+  
+  zBoat = loadImage("zboat.png");
+  zBoat.resize(240, 160);
+  
   hook = loadImage("hook.png");
   hook.resize(60,0);
   rod = loadImage("rod.png");
