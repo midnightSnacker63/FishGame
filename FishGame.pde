@@ -10,15 +10,15 @@
 int fishCount = 500;
 int money = 0;
 int maxStars = 100;
-int boats = 0;
+int boats = 1;
 
 boolean started = false;
 boolean shopping = false;
 boolean inAquarium = false;
 boolean onTitle = true;
 boolean inGame = false;
-boolean boatBought[] = {false, false, false};
-boolean defBoat = true;
+boolean inInventory = false;
+
 
 PImage moon;
 PImage aquarium;
@@ -48,6 +48,7 @@ Player p;
 Shop s;
 Aquarium a;
 SaveGame S;
+Inventory i;
 void setup()
 {
   size(1600, 900);
@@ -59,6 +60,7 @@ void setup()
   s = new Shop();
   a = new Aquarium();
   S = new SaveGame();
+  i = new Inventory();
   for (int i = 0; i < maxStars; i++ )
   {
     starX[currentDot] = int(random(width));
@@ -132,6 +134,7 @@ void draw()
   }
   if (started && inGame)// what to do when game starts
   {
+    u.drawStars();
     p.drawPlayer();
     p.movePlayer();
     u.drawGame();
@@ -158,7 +161,6 @@ void draw()
           if(!a.unlocked[f.fishType-1])
           {
             a.somethingNew = true;
-            
           }
           a.unlocked[f.fishType-1] = true;
           println(f.fishType);
@@ -172,7 +174,6 @@ void draw()
       {
         sellReports.remove(i);
       }
-      
     }
     r.drawRod();// draws fishing rod
     r.move();//moves fishing rod
@@ -190,6 +191,10 @@ void draw()
   {
     u.drawAqua();
  
+  }
+  if( inInventory && !inGame)
+  {
+    u.drawInventory();
   }
   //r.drop();
   //debug stuff
@@ -247,6 +252,14 @@ void keyPressed()
     S.loadGame();
     println("loaded");
   }
+  if (key == 'o' )//add money
+  {
+    boats++;
+  }
+  if (key == 'p' )//add money
+  {
+    boats--;
+  }
 }
 void keyReleased()
 {
@@ -269,7 +282,7 @@ void keyReleased()
 }
 void mousePressed()
 {
-  if ( dist(mouseX, mouseY, width-50, 150) < 25 && started && !shopping && !inAquarium)//open shop
+  if ( dist(mouseX, mouseY, width-50, 150) < 25 && started && !shopping && !inAquarium && !inInventory)//open shop
   {
     shopping = true;
     inGame = false;
@@ -279,7 +292,7 @@ void mousePressed()
     shopping = false;
     inGame = true;
   }
-  if ( dist(mouseX, mouseY, width-50, 250) < 25 && started && !inAquarium && !shopping)//open aquarium
+  if ( dist(mouseX, mouseY, width-50, 250) < 25 && started && !inAquarium && !shopping && !inInventory)//open aquarium
   {
     inGame = false;
     inAquarium = true;
@@ -290,10 +303,24 @@ void mousePressed()
     inGame = true;
     inAquarium = false;
   }
+  if ( dist(mouseX, mouseY, width-50, 350) < 25 && started && !inAquarium && !shopping && !inInventory)//open inventory
+  {
+    inGame = false;
+    inInventory = true;
+  }
+  if ( dist(mouseX, mouseY, width-50, 50) < 25 && started && inInventory)//close inventory
+  {
+    inGame = true;
+    inInventory = false;
+  }
   if ( shopping )
   {
     s.buyRod();
     s.buyHook();
     s.buyBoat();
+  }
+  if(inInventory)
+  {
+    i.selectBoat();
   }
 }

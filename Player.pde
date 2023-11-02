@@ -21,34 +21,25 @@ class Player
   void drawPlayer()
   {
     imageMode(CENTER);
-    
-    
-    
-  
-    // Josh's Boat
-    if (boats == 0)
-    {
-      defBoat = false;
-      image(boat, xPos,yPos-35-r.yPos+height/2);  
-    }
-      
-    // Zay's Boat
-    if (boatBought[1] == true)
-    {
-      defBoat = false;
-      image(zBoat, xPos,yPos-35-r.yPos+height/2);  
-    }
-      
-    //Erick's boat
-    if (boatBought[2] == true)
-    {
-      defBoat = false;
-      image(eBoat, xPos,yPos-35-r.yPos+height/2);     
-    }
-    
-    if (defBoat == true);
+    //default boat
+    if (boats == 1)
     {
       image(boat, xPos,yPos-35-r.yPos+height/2);
+    }
+    // Josh's Boat
+    else if(boats == 2)
+    {
+      image(boat, xPos,yPos-35-r.yPos+height/2);  
+    }
+    // Zay's Boat
+    else if (boats == 3)
+    {
+      image(zBoat, xPos,yPos-35-r.yPos+height/2);  
+    }
+    //Erick's boat
+    else if (boats == 4)
+    {
+      image(eBoat, xPos,yPos-15-r.yPos+height/2);     
     }
   }
   void movePlayer()

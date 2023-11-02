@@ -42,13 +42,8 @@ class UI
     text("press 'ENTER' to start",530,800);
     GameName();
   }
-  
-  void drawGame()
+  void drawStars()
   {
-    fill(0,0,255);//draws water
-    rect(0,400-r.yPos+height/2,width,height+r.maxDepth);
-    
-    
     //draws stars
     fill(255);
     for(int i = 0; i < maxStars; i++ )
@@ -56,7 +51,11 @@ class UI
      circle(starX[i],starY[i]-r.yPos+height/2,5);
      currentDot++;
     }
-    
+  }
+  void drawGame()
+  {
+    fill(0,0,255);//draws water
+    rect(0,400-r.yPos+height/2,width,height+r.maxDepth);
     //draws moon
     imageMode(CENTER);  
     fill(233,233,197);//draws moon
@@ -69,6 +68,7 @@ class UI
     fill(255);
     circle(width - 50,150,50);// the shop button
     circle(width - 50,250,50);// the aquarium button
+    circle(width - 50,350,50);// inventory button
     if(a.somethingNew)
     {
       text("!",width - 80,260);
@@ -77,6 +77,7 @@ class UI
     textSize(17);
     text("Shop",width - 50, 155);  
     text("Aqua",width - 50, 255); 
+    text("bag",width - 50, 355); 
     for(int i = 0; i < 10;i++)// dark bottom fade
     {
       fill(0,0,255-i*30);
@@ -413,5 +414,73 @@ class UI
     rectMode(CORNER);
     //debug placholders below
     
+  }
+  void drawInventory()
+  {
+    background(160,120,10);
+    
+    push();
+    textAlign(CENTER);
+    textSize(100);
+    fill(0);
+    text("boats",width/2,100);
+    text("hooks",width/2,500);
+    pop();
+    
+    fill(255);
+    circle(width - 50,50,50);
+    fill(0);
+    //boats
+    circle(400,300,200);
+    circle(650,300,200);
+    circle(width-650,300,200);
+    circle(width-400,300,200);
+    push();
+    imageMode(CENTER);
+    image(boat,410,280);
+    if(s.boatBought[1])
+    {
+      image(zBoat,width-660,300);
+    }
+    
+    if(s.boatBought[2])
+    {
+      image(eBoat,width-400,300);
+    }
+    push();
+    fill(255);
+    if(boats == 1)
+    {
+      text("selected",370,380);
+    }
+    if(boats == 2)
+    {
+      text("selected",620,380);
+    }
+    if(boats == 3)
+    {
+      text("selected",width-680,380);
+    }
+    if(boats == 4)
+    {
+      text("selected",width-430,380);
+    }
+    
+    
+    pop();
+    //image()
+    pop();
+    //hooks
+    circle(400,700,200);
+    circle(650,700,200);
+    circle(width-650,700,200);
+    circle(width-400,700,200);
+
+    push();
+    textSize(17);
+    fill(0);
+    textAlign(CENTER);
+    text("Leave",width - 50, 55);
+    pop();
   }
 }

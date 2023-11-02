@@ -25,6 +25,10 @@ void saveGame()
     pw.println(s.rodBought[2]);
     pw.println(s.rodBought[3]);
     pw.println(s.rodBought[4]);
+    pw.println(s.boatBought[0]);
+    pw.println(s.boatBought[1]);
+    pw.println(s.boatBought[2]);
+    
 
     println("game saved");
     pw.flush();
@@ -59,6 +63,9 @@ void loadGame()
      s.rodBought[2] = Boolean.parseBoolean(data[15]);
      s.rodBought[3] = Boolean.parseBoolean(data[16]);
      s.rodBought[4] = Boolean.parseBoolean(data[17]);
+     s.boatBought[0] = Boolean.parseBoolean(data[18]);
+     s.boatBought[1] = Boolean.parseBoolean(data[19]);
+     s.boatBought[2] = Boolean.parseBoolean(data[20]);
   }
   catch(Exception e)
   {
