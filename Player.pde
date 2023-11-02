@@ -34,12 +34,12 @@ class Player
     // Zay's Boat
     else if (boats == 3)
     {
-      image(zBoat, xPos,yPos-35-r.yPos+height/2);  
+      image(zBoat, xPos,yPos-r.yPos+height/2);  
     }
     //Erick's boat
     else if (boats == 4)
     {
-      image(eBoat, xPos,yPos-15-r.yPos+height/2);     
+      image(eBoat, xPos,yPos-10-r.yPos+height/2);     
     }
   }
   void movePlayer()
