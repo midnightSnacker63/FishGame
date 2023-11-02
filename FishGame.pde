@@ -30,6 +30,7 @@ PImage jBoat;
 PImage fishPic[] = new PImage[100];
 PImage hook;
 PImage rod;
+PImage inventoryBack;
 
 int starX [] = new int [maxStars];
 int starY [] = new int [maxStars];
@@ -79,6 +80,10 @@ void setup()
   //load images
   aquarium = loadImage("coral-reef.png");
   aquarium.resize(2400, 900);
+  
+  inventoryBack = loadImage("bagBackground.png");
+  inventoryBack.resize(width,height);
+  
   lock = loadImage("lock.png");
   lock.resize(50, 50);
   moon = loadImage("moon.png");

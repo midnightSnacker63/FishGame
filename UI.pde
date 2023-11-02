@@ -417,8 +417,7 @@ class UI
   }
   void drawInventory()
   {
-    background(160,120,10);
-    
+w
     push();
     textAlign(CENTER);
     textSize(100);
