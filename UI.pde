@@ -98,7 +98,11 @@ class UI
     textSize(200);
     fill(0);
     text("SHOP",550,175);
-   
+    push();
+    imageMode(CENTER);
+    image(fishPic[5],width/2,height/2.5);
+    image(shopCounterTop,width/2,height/2);
+    pop();
     textSize(100);  
     text("RODS",100,300);
     text("HOOKS",450,300);

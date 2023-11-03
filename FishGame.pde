@@ -31,6 +31,7 @@ PImage fishPic[] = new PImage[100];
 PImage hook;
 PImage rod;
 PImage inventoryBack;
+PImage shopCounterTop;
 
 int starX [] = new int [maxStars];
 int starY [] = new int [maxStars];
@@ -100,6 +101,9 @@ void setup()
   jBoat = loadImage("tugBoat.png");
   jBoat.resize(176,128);
   
+  shopCounterTop = loadImage("shopCounter.png");
+  shopCounterTop.resize(1600,900);
+  
   hook = loadImage("hook.png");
   hook.resize(60,0);
   rod = loadImage("rod.png");
@@ -121,7 +125,7 @@ void setup()
   fishPic[2].resize(65,0);
   fishPic[3].resize(65,0);
   fishPic[4].resize(65,0);
-  fishPic[5].resize(65,0);
+  fishPic[5].resize(650,0);
   fishPic[6].resize(75,0);
   fishPic[7].resize(60,0);
   fishPic[8].resize(65,0);
