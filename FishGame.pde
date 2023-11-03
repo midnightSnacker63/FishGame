@@ -97,6 +97,9 @@ void setup()
   zBoat = loadImage("zboat.png");
   zBoat.resize(240, 160);
   
+  jBoat = loadImage("tugBoat.png");
+  jBoat.resize(176,128);
+  
   hook = loadImage("hook.png");
   hook.resize(60,0);
   rod = loadImage("rod.png");

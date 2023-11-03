@@ -438,12 +438,16 @@ class UI
     push();
     imageMode(CENTER);
     image(boat,410,280);
-    if(s.boatBought[1])
+    if(s.boatBought[0])//zays
+    {
+      image(jBoat,650,300);
+    }
+    if(s.boatBought[1])//zays
     {
       image(zBoat,width-660,300);
     }
     
-    if(s.boatBought[2])
+    if(s.boatBought[2])//ericks
     {
       image(eBoat,width-400,300);
     }

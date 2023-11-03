@@ -118,6 +118,7 @@ class Rod
         
         println("on "+fishOnHook);
         println("max "+maxFish);
+        return;
       }
     }
   }

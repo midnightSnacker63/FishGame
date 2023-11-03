@@ -29,7 +29,7 @@ class Player
     // Josh's Boat
     else if(boats == 2)
     {
-      image(boat, xPos,yPos-35-r.yPos+height/2);  
+      image(jBoat, xPos-10,yPos-30-r.yPos+height/2);  
     }
     // Zay's Boat
     else if (boats == 3)
