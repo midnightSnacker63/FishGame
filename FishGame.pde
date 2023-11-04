@@ -19,7 +19,6 @@ boolean onTitle = true;
 boolean inGame = false;
 boolean inInventory = false;
 
-
 PImage moon;
 PImage aquarium;
 PImage lock;
@@ -217,7 +216,7 @@ void draw()
 }
 void keyPressed()
 {
-  if (key == ENTER)//starts the game
+  if (key == ENTER && !started)//starts the game
   {
     started = true;
     onTitle = false;
@@ -330,6 +329,7 @@ void mousePressed()
     s.buyRod();
     s.buyHook();
     s.buyBoat();
+    s.swapPage();
   }
   if(inInventory)
   {

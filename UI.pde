@@ -103,201 +103,226 @@ class UI
     image(fishPic[5],width/2,height/2.5);
     image(shopCounterTop,width/2,height/2);
     pop();
+    
     textSize(100);  
-    text("RODS",100,300);
-    text("HOOKS",450,300);
-    text("POWER-UPS", 850, 300);
-    text("BOATS", 850, 550);
-   
-    //RODS
-    textSize(50);
-    // rod 1
-    fill(0);
-    rect(160,340,100,100,50);
+    push();
     fill(255);
-    if(!s.rodBought[0])//if not bought
+    textAlign(CENTER);
+    if(s.shopPage == 1)//first page
     {
-      text(s.rodPrice[0],175,400);
+      text("RODS",450,630);
+      text("HOOKS",width-450,630);
+        //RODS
+      textSize(50);
+      // rod 1
+      fill(0);
+      rect(150,700,100,100,50);
+      fill(255);
+      push();
+      textAlign(CENTER);
+      if(!s.rodBought[0])//if not bought
+      {
+        text(s.rodPrice[0],200,765);
+      }
+      if(s.rodBought[0])//if bought
+      {
+        text("bought",200,765);
+      }
+      // rod 2
+      fill(0);
+      rect(275,700,100,100,50);
+      fill(255);
+      if(!s.rodBought[1])//if not bought
+      {
+        text(s.rodPrice[1],325,765);
+      }
+      if(s.rodBought[1])//if bought
+      {
+        text("bought",325,765);
+      }
+      // rod 3
+      fill(0);
+      rect(400,700,100,100,50);
+      fill(255);
+      if(!s.rodBought[2])//if not bought
+      {
+        text(s.rodPrice[2],450,765);
+      }
+      if(s.rodBought[2])//if bought
+      {
+        text("bought",450,765);
+      }
+     
+      // rod 4
+      fill(0);
+      rect(525,700,100,100,50);
+      fill(255);
+      if(!s.rodBought[3])//if not bought
+      {
+        text(s.rodPrice[3],575,765);  
+      }
+      if(s.rodBought[3])//if bought
+      {
+        text("bought",575,765);
+      }
+     
+      // rod 5
+      fill(0);
+      rect(650,700,100,100,50);
+      fill(255);
+      if(!s.rodBought[4])//if not bought
+      {
+        text(s.rodPrice[4],700,765);
+      }
+      if(s.rodBought[4])//if bought
+      {
+        text("bought",700,765);
+      }
+     
+      //HOOKS
+      //hook 1
+      fill(0);
+      rect(850,700,100,100,50);
+      fill(255);
+      if(!s.hookBought[0])//if not bought
+      {
+        text(s.hookPrice[0],900,765);
+      }
+      if(s.hookBought[0])//if bought
+      {
+        text("bought",900,765);
+      }
+      //hook 2
+      fill(0);
+      rect(975,700,100,100,50);
+      fill(255);
+      if(!s.hookBought[1])//if not bought
+      {
+        text(s.hookPrice[1],1025,765);
+      }
+      if(s.hookBought[1])//if bought
+      {
+        text("bought",1025,765);
+      }
+      //hook 3
+      fill(0);
+      rect(1100,700,100,100,50);
+      fill(255);
+      if(!s.hookBought[2])//if not bought
+      {
+        text(s.hookPrice[2],1150,765);
+      }
+      if(s.hookBought[2])//if bought
+      {
+        text("bought",1150,765);
+      }
+      //hook 4
+      fill(0);
+      rect(1225,700,100,100,50);
+      fill(255);
+      if(!s.hookBought[3])//if bought
+      {
+        text(s.hookPrice[3],1275,765);
+      }
+      if(s.hookBought[3])//if bought
+      {
+        text("bought",1275,765);
+      }
+      //hook 5
+      fill(0);
+      rect(1350,700,100,100,50);
+      fill(255);
+      if(!s.hookBought[4])//if bought
+      {
+        text(s.hookPrice[4],1400,765);
+      }
+      if(s.hookBought[4])//if bought
+      {
+        text("bought",1400,765);
+      }
+      pop();
     }
-    if(s.rodBought[0])//if bought
+    if(s.shopPage == 2)
     {
-      text("bought",175,400);
-    }
-    // rod 2
-    fill(0);
-    rect(160,440,100,100,50);
-    fill(255);
-    if(!s.rodBought[1])//if not bought
+      push();
+      text("POWER-UPS", width/2, 630);
+      textSize(20);
+      //Powerup 1
+      fill(0);
+      rect(900,340,100,100,50);
+      fill(255);
+      
+      text("×2 Speed", 905,380);
+      text("$2000",920,410);
+      
+      //Powerup 2
+      fill(0);
+      rect(1050,340,100,100,50);
+      fill(255);
+      
+      text("×2 Money", 1058,380);
+      text("$3000",1070 ,410);
+      
+      //Powerup 3
+      fill(0);
+      rect(1200,340,100,100,50);
+      fill(255);
+      
+      text("×2 Fish Cap.", 1205,380);
+      text("$2000",1220 ,410);
+      
+      //Powerup 4
+      fill(0);
+      rect(1350,340,100,100,50);
+      fill(255);
+      
+      text("TBA", 1365,380);
+      text("??",1370 ,410);
+      pop();
+      }
+    if(s.shopPage == 3)
     {
-      text(s.rodPrice[1],175,500);
-    }
-    if(s.rodBought[1])//if bought
-    {
-      text("bought",175,500);
-    }
-    // rod 3
-    fill(0);
-    rect(160,540,100,100,50);
-    fill(255);
-    if(!s.rodBought[2])//if not bought
-    {
-      text(s.rodPrice[2],175,600);
-    }
-    if(s.rodBought[2])//if bought
-    {
-      text("bought",175,600);
-    }
-   
-    // rod 4
-    fill(0);
-    rect(160,640,100,100,50);
-    fill(255);
-    if(!s.rodBought[3])//if bought
-    {
-      text(s.rodPrice[3],175,700);  
-    }
-    if(s.rodBought[3])//if bought
-    {
-      text("bought",175,700);
-    }
-   
-    // rod 5
-    fill(0);
-    rect(160,740,100,100,50);
-    fill(255);
-    if(!s.rodBought[4])//if bought
-    {
-      text(s.rodPrice[4],175,800);
-    }
-    if(s.rodBought[4])//if bought
-    {
-      text("bought",175,800);
-    }
-   
-    //HOOKS
-    //hook 1
-    fill(0);
-    rect(575,340,100,100,50);
-    fill(255);
-    if(!s.hookBought[0])//if bought
-    {
-      text("10",600,400);
-    }
-    if(s.hookBought[0])//if bought
-    {
-      text("bought",600,400);
-    }
-    //hook 2
-    fill(0);
-    rect(575,440,100,100,50);
-    fill(255);
-    if(!s.hookBought[1])//if bought
-    {
-      text("50",600,500);
-    }
-    if(s.hookBought[1])//if bought
-    {
-      text("bought",600,500);
-    }
-    //hook 3
-    fill(0);
-    rect(575,540,100,100,50);
-    fill(255);
-    if(!s.hookBought[2])//if bought
-    {
-      text("75",600,600);
-    }
-    if(s.hookBought[2])//if bought
-    {
-      text("bought",600,600);
-    }
-    //hook 4
-    fill(0);
-    rect(575,640,100,100,50);
-    fill(255);
-    if(!s.hookBought[3])//if bought
-    {
-      text("100",600,700);
-    }
-    if(s.hookBought[3])//if bought
-    {
-      text("bought",600,700);
-    }
-    //hook 5
-    fill(0);
-    rect(575,740,100,100,50);
-    fill(255);
-    if(!s.hookBought[4])//if bought
-    {
-      text("150",600,800);
-    }
-    if(s.hookBought[4])//if bought
-    {
-      text("bought",600,800);
+      text("BOATS", width/2, 630);
+      textSize(20);
+      //Boats
+      //Josh's Boat
+      fill(0);
+      rect(400,700,100,100,50);
+      fill(255);
+      
+      text("Josh's Boat", 900,650);
+      text("$10,000",920 ,670);
+      
+       //Zayvein's Boat
+      fill(0);
+      rect(800,700,100,100,50);
+      fill(255);
+      
+      text("Zays's Boat", 1150,650);
+      text("$100,000",1160 ,670);
+      
+      //Erick's Boat
+      fill(0);
+      rect(1200,700,100,100,50);
+      fill(255);
+      
+      text("Erick's Boat", 1400,650);
+      text("$15,000",1420 ,670);
     }
     
-    textSize(20);
-    //Powerup 1
-    fill(0);
-    rect(900,340,100,100,50);
-    fill(255);
+    pop();
     
-    text("×2 Speed", 905,380);
-    text("$2000",920,410);
-    
-    //Powerup 2
-    fill(0);
-    rect(1050,340,100,100,50);
-    fill(255);
-    
-    text("×2 Money", 1058,380);
-    text("$3000",1070 ,410);
-    
-    //Powerup 3
-    fill(0);
-    rect(1200,340,100,100,50);
-    fill(255);
-    
-    text("×2 Fish Cap.", 1205,380);
-    text("$2000",1220 ,410);
-    
-    //Powerup 4
-    fill(0);
-    rect(1350,340,100,100,50);
-    fill(255);
-    
-    text("TBA", 1365,380);
-    text("??",1370 ,410);
-    
-    //Boats
-    //Josh's Boat
-    fill(0);
-    rect(900,600,100,100,50);
-    fill(255);
-    
-    text("Josh's Boat", 900,650);
-    text("$10,000",920 ,670);
-    
-     //Zayvein's Boat
-    fill(0);
-    rect(1150,600,100,100,50);
-    fill(255);
-    
-    text("Zays's Boat", 1150,650);
-    text("$100,000",1160 ,670);
-    
-    //Erick's Boat
-    fill(0);
-    rect(1400,600,100,100,50);
-    fill(255);
-    
-    text("Erick's Boat", 1400,650);
-    text("$15,000",1420 ,670);
-    
-    //
     fill(255);
     circle(width - 50,50,50);// the leave shop button
+    if(s.shopPage != 3)
+    {
+      circle(width-50,height-50, 50);//next page
+    }
     
+    if(s.shopPage != 1)
+    {
+      circle(width-150,height-50, 50);//previous page
+    }
     textSize(30);
     text("$"+money,30,50);//your cash
     textAlign(CENTER);
