@@ -31,6 +31,8 @@ PImage hook;
 PImage rod;
 PImage inventoryBack;
 PImage shopCounterTop;
+PImage shopArrows[] = new PImage[2];
+PImage shopBackground;
 
 int starX [] = new int [maxStars];
 int starY [] = new int [maxStars];
@@ -103,10 +105,19 @@ void setup()
   shopCounterTop = loadImage("shopCounter.png");
   shopCounterTop.resize(1600,900);
   
+  shopBackground = loadImage("shopBackground.png");
+  shopBackground.resize(width,0);
+  
   hook = loadImage("hook.png");
   hook.resize(60,0);
   rod = loadImage("rod.png");
   rod.resize(130,170);
+  
+  shopArrows[0] = loadImage("arrowleft.png");
+  shopArrows[0].resize(75,0);
+  shopArrows[1] = loadImage("arrow.png");
+  shopArrows[1].resize(75,0);
+  
   fishPic[0] = loadImage("fish.png");
   fishPic[1] = loadImage("yellowFish.png");
   fishPic[2] = loadImage("blueFish.png");

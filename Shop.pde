@@ -6,7 +6,7 @@ class Shop
 
 
   int boatPrice[] = {10000, 100000, 15000};
-  int hookPrice[] = {75, 150, 250, 500, 1000};
+  int hookPrice[] = {50, 150, 250, 500, 1000};
   int rodPrice[] = {100, 500, 750, 1000, 1500};
 
   int shopPage = 1;
@@ -53,35 +53,35 @@ class Shop
   }
   void buyHook()
   {
-    if (dist(mouseX, mouseY, 625, 750) < 50 && money >= hookPrice[0] && !hookBought[0] && shopPage == 1)
+    if (dist(mouseX, mouseY, 900, 750) < 50 && money >= hookPrice[0] && !hookBought[0] && shopPage == 1)
     {
       hookBought[0] = true;
       money -= hookPrice[0];
       r.hookLevel += 1;//adds level
     }
     //                                                        if not bought     if bought previous
-    if (dist(mouseX, mouseY, 625, 750) < 50 && money >= hookPrice[1] && !hookBought[1] && hookBought[0] && shopPage == 1)
+    if (dist(mouseX, mouseY, 1025, 750) < 50 && money >= hookPrice[1] && !hookBought[1] && hookBought[0] && shopPage == 1)
     {
       hookBought[1] = true;
       money -= hookPrice[1];
       r.hookLevel += 1;//adds level
     }
     //                                                        if not bought    if bought previous
-    if (dist(mouseX, mouseY, 625, 750) < 50 && money >= hookPrice[2] && !hookBought[2] && hookBought[1] && shopPage == 1)
+    if (dist(mouseX, mouseY, 1150, 750) < 50 && money >= hookPrice[2] && !hookBought[2] && hookBought[1] && shopPage == 1)
     {
       hookBought[2] = true;
       money -= hookPrice[2];
       r.hookLevel += 1;//adds level
     }
     //                                                         if not bought    if bought previous
-    if (dist(mouseX, mouseY, 625, 750) < 50 && money >= hookPrice[3] && !hookBought[3] && hookBought[2] && shopPage == 1)
+    if (dist(mouseX, mouseY, 1275, 750) < 50 && money >= hookPrice[3] && !hookBought[3] && hookBought[2] && shopPage == 1)
     {
       hookBought[3] = true;
       money -= hookPrice[3];
       r.hookLevel += 1;//adds level
     }
     //                                                         if not bought    if bought previous
-    if (dist(mouseX, mouseY, 625, 750) < 50 && money >= hookPrice[4] && !hookBought[4] && hookBought[3] && shopPage == 1)
+    if (dist(mouseX, mouseY, 1400, 750) < 50 && money >= hookPrice[4] && !hookBought[4] && hookBought[3] && shopPage == 1)
     {
       hookBought[4] = true;
       money -= hookPrice[4];
@@ -92,21 +92,21 @@ class Shop
   void buyBoat()
   {
     //Josh's Boat
-    if (dist(mouseX, mouseY, 920, 670) < 50 && money >= boatPrice[0] && !boatBought[0] && shopPage == 3)
+    if (dist(mouseX, mouseY, 450, 750) < 50 && money >= boatPrice[0] && !boatBought[0] && shopPage == 3)
     {
       boatBought[0] = true;
       money -= boatPrice[0];
     }
 
     //Zay's Boat
-    if (dist(mouseX, mouseY, 1160, 670) < 50 && money >= boatPrice[1] && !boatBought[1] && shopPage == 3)
+    if (dist(mouseX, mouseY, 800, 750) < 50 && money >= boatPrice[1] && !boatBought[1] && shopPage == 3)
     {
       boatBought[1] = true;
       money -= boatPrice[1];
     }
 
     //Erick's Boat
-    if (dist(mouseX, mouseY, 1420, 670) < 50 && money >= boatPrice[2] && !boatBought[2] && shopPage == 3)
+    if (dist(mouseX, mouseY, 1100, 750) < 50 && money >= boatPrice[2] && !boatBought[2] && shopPage == 3)
     {
       boatBought[2] = true;
       money -= boatPrice[2];

@@ -126,7 +126,10 @@ class UI
       }
       if(s.rodBought[0])//if bought
       {
-        text("bought",200,765);
+        push();
+        textSize(30);
+        text("bought",200,760);
+        pop();
       }
       // rod 2
       fill(0);
@@ -138,7 +141,10 @@ class UI
       }
       if(s.rodBought[1])//if bought
       {
-        text("bought",325,765);
+        push();
+        textSize(30);
+        text("bought",325,760);
+        pop();
       }
       // rod 3
       fill(0);
@@ -150,7 +156,10 @@ class UI
       }
       if(s.rodBought[2])//if bought
       {
-        text("bought",450,765);
+        push();
+        textSize(30);
+        text("bought",450,760);
+        pop();
       }
      
       // rod 4
@@ -163,7 +172,10 @@ class UI
       }
       if(s.rodBought[3])//if bought
       {
-        text("bought",575,765);
+        push();
+        textSize(30);
+        text("bought",575,760);
+        pop();
       }
      
       // rod 5
@@ -176,7 +188,10 @@ class UI
       }
       if(s.rodBought[4])//if bought
       {
-        text("bought",700,765);
+        push();
+        textSize(30);
+        text("bought",700,760);
+        pop();
       }
      
       //HOOKS
@@ -190,7 +205,10 @@ class UI
       }
       if(s.hookBought[0])//if bought
       {
-        text("bought",900,765);
+        push();
+        textSize(30);
+        text("bought",900,760);
+        pop();
       }
       //hook 2
       fill(0);
@@ -202,7 +220,10 @@ class UI
       }
       if(s.hookBought[1])//if bought
       {
-        text("bought",1025,765);
+        push();
+        textSize(30);
+        text("bought",1025,760);
+        pop();
       }
       //hook 3
       fill(0);
@@ -214,7 +235,10 @@ class UI
       }
       if(s.hookBought[2])//if bought
       {
-        text("bought",1150,765);
+        push();
+        textSize(30);
+        text("bought",1150,760);
+        pop();
       }
       //hook 4
       fill(0);
@@ -226,7 +250,10 @@ class UI
       }
       if(s.hookBought[3])//if bought
       {
-        text("bought",1275,765);
+        push();
+        textSize(30);
+        text("bought",1275,760);
+        pop();
       }
       //hook 5
       fill(0);
@@ -238,7 +265,10 @@ class UI
       }
       if(s.hookBought[4])//if bought
       {
-        text("bought",1400,765);
+        push();
+        textSize(30);
+        text("bought",1400,760);
+        pop();
       }
       pop();
     }
@@ -282,32 +312,61 @@ class UI
       }
     if(s.shopPage == 3)
     {
+      push();
       text("BOATS", width/2, 630);
+      textAlign(CENTER);
       textSize(20);
       //Boats
       //Josh's Boat
       fill(0);
       rect(400,700,100,100,50);
       fill(255);
-      
-      text("Josh's Boat", 900,650);
-      text("$10,000",920 ,670);
-      
+      if(!s.boatBought[0])
+      {
+        text("Josh's Boat", 450,750);
+        text("$10,000",450 ,775);
+      }
+      if(s.boatBought[0])
+      {
+        push();
+        textSize(30);
+        text("bought",450,760);
+        pop();
+      }
        //Zayvein's Boat
       fill(0);
-      rect(800,700,100,100,50);
+      rect(750,700,100,100,50);
       fill(255);
-      
-      text("Zays's Boat", 1150,650);
-      text("$100,000",1160 ,670);
-      
+      if(!s.boatBought[1])
+      {
+        text("Zay's Boat", 800,750);
+        text("$100,000",800 ,775);
+      }
+      if(s.boatBought[1])
+      {
+        push();
+        textSize(30);
+        text("bought",800,760);
+        pop();
+      }
       //Erick's Boat
       fill(0);
-      rect(1200,700,100,100,50);
+      rect(1050,700,100,100,50);
       fill(255);
+      if(!s.boatBought[2])
+      {
+        text("Erick's Boat", 1100,750);
+        text("$15,000",1100 ,775);
+      }
+      if(s.boatBought[2])
+      {
+        push();
+        textSize(30);
+        text("bought",1100,760);
+        pop();
+      }
       
-      text("Erick's Boat", 1400,650);
-      text("$15,000",1420 ,670);
+      pop();
     }
     
     pop();
@@ -316,12 +375,12 @@ class UI
     circle(width - 50,50,50);// the leave shop button
     if(s.shopPage != 3)
     {
-      circle(width-50,height-50, 50);//next page
+      image(shopArrows[1],width-50,height-50);//next page
     }
     
     if(s.shopPage != 1)
     {
-      circle(width-150,height-50, 50);//previous page
+      image(shopArrows[0],width-150,height-50);//previous page
     }
     textSize(30);
     text("$"+money,30,50);//your cash
