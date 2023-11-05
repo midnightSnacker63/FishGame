@@ -62,10 +62,40 @@ class UI
     fill(233,233,197);//draws moon
     image(moon,width-45,30-r.yPos+height/2);
     
+    for(int i = 0; i < 10;i++)// dark bottom fade
+    {
+      fill(0,0,255-i*30);
+      noStroke();
+      rect(0,6000+i*20-r.yPos+height/2,width,1000);
+    }
+    
+    rect(0,7000-r.yPos+height/2,width,10000);
+    stroke(1);
+    textAlign(CORNER);
+  }
+  void drawInfo()
+  {
+    fill(255);
+    if(r.underwater)
+    {
+      rect(20,r.yPos/7.1,10,10);
+    }
+    else
+    {
+      rect(20,56,10,10);
+    }
     textSize(30);
     image(cashIcon,1365,40);
     text(money,1385,50);//your money
-    text("current depth "+ (int)r.yPos/10,1350,80);//your current depth
+    if(r.underwater)
+    {
+      text("current depth "+ ((int)r.yPos-400)/10,1350,80);//your current depth
+    }
+    else
+    {
+      text("current depth 0",1350,80);//your current depth
+    }
+    
     textAlign(CENTER);
     fill(255);
     //circle(width - 50,150,50);// the shop button
@@ -84,29 +114,6 @@ class UI
     text("Shop",width - 50, 155);  
     
     text("bag",width - 50, 355); 
-   
-    for(int i = 0; i < 10;i++)// dark bottom fade
-    {
-      fill(0,0,255-i*30);
-      noStroke();
-      rect(0,6000+i*20-r.yPos+height/2,width,1000);
-    }
-    
-    rect(0,7000-r.yPos+height/2,width,10000);
-    stroke(1);
-    textAlign(CORNER);
-  }
-  void drawDepthMeter()
-  {
-    fill(255);
-    if(r.underwater)
-    {
-      rect(20,r.yPos/7.1,10,10);
-    }
-    else
-    {
-      rect(20,56,10,10);
-    }
   }
   void drawShop()
   {

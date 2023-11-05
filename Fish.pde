@@ -204,6 +204,10 @@ class Fish
     }
     
   }
+  void snapRod()
+  {
+    
+  }
 }
 public enum FishType
 {

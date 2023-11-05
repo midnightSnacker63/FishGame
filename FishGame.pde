@@ -216,7 +216,7 @@ void draw()
         sellReports.remove(i);
       }
     }
-    u.drawDepthMeter();
+    u.drawInfo();
     r.drawRod();// draws fishing rod
     r.move();//moves fishing rod
     r.reel();// reel fishing rod

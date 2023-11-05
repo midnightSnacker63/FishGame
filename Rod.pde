@@ -209,5 +209,12 @@ class Rod
     {
       //speedY-=0.6;
     }
+    
+    //if( abs(swingSpeed) < 0.001 && abs(rotation) < 0.01 )
+    if( abs(speedX) < 0.07 )//stops rod from doing a little wiggly wiggle
+    {
+      speedX = 0;
+    }
   }
+  
 }
