@@ -59,28 +59,28 @@ class Shop
       money -= hookPrice[0];
       r.hookLevel += 1;//adds level
     }
-    //                                                        if not bought     if bought previous
+    //                                                                 if not bought     if bought previous
     if (dist(mouseX, mouseY, 1025, 750) < 50 && money >= hookPrice[1] && !hookBought[1] && hookBought[0] && shopPage == 1)
     {
       hookBought[1] = true;
       money -= hookPrice[1];
       r.hookLevel += 1;//adds level
     }
-    //                                                        if not bought    if bought previous
+    //                                                                 if not bought    if bought previous
     if (dist(mouseX, mouseY, 1150, 750) < 50 && money >= hookPrice[2] && !hookBought[2] && hookBought[1] && shopPage == 1)
     {
       hookBought[2] = true;
       money -= hookPrice[2];
       r.hookLevel += 1;//adds level
     }
-    //                                                         if not bought    if bought previous
+    //                                                                 if not bought    if bought previous
     if (dist(mouseX, mouseY, 1275, 750) < 50 && money >= hookPrice[3] && !hookBought[3] && hookBought[2] && shopPage == 1)
     {
       hookBought[3] = true;
       money -= hookPrice[3];
       r.hookLevel += 1;//adds level
     }
-    //                                                         if not bought    if bought previous
+    //                                                                 if not bought    if bought previous
     if (dist(mouseX, mouseY, 1400, 750) < 50 && money >= hookPrice[4] && !hookBought[4] && hookBought[3] && shopPage == 1)
     {
       hookBought[4] = true;

@@ -54,6 +54,7 @@ class UI
   }
   void drawGame()
   {
+    
     fill(0,0,255);//draws water
     rect(0,400-r.yPos+height/2,width,height+r.maxDepth);
     //draws moon
@@ -62,31 +63,50 @@ class UI
     image(moon,width-45,30-r.yPos+height/2);
     
     textSize(30);
-    text("$"+money,30,50);//your money
-    text("current depth "+ (int)r.yPos/10,30,80);//your current depth
+    image(cashIcon,1365,40);
+    text(money,1385,50);//your money
+    text("current depth "+ (int)r.yPos/10,1350,80);//your current depth
     textAlign(CENTER);
     fill(255);
-    circle(width - 50,150,50);// the shop button
+    //circle(width - 50,150,50);// the shop button
+    image(storeIcon,width - 50, 150);
     circle(width - 50,250,50);// the aquarium button
-    circle(width - 50,350,50);// inventory button
+    image(sack,width - 50, 350);
+    //circle(width - 50,350,50);// inventory button
     if(a.somethingNew)
     {
       text("!",width - 80,260);
     }
     fill(0);
     textSize(17);
-    text("Shop",width - 50, 155);  
     text("Aqua",width - 50, 255); 
+    fill(255);
+    text("Shop",width - 50, 155);  
+    
     text("bag",width - 50, 355); 
+   
     for(int i = 0; i < 10;i++)// dark bottom fade
     {
       fill(0,0,255-i*30);
       noStroke();
       rect(0,6000+i*20-r.yPos+height/2,width,1000);
     }
+    
     rect(0,7000-r.yPos+height/2,width,10000);
     stroke(1);
     textAlign(CORNER);
+  }
+  void drawDepthMeter()
+  {
+    fill(255);
+    if(r.underwater)
+    {
+      rect(20,r.yPos/7.1,10,10);
+    }
+    else
+    {
+      rect(20,56,10,10);
+    }
   }
   void drawShop()
   {
@@ -279,35 +299,35 @@ class UI
       textSize(20);
       //Powerup 1
       fill(0);
-      rect(900,340,100,100,50);
+      rect(900,700,100,100,50);
       fill(255);
       
-      text("×2 Speed", 905,380);
-      text("$2000",920,410);
+      text("×2 Speed", 905,750);
+      text("$2000",920,775);
       
       //Powerup 2
       fill(0);
-      rect(1050,340,100,100,50);
+      rect(1050,700,100,100,50);
       fill(255);
       
-      text("×2 Money", 1058,380);
-      text("$3000",1070 ,410);
+      text("×2 Money", 1058,750);
+      text("$3000",1070 ,775);
       
       //Powerup 3
       fill(0);
-      rect(1200,340,100,100,50);
+      rect(1200,700,100,100,50);
       fill(255);
       
-      text("×2 Fish Cap.", 1205,380);
-      text("$2000",1220 ,410);
+      text("×2 Fish Cap.", 1205,750);
+      text("$2000",1220 ,775);
       
       //Powerup 4
       fill(0);
-      rect(1350,340,100,100,50);
+      rect(1350,700,100,100,50);
       fill(255);
       
-      text("TBA", 1365,380);
-      text("??",1370 ,410);
+      text("TBA", 1365,750);
+      text("??",1370 ,775);
       pop();
       }
     if(s.shopPage == 3)
@@ -372,7 +392,14 @@ class UI
     pop();
     
     fill(255);
-    circle(width - 50,50,50);// the leave shop button
+    if(dist(mouseX,mouseY,width-50,50) < 25)// the leave shop button
+    {
+      image(doorButton[1],width-50,55);
+    }
+    else
+    {
+      image(doorButton[0],width-50,50);
+    }
     if(s.shopPage != 3)
     {
       image(shopArrows[1],width-50,height-50);//next page
@@ -493,7 +520,15 @@ class UI
     //Return to Game Button
     fill(#C2B280);
     //rect(450,870,200,40);
-    circle(width - 50,50,50);
+    //circle(width - 50,50,50);
+    if(dist(mouseX,mouseY,width-50,50) < 25)// the leave aquarium button
+    {
+      image(doorButton[1],width-50,55);
+    }
+    else
+    {
+      image(doorButton[0],width-50,50);
+    }
     fill(255);
     //textSize(30);
     textSize(17);
@@ -514,9 +549,6 @@ class UI
     text("boats",width/2,100);
     text("hooks",width/2,500);
     pop();
-    
-    fill(255);
-    circle(width - 50,50,50);
     fill(0);
     //boats
     circle(400,300,200);
@@ -571,6 +603,14 @@ class UI
     textSize(17);
     fill(0);
     textAlign(CENTER);
+    if(dist(mouseX,mouseY,width-50,50) < 25)// the leave aquarium button
+    {
+      image(doorButton[1],width-50,55);
+    }
+    else
+    {
+      image(doorButton[0],width-50,50);
+    }
     text("Leave",width - 50, 55);
     pop();
   }

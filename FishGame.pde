@@ -33,6 +33,10 @@ PImage inventoryBack;
 PImage shopCounterTop;
 PImage shopArrows[] = new PImage[2];
 PImage shopBackground;
+PImage doorButton[] = new PImage[2];
+PImage sack;
+PImage cashIcon;
+PImage storeIcon;
 
 int starX [] = new int [maxStars];
 int starY [] = new int [maxStars];
@@ -113,10 +117,24 @@ void setup()
   rod = loadImage("rod.png");
   rod.resize(130,170);
   
+  sack = loadImage("Sack.png");
+  sack.resize(50,0);
+  
+  cashIcon = loadImage("coin.png");
+  cashIcon.resize(30,0);
+  
+  storeIcon = loadImage("cashIcon.png");
+  storeIcon.resize(50,0);
+  
   shopArrows[0] = loadImage("arrowleft.png");
   shopArrows[0].resize(75,0);
   shopArrows[1] = loadImage("arrow.png");
   shopArrows[1].resize(75,0);
+  
+  doorButton[0] = loadImage("doorClosed.png");
+  doorButton[0].resize(50,0);
+  doorButton[1] = loadImage("doorOpen.png");
+  doorButton[1].resize(50,0);
   
   fishPic[0] = loadImage("fish.png");
   fishPic[1] = loadImage("yellowFish.png");
@@ -160,6 +178,7 @@ void draw()
     p.drawPlayer();
     p.movePlayer();
     u.drawGame();
+    
     for (Fish f : fishs)//draws fish
     {
       //fill(255);
@@ -197,6 +216,7 @@ void draw()
         sellReports.remove(i);
       }
     }
+    u.drawDepthMeter();
     r.drawRod();// draws fishing rod
     r.move();//moves fishing rod
     r.reel();// reel fishing rod
