@@ -37,6 +37,7 @@ PImage doorButton[] = new PImage[2];
 PImage sack;
 PImage cashIcon;
 PImage storeIcon;
+PImage fishBowl;
 
 int starX [] = new int [maxStars];
 int starY [] = new int [maxStars];
@@ -125,6 +126,9 @@ void setup()
   
   storeIcon = loadImage("cashIcon.png");
   storeIcon.resize(50,0);
+  
+  fishBowl = loadImage("fishBowl.png");
+  fishBowl.resize(50,0);
   
   shopArrows[0] = loadImage("arrowleft.png");
   shopArrows[0].resize(75,0);

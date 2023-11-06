@@ -100,7 +100,7 @@ class UI
     fill(255);
     //circle(width - 50,150,50);// the shop button
     image(storeIcon,width - 50, 150);
-    circle(width - 50,250,50);// the aquarium button
+    image(fishBowl,width-50,250);// the aquarium button
     image(sack,width - 50, 350);
     //circle(width - 50,350,50);// inventory button
     if(a.somethingNew)
@@ -109,8 +109,9 @@ class UI
     }
     fill(0);
     textSize(17);
-    text("Aqua",width - 50, 255); 
     fill(255);
+    text("Aqua",width - 50, 255); 
+    
     text("Shop",width - 50, 155);  
     
     text("bag",width - 50, 355); 
