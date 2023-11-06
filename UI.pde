@@ -550,7 +550,7 @@ class UI
     background(inventoryBack);
     
     push();
-    textAlign(CENTER);
+    
     textSize(100);
     fill(0);
     text("boats",width/2,100);
@@ -564,6 +564,7 @@ class UI
     circle(width-400,300,200);
     push();
     imageMode(CENTER);
+    textAlign(CENTER);
     image(boat,410,280);
     if(s.boatBought[0])//zays
     {
@@ -580,8 +581,10 @@ class UI
     }
     push();
     fill(255);
+    textAlign(CORNER);
     if(boats == 1)
     {
+      
       text("selected",370,380);
     }
     if(boats == 2)

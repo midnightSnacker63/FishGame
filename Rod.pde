@@ -61,7 +61,7 @@ class Rod
       full = false;
       selling = false;
     }
-    maxFish = hookLevel * hookLevel * hookLevel * hookLevel * hookLevel * hookLevel * hookLevel * hookLevel ;
+    maxFish = hookLevel * hookLevel * hookLevel * hookLevel * hookLevel;
     maxDepth = rodLevel * 1000;
     //changing hook color
     if (hookLevel == 2)
@@ -211,7 +211,7 @@ class Rod
     }
     
     //if( abs(swingSpeed) < 0.001 && abs(rotation) < 0.01 )
-    if( abs(speedX) < 0.07 )//stops rod from doing a little wiggly wiggle
+    if( abs(speedX) <= 0.12 )//stops rod from doing a little wiggly wiggle
     {
       speedX = 0;
     }
