@@ -193,13 +193,13 @@ class Fish
       }
       if(xSpeed == 0)//resets speed if 0
       {
-        xSpeed = random(-7,7);
+        xSpeed = random(-12,12);
       }
      
     }
     if(caught)//shouldnt have to explain this
     {
-      xPos = r.xPos;
+      xPos = r.xPos;//puts fish on rod position
       yPos = r.yPos+15;
     }
     

@@ -128,7 +128,7 @@ class UI
     text("SHOP",550,175);
     push();
     imageMode(CENTER);
-    image(fishPic[5],width/2,height/2.5);
+    image(shopKeeper,width/2,height/3);
     image(shopCounterTop,width/2,height/2);
     pop();
     

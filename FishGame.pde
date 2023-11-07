@@ -7,7 +7,7 @@
  
  \**************************/
 
-int fishCount = 500;
+int fishCount = 5000;
 int money = 0;
 int maxStars = 100;
 int boats = 1;
@@ -38,6 +38,7 @@ PImage sack;
 PImage cashIcon;
 PImage storeIcon;
 PImage fishBowl;
+PImage shopKeeper;
 
 int starX [] = new int [maxStars];
 int starY [] = new int [maxStars];
@@ -139,6 +140,9 @@ void setup()
   doorButton[0].resize(50,0);
   doorButton[1] = loadImage("doorOpen.png");
   doorButton[1].resize(50,0);
+  
+  shopKeeper = loadImage("oldMan.png");
+  shopKeeper.resize(650,0);
   
   fishPic[0] = loadImage("fish.png");
   fishPic[1] = loadImage("yellowFish.png");
@@ -257,24 +261,20 @@ void keyPressed()
     onTitle = false;
     inGame = true;
   }
-  if (key == ' ' )//cast line
-  {
-    r.casted = true;
-  }
-  if (key == 'w' )//reel line
+  if (key == 'w' || key == 'W')//reel line
   {
     r.casted = false;
     r.reeling = true;
   }
-  if (key == 'a')//go left
+  if (key == 'a'||key == 'A')//go left
   {
     p.movingLeft = true;
   }
-  if (key == 'd')//go right
+  if (key == 'd' || key == 'D')//go right
   {
     p.movingRight = true;
   }
-  if(key == 's')
+  if(key == 's' || key == 'S')
   {
     r.dropping = true;
   }
@@ -288,40 +288,32 @@ void keyPressed()
   {
     money += 100000;
   }
-  if (key == '1' )//add money
+  if (key == '1' )//save game
   {
     S.saveGame();
     println("saved");
   }
-  if (key == '2' )//add money
+  if (key == '2' )//load game
   {
     S.loadGame();
     println("loaded");
   }
-  if (key == 'o' )//add money
-  {
-    boats++;
-  }
-  if (key == 'p' )//add money
-  {
-    boats--;
-  }
 }
 void keyReleased()
 {
-  if (key == 'a')//stop going left
+  if (key == 'a'||key == 'A')//stop going left
   {
     p.movingLeft = false;
   }
-  if (key == 'd')//stop going right
+  if (key == 'd' || key == 'D')//stop going right
   {
     p.movingRight = false;
   }
-  if (key == 'w' )//stop reeling
+  if (key == 'w' || key == 'W')//stop reeling
   {
     r.reeling = false;
   }
-  if(key == 's')
+  if(key == 's' || key == 'S')
   {
     r.dropping = false;
   }

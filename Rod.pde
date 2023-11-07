@@ -191,20 +191,6 @@ class Rod
     {
       speedY = -0.5;
     }
-    if (casted)
-    {
-      if (yPos <= 50 )
-      {
-        speedY += .5;
-      } else if (yPos < maxDepth -50)
-      {
-        speedY +=0.2;
-      }
-      if (yPos > maxDepth - 100)
-      {
-        speedY *= 0.95;
-      }
-    }
     if (fishOnHook == maxFish)
     {
       //speedY-=0.6;
