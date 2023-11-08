@@ -174,6 +174,15 @@ class Fish
     } 
     return false;
   }
+  
+  boolean resetFish()
+  {
+    if(type == FishType.NONE)
+    {
+      return true;
+    }
+    return false;
+  }
   void moveFish()
   {
     if(yPos <= 400 )//what to do if above water

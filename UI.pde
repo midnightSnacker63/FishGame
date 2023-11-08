@@ -128,7 +128,26 @@ class UI
     text("SHOP",550,175);
     push();
     imageMode(CENTER);
+
     image(shopKeeper,width/2,height/3);
+    push();
+    translate(710,230);
+    fill(255);
+    noStroke();
+    circle(0,0,50);
+    rotate( atan2( 230-mouseY, 710-mouseX ) );
+    fill(0);
+    circle(-10,0,15);
+    pop();
+    push();
+    translate(890,230);
+    fill(255);
+    noStroke();
+    circle(0,0,50);
+    rotate( atan2( 230-mouseY, 890-mouseX ) );
+    fill(0);
+    circle(-10,0,15);
+    pop();
     image(shopCounterTop,width/2,height/2);
     pop();
     

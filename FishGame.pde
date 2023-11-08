@@ -7,7 +7,7 @@
  
  \**************************/
 
-int fishCount = 5000;
+int fishCount = 636;
 int money = 0;
 int maxStars = 100;
 int boats = 1;
@@ -46,6 +46,8 @@ int currentDot = 0;
 int fishType = 0;
 int sellTime;
 int sellWait = 1;
+int powerTime[] = {0,0,0,0,0};
+int powerWait = 10000;
 
 ArrayList<Fish> fishs = new ArrayList<Fish>();
 ArrayList<SellReport> sellReports = new ArrayList<SellReport>();
@@ -58,6 +60,7 @@ Shop s;
 Aquarium a;
 SaveGame S;
 Inventory i;
+PowerUps P;
 void setup()
 {
   size(1600, 900);
@@ -70,6 +73,7 @@ void setup()
   a = new Aquarium();
   S = new SaveGame();
   i = new Inventory();
+  P = new PowerUps();
   for (int i = 0; i < maxStars; i++ )
   {
     starX[currentDot] = int(random(width));
@@ -84,6 +88,12 @@ void setup()
   r.startY = r.yPos;
   r.startX = r.xPos;
   sellTime = millis();
+  
+  powerTime[0] = millis();
+  powerTime[1] = millis();
+  powerTime[2] = millis();
+  powerTime[3] = millis();
+  powerTime[4] = millis();
   
   //load images
   aquarium = loadImage("coral-reef.png");
@@ -207,6 +217,7 @@ void draw()
           sellReports.add( new SellReport("+"+f.fishValue) );//little ghost number
           sellTime = millis();//also update the stored time
           fishs.add(new Fish(random(width), random(450,6000), 50));//puts new fish in
+          
           if(!a.unlocked[f.fishType-1])
           {
             a.somethingNew = true;
@@ -214,6 +225,11 @@ void draw()
           a.unlocked[f.fishType-1] = true;
           println(f.fishType);
         }
+      }
+      if(f.resetFish())//if fish type in NONE reset to something else
+      {
+        fishs.remove(i);
+        fishs.add(new Fish(random(width), random(450,6000), 50));//puts new fish in
       }
     }
      for (int i = 0; i < sellReports.size(); i++)
@@ -231,7 +247,7 @@ void draw()
     r.drop();
     r.grabFish();// grabbing fish
     a.unlockFish();
-    
+    P.rangePower();
   }
   if (shopping && !inGame)//when in shop
   {
@@ -298,6 +314,10 @@ void keyPressed()
     S.loadGame();
     println("loaded");
   }
+  if(key == '3')
+  {
+    P.usingPower[4] = true;
+  }
 }
 void keyReleased()
 {
@@ -362,4 +382,5 @@ void mousePressed()
   {
     i.selectBoat();
   }
+  println(mouseX+", "+mouseY);
 }
