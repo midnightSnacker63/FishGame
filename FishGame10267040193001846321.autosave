@@ -6,10 +6,10 @@
  Eric Ortiz
  
  \**************************/
-import processing.sound.*;
 
-SoundFile file;
+
 int fishCount = 636;
+
 int money = 0;
 int maxStars = 100;
 int boats = 1;
@@ -67,9 +67,6 @@ void setup()
 {
   size(1600, 900);
   //fullScreen();
-  
-  // clinking coins
-  file = new SoundFile(this, "coins.wav");
   //load classes
   r = new Rod(350, 350, 50);
   u = new UI();
