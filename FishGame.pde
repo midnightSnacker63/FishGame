@@ -7,7 +7,7 @@
  
  \**************************/
 
-int fishCount = 636;
+int fishCount = 1000;
 int money = 0;
 int maxStars = 100;
 int boats = 1;
@@ -46,8 +46,7 @@ int currentDot = 0;
 int fishType = 0;
 int sellTime;
 int sellWait = 1;
-int powerTime[] = {0,0,0,0,0};
-int powerWait = 10000;
+
 
 ArrayList<Fish> fishs = new ArrayList<Fish>();
 ArrayList<SellReport> sellReports = new ArrayList<SellReport>();
@@ -89,11 +88,7 @@ void setup()
   r.startX = r.xPos;
   sellTime = millis();
   
-  powerTime[0] = millis();
-  powerTime[1] = millis();
-  powerTime[2] = millis();
-  powerTime[3] = millis();
-  powerTime[4] = millis();
+
   
   //load images
   aquarium = loadImage("coral-reef.png");
@@ -248,6 +243,8 @@ void draw()
     r.grabFish();// grabbing fish
     a.unlockFish();
     P.rangePower();
+    P.fishFrenzy();
+    
   }
   if (shopping && !inGame)//when in shop
   {
@@ -314,9 +311,13 @@ void keyPressed()
     S.loadGame();
     println("loaded");
   }
-  if(key == '3')
+  if(key == '3')//debug power activator
   {
     P.usingPower[4] = true;
+  }
+  if(key == '4')//debug power activator
+  {
+    P.usingPower[3] = true;
   }
 }
 void keyReleased()

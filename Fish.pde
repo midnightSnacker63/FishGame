@@ -50,7 +50,15 @@ class Fish
     {
       fishType = 3;
     }
-    if(yPos > 5500)
+    if(yPos > 5400 )
+    {
+      fishType = (int)random(4,10);
+      if( fishType == 5)
+      {
+        fishType = (int)random(4,10);
+      }
+    }
+    if(yPos > 5800)
     {
       fishType = (int)random(4,10);
     }
@@ -68,6 +76,8 @@ class Fish
       return FishType.FISH4;
     case 4:
       return FishType.BLOBFISH;
+    case 5:
+      return FishType.PIRANHA;
     
       
     default: return FishType.NONE; 
@@ -161,6 +171,14 @@ class Fish
         image(fishPic[10],xPos,yPos-r.yPos+height/2);
       }
     }
+    if(type == FishType.PIRANHA)
+    {
+      fishValue = 1000000;
+      fill(255,00,00);
+      circle(xPos,yPos-r.yPos+height/2,size);
+      fishType = 6;
+      
+    }
   }
   
   boolean sellFish()
@@ -189,9 +207,15 @@ class Fish
     {
       underwater = false;
     }
+    if(yPos >= 6000)
+    {
+      ySpeed *= -1;
+    }
     if(!caught && underwater)
     {
       xPos += xSpeed;
+      yPos += ySpeed;
+      ySpeed *= 0.97;
       if(xPos >= width)//turn around if they hit right side
       {
         xSpeed *= -1;
@@ -210,15 +234,21 @@ class Fish
     {
       xPos = r.xPos;//puts fish on rod position
       yPos = r.yPos+15;
+      
     }
     
   }
   void snapRod()
   {
-    
+    r.rodSnapped = true;
+    println("Snap!");
+    if(caught)
+    {
+      caught = false;
+    }
   }
 }
 public enum FishType
 {
-  FISH, FISH2, FISH3, BLOBFISH, NONE, FISH4
+  FISH, FISH2, FISH3, BLOBFISH, NONE, FISH4, PIRANHA
 }

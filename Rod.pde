@@ -17,6 +17,7 @@ class Rod
   boolean dropping;
   boolean full;
   boolean selling;
+  boolean rodSnapped;
 
   int rodLevel = 1;
   int hookLevel = 1;
@@ -37,8 +38,11 @@ class Rod
   void drawRod()
   {
     push();
-    tint(hookColor);
-    image(hook, xPos, height/2+5);
+    if(!rodSnapped)
+    {
+      tint(hookColor);
+      image(hook, xPos, height/2+5);
+    }
     pop();
     stroke(255);
     strokeWeight(2);
@@ -110,14 +114,26 @@ class Rod
   {
     for (Fish f : fishs)
     {
-      if ( f.catchable && !f.caught && !full && underwater && !selling && dist(xPos-size/2, yPos-size/2, f.xPos, f.yPos) < hookRange)
+      if ( f.catchable && !f.caught && !full && underwater && !selling && !rodSnapped && dist(xPos-size/2, yPos-size/2, f.xPos, f.yPos) < hookRange)
       {
         f.caught = true;
         fishOnHook++;
+        if(f.fishType == 6)
+        {
+          f.snapRod();
+        }
+        println(f.fishType);
 
         println("on "+fishOnHook);
         println("max "+maxFish);
         return;
+      }
+      else if(rodSnapped)
+      {
+        if(f.caught)
+          f.ySpeed = random(-25,25);
+        f.caught = false;
+        
       }
     }
   }
@@ -157,6 +173,7 @@ class Rod
     if (yPos <= 400 )//if above water say its above wtaer
     {
       underwater = false;
+      rodSnapped = false;
       speedY *= 0.95;
     }
     if (yPos >= 400 )//if underwater say its underwater
