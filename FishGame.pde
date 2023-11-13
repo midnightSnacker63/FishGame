@@ -6,6 +6,9 @@
  Eric Ortiz
  
  \**************************/
+import processing.sound.*;
+
+SoundFile file;
 
 int fishCount = 1000;
 int money = 0;
@@ -73,6 +76,7 @@ void setup()
   S = new SaveGame();
   i = new Inventory();
   P = new PowerUps();
+  file = new SoundFile(this, "coins.wav");
   for (int i = 0; i < maxStars; i++ )
   {
     starX[currentDot] = int(random(width));

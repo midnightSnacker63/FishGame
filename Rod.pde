@@ -218,6 +218,10 @@ class Rod
     {
       speedX = 0;
     }
+    if(rodSnapped)
+    {
+      speedY += -1;
+    }
   }
   
 }
