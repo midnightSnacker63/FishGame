@@ -644,4 +644,8 @@ class UI
     text("Leave",width - 50, 55);
     pop();
   }
+  void debugInfo()
+  {
+  
+  }
 }

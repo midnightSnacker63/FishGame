@@ -21,6 +21,7 @@ boolean inAquarium = false;
 boolean onTitle = true;
 boolean inGame = false;
 boolean inInventory = false;
+boolean debugMode = false;
 
 PImage moon;
 PImage aquarium;
@@ -262,6 +263,10 @@ void draw()
   if( inInventory && !inGame)
   {
     u.drawInventory();
+  }
+  if(debugMode)
+  {
+    u.debugInfo();
   }
   //r.drop();
   //debug stuff
