@@ -21,6 +21,8 @@ class Shop
       rodBought[0] = true;
       money -= rodPrice[0];
       r.rodLevel += 1;//adds level
+      file.play();
+      file.amp(0.75);
     }
     //                                                        if not bought    if bought previous
     if (dist(mouseX, mouseY, 325, 750) < 50 && money >= rodPrice[1] && !rodBought[1] && rodBought[0] && shopPage == 1)
@@ -28,6 +30,8 @@ class Shop
       rodBought[1] = true;
       money -= rodPrice[1];
       r.rodLevel += 1;//adds level
+      file.play();
+      file.amp(0.75);
     }
     //                                                        if not bought    if bought previous
     if (dist(mouseX, mouseY, 450, 750) < 50 && money >= rodPrice[2] && !rodBought[2] && rodBought[1] && shopPage == 1)
@@ -35,6 +39,8 @@ class Shop
       rodBought[2] = true;
       money -= rodPrice[2];
       r.rodLevel += 1;//adds level
+      file.play();
+      file.amp(0.75);
     }
     //                                                         if not bought    if bought previous
     if (dist(mouseX, mouseY, 575, 750) < 50 && money >= rodPrice[3] && !rodBought[3] && rodBought[2] && shopPage == 1)
@@ -42,6 +48,8 @@ class Shop
       rodBought[3] = true;
       money -= rodPrice[3];
       r.rodLevel += 1;//adds level
+      file.play();
+      file.amp(0.75);
     }
     //                                                         if not bought    if bought previous
     if (dist(mouseX, mouseY, 700, 750) < 50 && money >= rodPrice[4] && !rodBought[4] && rodBought[3] && shopPage == 1)
@@ -49,6 +57,8 @@ class Shop
       rodBought[4] = true;
       money -= rodPrice[4];
       r.rodLevel += 1;//adds level
+      file.play();
+      file.amp(0.75);
     }
   }
   void buyHook()
@@ -58,6 +68,8 @@ class Shop
       hookBought[0] = true;
       money -= hookPrice[0];
       r.hookLevel += 1;//adds level
+      file.play();
+      file.amp(0.75);
     }
     //                                                                 if not bought     if bought previous
     if (dist(mouseX, mouseY, 1025, 750) < 50 && money >= hookPrice[1] && !hookBought[1] && hookBought[0] && shopPage == 1)
@@ -65,6 +77,8 @@ class Shop
       hookBought[1] = true;
       money -= hookPrice[1];
       r.hookLevel += 1;//adds level
+      file.play();
+      file.amp(0.75);
     }
     //                                                                 if not bought    if bought previous
     if (dist(mouseX, mouseY, 1150, 750) < 50 && money >= hookPrice[2] && !hookBought[2] && hookBought[1] && shopPage == 1)
@@ -72,6 +86,8 @@ class Shop
       hookBought[2] = true;
       money -= hookPrice[2];
       r.hookLevel += 1;//adds level
+      file.play();
+      file.amp(0.75);
     }
     //                                                                 if not bought    if bought previous
     if (dist(mouseX, mouseY, 1275, 750) < 50 && money >= hookPrice[3] && !hookBought[3] && hookBought[2] && shopPage == 1)
@@ -79,6 +95,8 @@ class Shop
       hookBought[3] = true;
       money -= hookPrice[3];
       r.hookLevel += 1;//adds level
+      file.play();
+      file.amp(0.75);
     }
     //                                                                 if not bought    if bought previous
     if (dist(mouseX, mouseY, 1400, 750) < 50 && money >= hookPrice[4] && !hookBought[4] && hookBought[3] && shopPage == 1)
@@ -86,6 +104,8 @@ class Shop
       hookBought[4] = true;
       money -= hookPrice[4];
       r.hookLevel += 1;//adds level
+      file.play();
+      file.amp(0.75);
     }
   }
 
@@ -96,6 +116,8 @@ class Shop
     {
       boatBought[0] = true;
       money -= boatPrice[0];
+      file.play();
+      file.amp(0.75);
     }
 
     //Zay's Boat
@@ -103,6 +125,8 @@ class Shop
     {
       boatBought[1] = true;
       money -= boatPrice[1];
+      file.play();
+      file.amp(0.75);
     }
 
     //Erick's Boat
@@ -110,6 +134,8 @@ class Shop
     {
       boatBought[2] = true;
       money -= boatPrice[2];
+      file.play();
+      file.amp(0.75);
     }
   }
   void swapPage()
