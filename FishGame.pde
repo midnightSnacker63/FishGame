@@ -328,6 +328,10 @@ void keyPressed()
   {
     P.usingPower[3] = true;
   }
+  if(key == 'p')//debug mode
+  {
+    debugMode = true;
+  }
 }
 void keyReleased()
 {

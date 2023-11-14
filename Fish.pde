@@ -173,11 +173,11 @@ class Fish
     }
     if(type == FishType.PIRANHA)
     {
+      //catchable=false;
       fishValue = 1000000;
       fill(255,00,00);
       circle(xPos,yPos-r.yPos+height/2,size);
       fishType = 6;
-      
     }
   }
   
@@ -203,9 +203,13 @@ class Fish
   }
   void moveFish()
   {
-    if(yPos <= 400 )//what to do if above water
+    if(yPos < 400 )//what to do if above water
     {
       underwater = false;
+    }
+    if(yPos >= 400 )//what to do if above water
+    {
+      underwater = true;
     }
     if(yPos >= 6000)
     {
@@ -242,10 +246,6 @@ class Fish
   {
     r.rodSnapped = true;
     println("Snap!");
-    if(caught)
-    {
-      caught = false;
-    }
   }
 }
 public enum FishType

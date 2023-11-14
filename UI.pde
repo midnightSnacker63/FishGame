@@ -646,6 +646,15 @@ class UI
   }
   void debugInfo()
   {
-  
+    push();
+    textAlign(CORNER);
+    textSize(20);
+    text("underwater: "+ r.underwater,50,50 );
+    text("full: "+ r.full,50,75 );
+    text("selling: "+ r.selling,50,100 );
+    text("fish on: "+ r.fishOnHook,50,125 );
+    text("max fish: "+ r.maxFish,50,150 );
+    text("rod snapped: "+ r.rodSnapped,50,175 );
+    pop();
   }
 }

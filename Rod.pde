@@ -60,6 +60,10 @@ class Rod
     {
       full = true;
     }
+    else if(fishOnHook < maxFish)
+    {
+      full = false;
+    }
     if (fishOnHook <= 0)
     {
       full = false;
@@ -133,6 +137,7 @@ class Rod
         if(f.caught)
           f.ySpeed = random(-25,25);
         f.caught = false;
+        fishOnHook = 0;
         
       }
     }
