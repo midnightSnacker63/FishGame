@@ -120,7 +120,11 @@ class UI
   {
     //banner
     textAlign(CORNER);
-    background(0,0,255);
+    //background(shopBackground);
+    push();
+    imageMode(CORNER);
+    image(shopBackground,0,0);
+    pop();
     fill(95,60,60);
     rect(0,10,width,200);
     textSize(200);

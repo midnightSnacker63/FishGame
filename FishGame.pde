@@ -121,7 +121,7 @@ void setup()
   shopCounterTop = loadImage("shopCounter.png");
   shopCounterTop.resize(1600,900);
   
-  shopBackground = loadImage("shopBackground.png");
+  shopBackground = loadImage("wall paper.jpg");
   shopBackground.resize(width,0);
   
   hook = loadImage("hook.png");
