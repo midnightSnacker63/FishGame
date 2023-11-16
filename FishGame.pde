@@ -22,6 +22,7 @@ boolean onTitle = true;
 boolean inGame = false;
 boolean inInventory = false;
 boolean debugMode = false;
+boolean viewingControls = false;
 
 PImage moon;
 PImage aquarium;
@@ -43,6 +44,7 @@ PImage cashIcon;
 PImage storeIcon;
 PImage fishBowl;
 PImage shopKeeper;
+PImage controlIcon;
 
 int starX [] = new int [maxStars];
 int starY [] = new int [maxStars];
@@ -140,6 +142,9 @@ void setup()
   
   fishBowl = loadImage("fishBowl.png");
   fishBowl.resize(50,0);
+  
+  controlIcon = loadImage("WASD.png");
+  controlIcon.resize(50,0);
   
   shopArrows[0] = loadImage("arrowleft.png");
   shopArrows[0].resize(75,0);
@@ -268,6 +273,14 @@ void draw()
   {
     u.debugInfo();
   }
+  if( viewingControls )
+  {
+    u.controlScreen();
+    if(debugMode)
+    {
+      u.cheatControls();
+    }
+  }
   //r.drop();
   //debug stuff
   //fill(255);
@@ -354,7 +367,7 @@ void keyReleased()
 }
 void mousePressed()
 {
-  if ( dist(mouseX, mouseY, width-50, 150) < 25 && started && !shopping && !inAquarium && !inInventory)//open shop
+  if ( dist(mouseX, mouseY, width-50, 150) < 25 && started && !shopping && !inAquarium && !inInventory && !viewingControls)//open shop
   {
     shopping = true;
     inGame = false;
@@ -364,7 +377,7 @@ void mousePressed()
     shopping = false;
     inGame = true;
   }
-  if ( dist(mouseX, mouseY, width-50, 250) < 25 && started && !inAquarium && !shopping && !inInventory)//open aquarium
+  if ( dist(mouseX, mouseY, width-50, 250) < 25 && started && !inAquarium && !shopping && !inInventory && !viewingControls)//open aquarium
   {
     inGame = false;
     inAquarium = true;
@@ -375,7 +388,7 @@ void mousePressed()
     inGame = true;
     inAquarium = false;
   }
-  if ( dist(mouseX, mouseY, width-50, 350) < 25 && started && !inAquarium && !shopping && !inInventory)//open inventory
+  if ( dist(mouseX, mouseY, width-50, 350) < 25 && started && !inAquarium && !shopping && !inInventory && !viewingControls)//open inventory
   {
     inGame = false;
     inInventory = true;
@@ -384,6 +397,16 @@ void mousePressed()
   {
     inGame = true;
     inInventory = false;
+  }
+  if ( dist(mouseX, mouseY, width-50, 450) < 25 && started && !inAquarium && !shopping && !inInventory && !viewingControls)//open control screen
+  {
+    inGame = false;
+    viewingControls = true;
+  }
+  if ( dist(mouseX, mouseY, width-50, 50) < 25 && started && viewingControls)//close control screen
+  {
+    inGame = true;
+    viewingControls = false;
   }
   if ( shopping )
   {

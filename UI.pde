@@ -102,6 +102,7 @@ class UI
     image(storeIcon,width - 50, 150);
     image(fishBowl,width-50,250);// the aquarium button
     image(sack,width - 50, 350);
+    image(controlIcon,width - 50, 450);
     //circle(width - 50,350,50);// inventory button
     if(a.somethingNew)
     {
@@ -114,7 +115,8 @@ class UI
     
     text("Shop",width - 50, 155);  
     
-    text("bag",width - 50, 355); 
+    text("bag",width - 50, 355);
+    
   }
   void drawShop()
   {
@@ -653,12 +655,74 @@ class UI
     push();
     textAlign(CORNER);
     textSize(20);
+    fill(150);
     text("underwater: "+ r.underwater,50,50 );
     text("full: "+ r.full,50,75 );
     text("selling: "+ r.selling,50,100 );
     text("fish on: "+ r.fishOnHook,50,125 );
     text("max fish: "+ r.maxFish,50,150 );
     text("rod snapped: "+ r.rodSnapped,50,175 );
+    text("current boat: "+ boats,50,200 );
+    text("hook x position: "+ r.xPos,50,225 );
+    text("hook y position: "+ r.yPos,50,250 );
+    text("hook x speed: "+ r.speedX,50,275 );
+    text("hook y speed: "+ r.speedY,50,300 );
+    text("player x position: "+ p.xPos,50,325 );
+    text("player y position: "+ p.yPos,50,350 );
+    text("player x speed: "+ p.xSpeed,50,375 );
+    text("player y speed: "+ p.ySpeed,50,400 );
+    pop();
+  }
+  void controlScreen()
+  {
+    background(100,200,100);
+    fill(0);
+    
+    rect(0,100,width,150);
+    push();
+    textSize(100);
+    fill(255);
+    text("controls",width/2,200);
+    pop();
+    
+    rect(20,270,width-40,610);
+    push();
+    textAlign(CORNER);
+    textSize(75);
+    fill(255);
+    text("W - Reel in",50,375);
+    text("A - Go left",50,500);
+    text("S - Reel out",50,625);
+    text("D - Go right",50,750);
+    text("1 - save game",500,375);
+    text("2 - load save",500,500);
+    pop();
+    push();
+    textSize(17);
+    fill(0);
+    textAlign(CENTER);
+    if(dist(mouseX,mouseY,width-50,50) < 25)// the leave aquarium button
+    {
+      image(doorButton[1],width-50,55);
+    }
+    else
+    {
+      image(doorButton[0],width-50,50);
+    }
+    text("Leave",width - 50, 55);
+    pop();
+  }
+  void cheatControls()
+  {
+    push();
+    textAlign(CORNER);
+    fill(255);
+    textSize(100);
+    text("cheats",1000,375);
+    textSize(75);
+    text("M - add money",1000,500);
+    text("3 - range power",1000,600);
+    //text("4 - fish frenzy",1000,700);
     pop();
   }
 }
