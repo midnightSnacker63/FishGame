@@ -103,6 +103,7 @@ class UI
     image(fishBowl,width-50,250);// the aquarium button
     image(sack,width - 50, 350);
     image(controlIcon,width - 50, 450);
+    image(saveIcon,width - 50, height-50);
     //circle(width - 50,350,50);// inventory button
     if(a.somethingNew)
     {
@@ -116,6 +117,7 @@ class UI
     text("Shop",width - 50, 155);  
     
     text("bag",width - 50, 355);
+
     
   }
   void drawShop()

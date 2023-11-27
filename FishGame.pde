@@ -45,6 +45,7 @@ PImage storeIcon;
 PImage fishBowl;
 PImage shopKeeper;
 PImage controlIcon;
+PImage saveIcon;
 
 int starX [] = new int [maxStars];
 int starY [] = new int [maxStars];
@@ -145,6 +146,9 @@ void setup()
   
   controlIcon = loadImage("WASD.png");
   controlIcon.resize(50,0);
+  
+  saveIcon = loadImage("floppy.png");
+  saveIcon.resize(50,0);
   
   shopArrows[0] = loadImage("arrowleft.png");
   shopArrows[0].resize(75,0);
@@ -259,6 +263,7 @@ void draw()
   if (shopping && !inGame)//when in shop
   {
     u.drawShop();
+    s.oldManYapping();
   }
   if (inAquarium && !inGame)//when in aquarium
   {
@@ -371,6 +376,7 @@ void mousePressed()
   {
     shopping = true;
     inGame = false;
+    s.phrase = int(random(0,s.oldManPhrases.length));
   }
   if ( dist(mouseX, mouseY, width-50, 50) < 25 && started && shopping)//close shop
   {
@@ -418,6 +424,10 @@ void mousePressed()
   if(inInventory)
   {
     i.selectBoat();
+  }
+  if( dist(mouseX,mouseY,width-50,height-50) < 25)
+  {
+    S.saveGame();
   }
   println(mouseX+", "+mouseY);
 }
