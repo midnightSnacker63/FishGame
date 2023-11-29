@@ -93,6 +93,7 @@ class Fish
       //circle(xPos,yPos-r.yPos+height/2,size);
       fishValue = 10;
       fishType = 1;
+      size = 50;
       if( xSpeed < 0)
       {
         image(fishPic[fishType-1],xPos,yPos-r.yPos+height/2);
@@ -108,6 +109,7 @@ class Fish
       fishValue = 20;
       //circle(xPos,yPos-r.yPos+height/2,size);
       fishType = 2;
+      size = 50;
       if( xSpeed < 0)
       {
         image(fishPic[fishType-1],xPos,yPos-r.yPos+height/2);
@@ -123,6 +125,7 @@ class Fish
       fishValue = 50;
       //circle(xPos,yPos-r.yPos+height/2,size);
       fishType = 3;
+      size = 50;
       if( xSpeed > 0)
       {
         image(fishPic[fishType-1],xPos,yPos-r.yPos+height/2);
@@ -161,7 +164,7 @@ class Fish
       fishValue = 1000;
       //circle(xPos,yPos-r.yPos+height/2,size);
       fishType = 5;
-      
+      size = 50;
       if( xSpeed < 0)
       {
         image(fishPic[fishType-1],xPos,yPos-r.yPos+height/2);
@@ -178,6 +181,7 @@ class Fish
       fill(255,00,00);
       circle(xPos,yPos-r.yPos+height/2,size);
       fishType = 6;
+      size = 25;
     }
   }
   
@@ -250,5 +254,5 @@ class Fish
 }
 public enum FishType
 {
-  FISH, FISH2, FISH3, BLOBFISH, NONE, FISH4, PIRANHA
+  FISH, FISH2, FISH3, BLOBFISH, NONE, FISH4, PIRANHA, ANCHOR
 }

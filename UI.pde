@@ -101,9 +101,10 @@ class UI
     //circle(width - 50,150,50);// the shop button
     image(storeIcon,width - 50, 150);
     image(fishBowl,width-50,250);// the aquarium button
-    image(sack,width - 50, 350);
-    image(controlIcon,width - 50, 450);
-    image(saveIcon,width - 50, height-50);
+    image(sack,width - 50, 350);//bag icon
+    image(controlIcon,width - 50, 450);//controls icon
+    image(saveIcon,width - 50, height-50);//save button
+    image(questIcon,width-50,550);
     //circle(width - 50,350,50);// inventory button
     if(a.somethingNew)
     {
@@ -116,7 +117,7 @@ class UI
     
     text("Shop",width - 50, 155);  
     
-    text("bag",width - 50, 355);
+    text("Bag",width - 50, 355);
 
     
   }
@@ -673,6 +674,7 @@ class UI
     text("player y position: "+ p.yPos,50,350 );
     text("player x speed: "+ p.xSpeed,50,375 );
     text("player y speed: "+ p.ySpeed,50,400 );
+    text("hook range multiplier: " + r.hookRangeMultiplier,50,425);
     pop();
   }
   void controlScreen()
@@ -726,5 +728,9 @@ class UI
     text("3 - range power",1000,600);
     //text("4 - fish frenzy",1000,700);
     pop();
+  }
+  void drawQuests()
+  {
+  
   }
 }

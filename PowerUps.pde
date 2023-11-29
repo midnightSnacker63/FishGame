@@ -77,7 +77,7 @@ class PowerUps
       println("powering");
       
       println(rangeTimer);
-      r.hookRange = 500;
+      r.hookRangeMultiplier = 10;
       fill(255);
       circle(50,50,50);
       fill(0);
@@ -87,7 +87,7 @@ class PowerUps
       if (millis() - rangeTimer > 5000)//once its over
       {
         usingPower[4] = false;
-        r.hookRange = 50;
+        r.hookRangeMultiplier = 1;
         println("done");
         rangeTimer = millis();
       }

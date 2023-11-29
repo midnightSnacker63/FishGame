@@ -23,6 +23,7 @@ boolean inGame = false;
 boolean inInventory = false;
 boolean debugMode = false;
 boolean viewingControls = false;
+boolean viewingQuests = false;
 
 PImage moon;
 PImage aquarium;
@@ -46,6 +47,9 @@ PImage fishBowl;
 PImage shopKeeper;
 PImage controlIcon;
 PImage saveIcon;
+PImage questIcon;
+PImage questPaper;
+PImage questBackground;
 
 int starX [] = new int [maxStars];
 int starY [] = new int [maxStars];
@@ -53,7 +57,6 @@ int currentDot = 0;
 int fishType = 0;
 int sellTime;
 int sellWait = 1;
-
 
 ArrayList<Fish> fishs = new ArrayList<Fish>();
 ArrayList<SellReport> sellReports = new ArrayList<SellReport>();
@@ -150,6 +153,9 @@ void setup()
   saveIcon = loadImage("floppy.png");
   saveIcon.resize(50,0);
   
+  questIcon = loadImage("questBoardIcon.png");
+  questIcon.resize(50,0);
+  
   shopArrows[0] = loadImage("arrowleft.png");
   shopArrows[0].resize(75,0);
   shopArrows[1] = loadImage("arrow.png");
@@ -175,6 +181,7 @@ void setup()
   fishPic[9] = loadImage("yellowStripeFishRight.png");
   fishPic[10] = loadImage("blobFishRight.png");
   fishPic[11] = loadImage("greenFish.png");
+  fishPic[12] = loadImage("oldAnchor.png");
   fishPic[0].resize(75,0);
   fishPic[1].resize(60,0);
   fishPic[2].resize(65,0);
@@ -187,6 +194,7 @@ void setup()
   fishPic[9].resize(65,0);
   fishPic[10].resize(65,0);
   fishPic[11].resize(65,0);
+  fishPic[12].resize(65,0);
 }
 void draw()
 {

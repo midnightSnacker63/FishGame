@@ -58,10 +58,12 @@ class Player
     if(xPos+size/2 > width)
     {
       xPos = width-size/2;
+      xSpeed = 0;
     }
-    if(xPos-size/2 < 0)
+    if(xPos < -10)
     {
-      xPos = size/2;
+      xPos = -10;
+      xSpeed = 0;
     }
   }
 }
