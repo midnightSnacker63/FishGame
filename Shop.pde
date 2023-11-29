@@ -12,7 +12,19 @@ class Shop
   int shopPage = 1;
   int phrase;
   
-  String oldManPhrases[] = {"Buy something will yah", "I once saw a bass bigger than my own arm", "I don't do five finger dicounts", "Hurry up will yah i'm tired", "I remember when zay's boat costed \na nickel" ,"Sorry link i don't give credit come back \nwhen you're a little richer", "The bigger the bait the bigger the fish", "You know what they say about \nbig fishing rods" , "I wish I could leave but my legs don't work", "just so you know, I can see the bag of \nchips you're hiding under the counter" ,"immortality is a curse, a curse \nI must suffer" ,"the name's Earl, Earl Pumpernickle"};
+  String oldManPhrases[] = {
+  "Buy something will yah",
+  "I once saw a bass bigger than my own arm", "I don't do five finger dicounts",
+  "Hurry up will yah i'm tired",
+  "I remember when zay's boat costed \na nickel" ,
+  "Sorry link i don't give credit come back \nwhen you're a little richer",
+  "The bigger the bait the bigger the fish",
+  "You know what they say about \nbig fishing rods" ,
+  "I wish I could leave but my legs don't work",
+  "just so you know, I can see the bag of \nchips you're hiding under the counter" ,
+  "immortality is a curse, a curse \nI must suffer" ,
+  "the name's Earl, Earl Pumpernickle"
+  };
 
   public Shop()
   {
