@@ -50,6 +50,8 @@ PImage saveIcon;
 PImage questIcon;
 PImage questPaper;
 PImage questBackground;
+PImage questSign;
+PImage tac;
 
 int starX [] = new int [maxStars];
 int starY [] = new int [maxStars];
@@ -60,6 +62,7 @@ int sellWait = 1;
 
 ArrayList<Fish> fishs = new ArrayList<Fish>();
 ArrayList<SellReport> sellReports = new ArrayList<SellReport>();
+ArrayList<Quests> quests = new ArrayList<Quests>();
 
 //declares objects
 Rod r;
@@ -99,8 +102,6 @@ void setup()
   r.startX = r.xPos;
   sellTime = millis();
   
-
-  
   //load images
   aquarium = loadImage("coral-reef.png");
   aquarium.resize(2400, 900);
@@ -129,6 +130,9 @@ void setup()
   
   shopBackground = loadImage("wall paper.jpg");
   shopBackground.resize(width,0);
+  
+  questBackground = loadImage("questBoard.png");
+  questBackground.resize(width,0);
   
   hook = loadImage("hook.png");
   hook.resize(60,0);
@@ -166,8 +170,17 @@ void setup()
   doorButton[1] = loadImage("doorOpen.png");
   doorButton[1].resize(50,0);
   
+  questSign = loadImage("questSign.png");
+  questSign.resize(800,0);
+  
   shopKeeper = loadImage("oldMan.png");
   shopKeeper.resize(650,0);
+  
+  questPaper = loadImage("questPaper.png");
+  questPaper.resize(200,0);
+  
+  tac = loadImage("thumbTac.png");
+  tac.resize(20,0);
   
   fishPic[0] = loadImage("fish.png");
   fishPic[1] = loadImage("yellowFish.png");
@@ -294,6 +307,10 @@ void draw()
       u.cheatControls();
     }
   }
+  if( viewingQuests )
+  {
+    u.drawQuests();
+  }
   //r.drop();
   //debug stuff
   //fill(255);
@@ -391,7 +408,7 @@ void mousePressed()
     shopping = false;
     inGame = true;
   }
-  if ( dist(mouseX, mouseY, width-50, 250) < 25 && started && !inAquarium && !shopping && !inInventory && !viewingControls)//open aquarium
+  if ( dist(mouseX, mouseY, width-50, 250) < 25 && started && !inAquarium && !shopping && !inInventory && !viewingControls && !viewingQuests)//open aquarium
   {
     inGame = false;
     inAquarium = true;
@@ -402,7 +419,7 @@ void mousePressed()
     inGame = true;
     inAquarium = false;
   }
-  if ( dist(mouseX, mouseY, width-50, 350) < 25 && started && !inAquarium && !shopping && !inInventory && !viewingControls)//open inventory
+  if ( dist(mouseX, mouseY, width-50, 350) < 25 && started && !inAquarium && !shopping && !inInventory && !viewingControls && !viewingQuests)//open inventory
   {
     inGame = false;
     inInventory = true;
@@ -412,7 +429,7 @@ void mousePressed()
     inGame = true;
     inInventory = false;
   }
-  if ( dist(mouseX, mouseY, width-50, 450) < 25 && started && !inAquarium && !shopping && !inInventory && !viewingControls)//open control screen
+  if ( dist(mouseX, mouseY, width-50, 450) < 25 && started && !inAquarium && !shopping && !inInventory && !viewingControls && !viewingQuests)//open control screen
   {
     inGame = false;
     viewingControls = true;
@@ -421,6 +438,16 @@ void mousePressed()
   {
     inGame = true;
     viewingControls = false;
+  }
+  if ( dist(mouseX, mouseY, width-50, 550) < 25 && started && !inAquarium && !shopping && !inInventory && !viewingControls && !viewingQuests)//open control screen
+  {
+    inGame = false;
+    viewingQuests = true;
+  }
+  if ( dist(mouseX, mouseY, width-50, 50) < 25 && started && viewingQuests)//close control screen
+  {
+    inGame = true;
+    viewingQuests = false;
   }
   if ( shopping )
   {

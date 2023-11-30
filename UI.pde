@@ -731,6 +731,54 @@ class UI
   }
   void drawQuests()
   {
-  
+    
+    background(questBackground);
+    
+    image(questSign,width/2,120);
+    
+    image(questPaper,400,400);
+    push();
+    tint(255,0,0);
+    image(tac,400,290);
+    pop();
+    image(questPaper,width/2,400);
+    push();
+    tint(0,255,0);
+    image(tac,width/2,290);
+    pop();
+    image(questPaper,1200,400);
+    push();
+    tint(255,0,255);
+    image(tac,1200,290);
+    pop();
+    image(questPaper,400,700);
+    push();
+    tint(255,255,0);
+    image(tac,400,590);
+    pop();
+    image(questPaper,width/2,700);
+    push();
+    tint(255,125,0);
+    image(tac,width/2,590);
+    pop();
+    image(questPaper,1200,700);
+    push();
+    tint(0,255,255);
+    image(tac,1200,590);
+    pop();
+    push();
+    textSize(17);
+    fill(0);
+    textAlign(CENTER);
+    if(dist(mouseX,mouseY,width-50,50) < 25)// the leave aquarium button
+    {
+      image(doorButton[1],width-50,55);
+    }
+    else
+    {
+      image(doorButton[0],width-50,50);
+    }
+    text("Leave",width - 50, 55);
+    pop();
   }
 }
