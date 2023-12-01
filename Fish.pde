@@ -179,9 +179,17 @@ class Fish
       //catchable=false;
       fishValue = 1000000;
       fill(255,00,00);
-      circle(xPos,yPos-r.yPos+height/2,size);
+      //circle(xPos,yPos-r.yPos+height/2,size);
       fishType = 6;
       size = 25;
+      if( xSpeed < 0)
+      {
+        image(fishPic[13],xPos,yPos-r.yPos+height/2);
+      }
+      if( xSpeed > 0 )
+      {
+        image(fishPic[14],xPos,yPos-r.yPos+height/2);
+      }
     }
   }
   

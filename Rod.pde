@@ -69,7 +69,7 @@ class Rod
       full = false;
       selling = false;
     }
-    maxFish = hookLevel * hookLevel * hookLevel * hookLevel * hookLevel;
+    maxFish = hookLevel * hookLevel * hookLevel ;
     maxDepth = rodLevel * 1000;
     //changing hook color
     if (hookLevel == 2)
@@ -215,7 +215,7 @@ class Rod
     }
     if (fishOnHook == maxFish)
     {
-      //speedY-=0.6;
+      text("FULL!",xPos, height/2+5);
     }
     
     //if( abs(swingSpeed) < 0.001 && abs(rotation) < 0.01 )

@@ -130,15 +130,16 @@ class UI
     imageMode(CORNER);
     image(shopBackground,0,0);
     pop();
-    fill(95,60,60);
-    rect(0,10,width,200);
-    textSize(200);
-    fill(0);
-    text("SHOP",550,175);
+    //fill(95,60,60);
+    //rect(0,10,width,200);
+    //textSize(200);
+    //fill(0);
+    //text("SHOP",550,175);
     push();
     imageMode(CENTER);
 
     image(shopKeeper,width/2,height/3);
+    image(baitSign,300,120);
     push();
     translate(710,230);
     fill(255);

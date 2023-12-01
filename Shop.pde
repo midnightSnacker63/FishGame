@@ -171,11 +171,11 @@ class Shop
   {
     push();
     fill(255);
-    ellipse(300,200,400,200);
+    ellipse(1300,200,400,200);
     fill(0);
     textAlign(CENTER);
     textSize(25);
-    text(oldManPhrases[phrase],300,210);
+    text(oldManPhrases[phrase],1300,210);
     pop();
   }
 }

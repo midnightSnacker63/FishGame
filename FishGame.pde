@@ -52,6 +52,7 @@ PImage questPaper;
 PImage questBackground;
 PImage questSign;
 PImage tac;
+PImage baitSign;
 
 int starX [] = new int [maxStars];
 int starY [] = new int [maxStars];
@@ -173,6 +174,9 @@ void setup()
   questSign = loadImage("questSign.png");
   questSign.resize(800,0);
   
+  baitSign = loadImage("baitSign2.png");
+  baitSign.resize(500,0);
+  
   shopKeeper = loadImage("oldMan.png");
   shopKeeper.resize(650,0);
   
@@ -195,6 +199,8 @@ void setup()
   fishPic[10] = loadImage("blobFishRight.png");
   fishPic[11] = loadImage("greenFish.png");
   fishPic[12] = loadImage("oldAnchor.png");
+  fishPic[13] = loadImage("piranhaLeft.png");
+  fishPic[14] = loadImage("piranhaRight.png");
   fishPic[0].resize(75,0);
   fishPic[1].resize(60,0);
   fishPic[2].resize(65,0);
@@ -208,6 +214,8 @@ void setup()
   fishPic[10].resize(65,0);
   fishPic[11].resize(65,0);
   fishPic[12].resize(65,0);
+  fishPic[13].resize(40,0);
+  fishPic[14].resize(40,0);
 }
 void draw()
 {
@@ -283,8 +291,10 @@ void draw()
   }
   if (shopping && !inGame)//when in shop
   {
+    
     u.drawShop();
     s.oldManYapping();
+    
   }
   if (inAquarium && !inGame)//when in aquarium
   {
