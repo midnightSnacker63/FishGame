@@ -161,7 +161,7 @@ class Fish
     if(type == FishType.BLOBFISH)
     {
       fill(255,00,203);
-      fishValue = 1000;
+      fishValue = 250;
       //circle(xPos,yPos-r.yPos+height/2,size);
       fishType = 5;
       size = 50;

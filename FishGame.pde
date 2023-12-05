@@ -60,6 +60,7 @@ int currentDot = 0;
 int fishType = 0;
 int sellTime;
 int sellWait = 1;
+int questCount = 7;
 
 ArrayList<Fish> fishs = new ArrayList<Fish>();
 ArrayList<SellReport> sellReports = new ArrayList<SellReport>();
@@ -97,6 +98,13 @@ void setup()
   for (int i = 0; i < fishCount; i++)//declares fish objects
   {
     fishs.add(new Fish(random(width), random(450, 6000), 50));
+  }
+  for(int i = 0; i < questCount; i++)
+  {
+    int x = 400*(i%3+1);
+    int y = 400+(300*(i/3));
+
+    quests.add(new Quests(x,y));
   }
   //initialize variable
   r.startY = r.yPos;
@@ -299,17 +307,16 @@ void draw()
   if (inAquarium && !inGame)//when in aquarium
   {
     u.drawAqua();
- 
   }
-  if( inInventory && !inGame)
+  if( inInventory && !inGame)//when in inventory
   {
     u.drawInventory();
   }
-  if(debugMode)
+  if(debugMode)//debug info
   {
     u.debugInfo();
   }
-  if( viewingControls )
+  if( viewingControls )//if viewing controls 
   {
     u.controlScreen();
     if(debugMode)
@@ -317,9 +324,14 @@ void draw()
       u.cheatControls();
     }
   }
-  if( viewingQuests )
+  if( viewingQuests )//when viewing quests 
   {
     u.drawQuests();
+    for(Quests q : quests)
+    {
+      q.drawQuest();
+      q.createNewQuest();
+    }
   }
   //r.drop();
   //debug stuff
