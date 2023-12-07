@@ -213,13 +213,13 @@ void setup()
   fishPic[1].resize(60,0);
   fishPic[2].resize(65,0);
   fishPic[3].resize(65,0);
-  fishPic[4].resize(65,0);
+  fishPic[4].resize(75,0);
   fishPic[5].resize(650,0);
   fishPic[6].resize(75,0);
   fishPic[7].resize(60,0);
   fishPic[8].resize(65,0);
   fishPic[9].resize(65,0);
-  fishPic[10].resize(65,0);
+  fishPic[10].resize(75,0);
   fishPic[11].resize(65,0);
   fishPic[12].resize(65,0);
   fishPic[13].resize(40,0);

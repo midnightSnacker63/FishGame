@@ -13,6 +13,10 @@ class Quests
   
   boolean completed()
   {
+    if(fishCaught >= fishAmount)
+    {
+      return true;
+    }
     return false;
   }
   
@@ -20,7 +24,7 @@ class Quests
   {
     fishAmount = int(random(5,25));
     fishType = int(random(1,6));
-    reward = (fishAmount * fishType)*10;
+    reward = (fishAmount * fishType)*15;
     xPos = x;
     yPos = y;
   }
@@ -30,7 +34,7 @@ class Quests
     {
       for (Fish f : fishs)
       {
-        reward = fishAmount * f.fishValue;
+        reward = (fishAmount * fishType)*15;
         fishAmount = int(random(5,25));
         fishType = int(random(0,4));
         redeemed = false;
