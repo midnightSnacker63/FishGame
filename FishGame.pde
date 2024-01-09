@@ -10,7 +10,7 @@ import processing.sound.*;
 
 SoundFile file;
 
-int fishCount = 1000;
+int fishCount = 500;
 int money = 0;
 int maxStars = 100;
 int boats = 1;
@@ -60,7 +60,7 @@ int currentDot = 0;
 int fishType = 0;
 int sellTime;
 int sellWait = 1;
-int questCount = 7;
+int questCount = 6;
 
 ArrayList<Fish> fishs = new ArrayList<Fish>();
 ArrayList<SellReport> sellReports = new ArrayList<SellReport>();
@@ -263,7 +263,13 @@ void draw()
           sellReports.add( new SellReport("+"+f.fishValue) );//little ghost number
           sellTime = millis();//also update the stored time
           fishs.add(new Fish(random(width), random(450,6000), 50));//puts new fish in
-          
+          for(Quests q: quests)
+          {
+            if(q.fishType == f.fishType-1 && q.fishCaught < q.fishAmount)
+            {
+              q.fishCaught += 1;
+            }
+          }
           if(!a.unlocked[f.fishType-1])
           {
             a.somethingNew = true;
@@ -295,7 +301,6 @@ void draw()
     a.unlockFish();
     P.rangePower();
     P.fishFrenzy();
-    
   }
   if (shopping && !inGame)//when in shop
   {
@@ -331,6 +336,7 @@ void draw()
     {
       q.drawQuest();
       q.createNewQuest();
+      
     }
   }
   //r.drop();
@@ -482,9 +488,13 @@ void mousePressed()
   {
     i.selectBoat();
   }
-  if( dist(mouseX,mouseY,width-50,height-50) < 25)
+  if( dist(mouseX,mouseY,width-50,height-50) < 25 && inGame)
   {
     S.saveGame();
   }
   println(mouseX+", "+mouseY);
+  for(Quests q: quests)
+  {
+    q.finishQuest();
+  }
 }

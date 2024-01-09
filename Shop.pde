@@ -127,7 +127,7 @@ class Shop
   void buyBoat()
   {
     //Josh's Boat
-    if (dist(mouseX, mouseY, 450, 750) < 50 && money >= boatPrice[0] && !boatBought[0] && shopPage == 3)
+    if (dist(mouseX, mouseY, 450, 750) < 50 && money >= boatPrice[0] && !boatBought[0] && shopPage == 2)
     {
       boatBought[0] = true;
       money -= boatPrice[0];
@@ -137,7 +137,7 @@ class Shop
 
 
     //Zay's Boat
-    if (dist(mouseX, mouseY, 800, 750) < 50 && money >= boatPrice[1] && !boatBought[1] && shopPage == 3)
+    if (dist(mouseX, mouseY, 800, 750) < 50 && money >= boatPrice[1] && !boatBought[1] && shopPage == 2)
     {
       boatBought[1] = true;
       money -= boatPrice[1];
@@ -146,7 +146,7 @@ class Shop
     }
 
     //Erick's Boat
-    if (dist(mouseX, mouseY, 1100, 750) < 50 && money >= boatPrice[2] && !boatBought[2] && shopPage == 3)
+    if (dist(mouseX, mouseY, 1100, 750) < 50 && money >= boatPrice[2] && !boatBought[2] && shopPage == 2)
     {
       boatBought[2] = true;
       money -= boatPrice[2];
@@ -156,7 +156,7 @@ class Shop
   }
   void swapPage()
   {
-    if (dist(mouseX, mouseY, width-50, height-50) < 25 && shopPage != 3)//next page
+    if (dist(mouseX, mouseY, width-50, height-50) < 25 && shopPage != 2)//next page
     {
       shopPage+=1;
       println(shopPage);

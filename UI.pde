@@ -104,11 +104,16 @@ class UI
     image(sack,width - 50, 350);//bag icon
     image(controlIcon,width - 50, 450);//controls icon
     image(saveIcon,width - 50, height-50);//save button
-    image(questIcon,width-50,550);
+    image(questIcon,width-50,550);//Quest buttom
     //circle(width - 50,350,50);// inventory button
     if(a.somethingNew)
     {
       text("!",width - 80,260);
+    }
+    for(Quests q: quests)
+    {
+      if(q.completed())
+        text("!",width - 80,560);
     }
     fill(0);
     textSize(17);
@@ -329,7 +334,7 @@ class UI
       }
       pop();
     }
-    if(s.shopPage == 2)
+    if(s.shopPage == 9)
     {
       push();
       text("POWER-UPS", width/2, 630);
@@ -367,7 +372,7 @@ class UI
       text("??",1370 ,775);
       pop();
       }
-    if(s.shopPage == 3)
+    if(s.shopPage == 2)
     {
       push();
       text("BOATS", width/2, 630);
@@ -437,7 +442,7 @@ class UI
     {
       image(doorButton[0],width-50,50);
     }
-    if(s.shopPage != 3)
+    if(s.shopPage != 2)
     {
       image(shopArrows[1],width-50,height-50);//next page
     }

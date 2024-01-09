@@ -7,7 +7,7 @@ class Quests
   
   float xPos, yPos;
   
-  String fishKind[] = { ""," fish", " yellow fish", " blue fish"," striped fish", " blobFish" };
+  String fishKind[] = { " fish", " yellow fish", " blue fish"," striped fish", " blobFish" };
   
   boolean redeemed = false;
   
@@ -15,6 +15,7 @@ class Quests
   {
     if(fishCaught >= fishAmount)
     {
+      
       return true;
     }
     return false;
@@ -23,8 +24,8 @@ class Quests
   public Quests( int x, int y)
   {
     fishAmount = int(random(5,25));
-    fishType = int(random(1,6));
-    reward = (fishAmount * fishType)*15;
+    fishType = int(random(0,5));
+    reward = (fishAmount * (fishType+1))*15;
     xPos = x;
     yPos = y;
   }
@@ -32,21 +33,20 @@ class Quests
   {
     if( redeemed )
     {
-      for (Fish f : fishs)
-      {
-        reward = (fishAmount * fishType)*15;
+        reward = (fishAmount * fishType+1)*15;
+        fishCaught = 0;
         fishAmount = int(random(5,25));
         fishType = int(random(0,4));
         redeemed = false;
-      }
     }
   }
   void finishQuest()
   {
-    if( completed() && dist(mouseX,mouseY,xPos,yPos) < 25 )
+    if( completed() && dist(mouseX,mouseY,xPos,yPos) < 50 )
     {
        redeemed = true;
        money += reward;
+       println("done");
     }
   }
   void drawQuest()
@@ -54,9 +54,16 @@ class Quests
     push();
     fill(0);
     text("catch "+fishAmount+fishKind[fishType],xPos,yPos-75);
-    image(fishPic[fishType-1],xPos,yPos);
+    image(fishPic[fishType],xPos,yPos);
     text(fishCaught+"/"+fishAmount,xPos,yPos+50);
     text("reward: $"+reward,xPos,yPos+75);
+    if(completed())
+    {
+      push();
+      fill(0);
+      text("COMPLETED",xPos,yPos);
+      pop();
+    }
     pop();
   }
   
