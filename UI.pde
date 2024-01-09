@@ -495,15 +495,15 @@ class UI
       fill(#006994);
     }
     
-    rect(800,180,80,80,30);
+    rect(800,270,80,80,30);
     if(!a.unlocked[1])//second in row
     {
-      image(lock,800,180);
+      image(lock,800,270);
     }
     if(a.unlocked[1])
     {
       fill(100);
-      image(fishPic[1],800,180);
+      image(fishPic[1],800,270);
       fill(#006994);
     }
 
@@ -532,27 +532,27 @@ class UI
 
       fill(#006994);
     }
-    rect(800,350,80,80,30);
+    rect(1200,350,80,80,30);
     if(!a.unlocked[4])//second in row
     {
-      image(lock,800,350);
+      image(lock,1200,350);
     }
     if(a.unlocked[4])
     {
       fill(255,00,203);
-      image(fishPic[4],800,350);
+      image(fishPic[4],1200,350);
       fill(#006994);
     }
-    rect(1200,350,80,80,30);
-    image(lock,1200,350);
+    //rect(1200,350,80,80,30);
+    //image(lock,1200,350);
    
     //3rd Row
-    rect(400,550,80,80,30);
-    image(lock,400,550);
-    rect(800,550,80,80,30);
-    image(lock,800,550);
-    rect(1200,550,80,80,30);
-    image(lock,1200,550);
+    //rect(400,550,80,80,30);
+    //image(lock,400,550);
+    //rect(800,550,80,80,30);
+    //image(lock,800,550);
+    //rect(1200,550,80,80,30);
+    //image(lock,1200,550);
    
     //Return to Game Button
     fill(#C2B280);
