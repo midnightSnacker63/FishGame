@@ -137,7 +137,7 @@ void setup()
   shopCounterTop = loadImage("shopCounter.png");
   shopCounterTop.resize(1600,900);
   
-  shopBackground = loadImage("wall paper.jpg");
+  shopBackground = loadImage("bigWoodWall.png");
   shopBackground.resize(width,0);
   
   questBackground = loadImage("questBoard.png");
