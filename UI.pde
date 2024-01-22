@@ -589,7 +589,7 @@ class UI
     textSize(100);
     fill(0);
     text("boats",width/2,100);
-    text("hooks",width/2,500);
+    
     pop();
     fill(0);
     //boats
@@ -638,11 +638,6 @@ class UI
     pop();
     //image()
     pop();
-    //hooks
-    circle(400,700,200);
-    circle(650,700,200);
-    circle(width-650,700,200);
-    circle(width-400,700,200);
 
     push();
     textSize(17);
